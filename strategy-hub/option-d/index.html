@@ -1421,16 +1421,15 @@ body{padding-left:0}
      viewport and clipped to this band, so it stays put while the page scrolls over it. */
   #dash .ai-stage{position:relative;isolation:isolate;clip-path:inset(0);display:flex;align-items:center;min-height:max(560px,88vh);background:#000018;border-top:1px solid rgba(255,255,255,.1)}
   #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:#000018}
-  #dash .ai-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.15) brightness(1.45) sepia(1) hue-rotate(185deg) saturate(2.6)}
-  #dash .ai-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,70,210,.4),rgba(0,0,80,.5))}
-  #dash .ai-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,24,.45) 0%,rgba(0,0,50,.15) 50%,rgba(0,0,24,.55) 100%)}
+  #dash .ai-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.12) brightness(1.15)}
+  #dash .ai-bg::before{content:"";position:absolute;inset:0;background:rgba(0,4,30,.28)}
+  #dash .ai-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,20,.5) 0%,rgba(0,0,20,.4) 50%,rgba(0,0,20,.55) 100%)}
   #dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1320px;margin:0 auto;padding:clamp(48px,7vw,96px) 40px;box-sizing:border-box}
-  #dash .ai-stage .ai-card{max-width:880px;border:1px solid rgba(255,255,255,.2);
-    background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04));
-    -webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);
-    box-shadow:0 40px 90px -30px rgba(0,0,30,.85),inset 0 1px 0 rgba(255,255,255,.18)}
-  #dash .ai-stage .ai-ask{background:rgba(0,0,30,.35)}
-  #dash .ai-stage .ai-pills button{background:rgba(255,255,255,.08)}
+  #dash .ai-stage .ai-card{max-width:880px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,20,.12);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+  #dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
+  #dash .ai-stage .ai-ask{background:rgba(0,0,20,.4)}
+  #dash .ai-stage .ai-pills button{background:rgba(0,0,20,.32)}
   #dash .ai-hero{padding-top:56px}
   #dash .ai-recent{margin-top:0}
   @media(max-width:860px){
@@ -1441,7 +1440,7 @@ body{padding-left:0}
   </style>
   <section class="ai-stage" aria-label="Ask AeroIntel">
     <div class="ai-bg" aria-hidden="true">
-      <img src="/strategy-hub/img/engine-bg.webp" alt="">
+      <img src="/strategy-hub/img/engine-bg.webp?v=2" alt="">
     </div>
     <div class="ai-stage-in">
     <div class="ai-card">
