@@ -934,7 +934,7 @@ body.embed .cmdbar,body.embed .sprail{display:none!important}
 /* Dark bands borrowed from option B's navy ramp: feedback on --ink2 (#000018). */
 /* Enterprise Strategy slide: a paragraph, not a one-liner, so it gets a wider measure. */
 #dash .annoslide-es .hsub{max-width:62ch;font-size:clamp(17px,1.6vw,22px);line-height:1.45}
-#dash .fb-band{background:#000018;border-top:0;border-bottom:1px solid rgba(255,255,255,.12)}
+#dash .fb-band{background:#000018;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
 #dash .fb-band .eyebrow{color:rgba(255,255,255,.62)}
 #dash .fb-band h2{color:#fff}
 #dash .fb-band p{color:rgba(255,255,255,.74)}
@@ -963,6 +963,27 @@ body{padding-left:0}
 #dash #px-fund .fund-beh{margin:0 0 64px}
 #dash .mapsec{background:#fff}
 #dash .faq{background:#f7f9fd}
+/* Quick start on --ink (#00003d). The tiles stay white; panels they open stay white cards. */
+#dash .qsband{background:#00003d;border-top:0}
+#dash .qsband .qseyebrow{color:rgba(255,255,255,.7)}
+#dash .qsband .qshead h2{color:#fff}
+#dash .qsband .gsx{background:#fff;border:0;border-radius:14px;padding:28px 32px 20px;margin-top:28px}
+/* Where do I find help on --ink2 (#000018); the suggestion list stays a white card. */
+#dash section#fdl-finder{background:#000018;border-top:0;color:#fff}
+#dash section#fdl-finder .fdl-eyebrow{color:rgba(255,255,255,.7)}
+#dash section#fdl-finder .fdl-h2{color:#fff}
+#dash section#fdl-finder .fdl-sub{color:rgba(255,255,255,.74)}
+#dash section#fdl-finder .fdl-label{color:rgba(255,255,255,.82)}
+#dash section#fdl-finder .fdl-status{color:rgba(255,255,255,.74)}
+#dash section#fdl-finder .fdl-status b{color:#fff}
+#dash section#fdl-finder .fdl-status a{color:#7fa8ff}
+#dash section#fdl-finder .fdl-group h3{color:#fff;border-bottom-color:rgba(255,255,255,.16)}
+#dash section#fdl-finder .fdl-meta b{color:#fff}
+#dash section#fdl-finder .fdl-meta span{color:rgba(255,255,255,.7)}
+#dash section#fdl-finder .fdl-meta a{color:#7fa8ff}
+#dash section#fdl-finder .fdl-avatar{background:rgba(255,255,255,.12)}
+#dash section#fdl-finder .fdl-more{background:rgba(255,255,255,.1);color:#fff}
+#dash section#fdl-finder .fdl-more:hover{background:rgba(255,255,255,.2)}
 
 /* Taller template sheets: the SW band crops its mock at a fixed height; give the
    preview more paper so the card reads as a document, not a strip. */
@@ -1322,7 +1343,6 @@ body{padding-left:0}
         <article class="annoslide on annoslide-es">
           <div class="annotag">Watch now</div>
           <h1>What is Enterprise Strategy</h1>
-          <p class="hsub">Enterprise Strategy is about how we choose where to compete and invest. Our Principles create and reinforce our discipline, and the Operating System gives us the path to ensure opportunities are identified, framed, decided, and executed, in that order.</p>
           <a class="gpill light" href="#vpanel" data-film aria-expanded="false" aria-controls="vpanel">Learn more from our CSO <span class="pc"><span>&rarr;</span></span></a>
         </article>
         <article class="annoslide">
