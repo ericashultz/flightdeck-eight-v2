@@ -1340,6 +1340,83 @@ body{padding-left:0}
     </div>
   </section>
 
+  <!-- ═══ AEROINTEL ASK ═══
+       Ask-first block, first content under the header: a dark card with the question field, example prompts as
+       pills, and a recent-conversations list. The announcement carousel
+       is the page header above it. -->
+  <style>
+  #dash .ai-hero{max-width:1320px;margin:0 auto;padding:28px 40px 0;box-sizing:border-box}
+  #dash .ai-card{position:relative;overflow:hidden;border-radius:10px;color:#fff;padding:clamp(40px,5vw,64px) clamp(24px,4.4vw,56px) clamp(36px,4.4vw,52px);
+    background:radial-gradient(90% 120% at 92% -10%,rgba(65,129,255,.26),transparent 60%),linear-gradient(135deg,#050b18 0%,#0a1630 55%,#0d2050 100%)}
+  #dash .ai-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#f2b21c;margin:0 0 22px}
+  #dash .ai-card h1{margin:0;font-size:clamp(32px,3.8vw,46px);line-height:1.05;letter-spacing:-.015em;font-weight:300;color:#fff;max-width:14em}
+  #dash .ai-card h1 b{font-weight:700;display:block}
+  #dash .ai-card .ai-sub{margin:12px 0 28px;font-size:clamp(17px,1.5vw,21px);font-weight:300;color:rgba(255,255,255,.86)}
+  #dash .ai-ask{display:flex;align-items:stretch;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:4px;padding:0}
+  #dash .ai-ask:focus-within{border-color:#4181ff;background:rgba(255,255,255,.1)}
+  #dash .ai-ask input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:inherit;font-size:16px;padding:20px 20px}
+  #dash .ai-ask input::placeholder{color:rgba(255,255,255,.62)}
+  #dash .ai-ask button{align-self:center;margin:0 10px 0 0;border:0;border-radius:3px;background:#0a5cff;color:#fff;font:inherit;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer;transition:background .15s}
+  #dash .ai-ask button:hover{background:#2f78ff}
+  #dash .ai-pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+  #dash .ai-pills button{font:inherit;font-size:13px;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:10px 18px;cursor:pointer;transition:background .15s,border-color .15s}
+  #dash .ai-pills button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+  #dash .ai-ask button:focus-visible,#dash .ai-pills button:focus-visible{outline:2px solid #4181ff;outline-offset:2px}
+  #dash .ai-recent{margin-top:34px}
+  #dash .ai-rh{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#44496e;margin:0 0 14px}
+  #dash .ai-row{display:grid;grid-template-columns:128px 1fr 24px;gap:0 20px;align-items:center;padding:18px 8px;border-top:1px solid #e7ebf4;text-decoration:none;color:var(--ink);transition:background .15s}
+  #dash .ai-row:hover{background:#f7f9fd}
+  #dash .ai-when{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:#44496e}
+  #dash .ai-q{display:block;font-size:16.5px;color:#00003d;line-height:1.35}
+  #dash .ai-meta{display:block;margin-top:5px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:#75758f;letter-spacing:.01em}
+  #dash .ai-go{font-size:18px;color:#44496e;justify-self:end}
+  #dash .ai-browse{border-top:1px solid #e7ebf4;padding:20px 8px 0;font-size:14px;color:#00003d}
+  #dash .ai-browse a{color:#0a5cff;text-decoration:none;margin-left:6px}
+  #dash .ai-browse a:hover{text-decoration:underline}
+  #dash .ai-browse i{font-style:normal;color:#9aa0b8;margin-left:6px}
+  @media(max-width:860px){
+    #dash .ai-hero{padding:20px 20px 0}
+    #dash .ai-ask{flex-wrap:wrap}
+    #dash .ai-ask input{flex-basis:100%;padding:16px}
+    #dash .ai-ask button{margin:0 10px 10px 10px}
+    #dash .ai-row{grid-template-columns:1fr 24px;padding:16px 4px}
+    #dash .ai-when{grid-column:1 / -1;margin-bottom:6px}
+  }
+  </style>
+  <section class="ai-hero" aria-label="Ask AeroIntel">
+    <div class="ai-card">
+      <p class="ai-eyebrow">AeroIntel &middot; Strategy Enablement</p>
+      <h1>Ask AeroIntel. <b>What are you working on?</b></h1>
+      <p class="ai-sub">Skip the search. Ask the question.</p>
+      <form class="ai-ask" id="ai-form" action="/strategy-hub/option-d/aerointel.html" method="get" role="search">
+        <input id="ai-q" name="q" type="text" autocomplete="off" spellcheck="false" aria-label="Ask AeroIntel a question"
+               placeholder="e.g., &quot;What is How Do We Win?&quot;">
+        <button type="submit">Send</button>
+      </form>
+      <div class="ai-pills" id="ai-pills">
+        <button type="button">What is How Do We Win?</button>
+        <button type="button">What game are we playing?</button>
+        <button type="button">Coach me through the HDWW memo</button>
+        <button type="button">Who are the experts behind AeroIntel?</button>
+        <button type="button">Summarize the market assessments</button>
+        <button type="button">Where do I find help with resourcing?</button>
+      </div>
+    </div>
+    <div class="ai-recent">
+      <h2 class="ai-rh">Recent conversations</h2>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Yesterday</span><span><span class="ai-q">How do I frame the opportunity for my HDWW memo?</span><span class="ai-meta">How Do We Win &middot; 3 sources &middot; memo outline</span></span><span class="ai-go">&#8599;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Mon</span><span><span class="ai-q">What does &ldquo;What Game Are We Playing&rdquo; ask us to decide?</span><span class="ai-meta">Strategy Fundamental &middot; 2 sources &middot; summary</span></span><span class="ai-go">&#8599;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Last week</span><span><span class="ai-q">Compare the market assessments for the last two quarters</span><span class="ai-meta">Comparison &middot; 6 sources &middot; key differences</span></span><span class="ai-go">&#8599;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Apr 28</span><span><span class="ai-q">Draft a post review summary for a completed strategy</span><span class="ai-meta">Template &middot; Post Review Summary &middot; first draft</span></span><span class="ai-go">&#8599;</span></a>
+      <div class="ai-browse">Prefer to browse? <i>&rarr;</i>
+        <a href="/strategy-hub/option-d/what-game-are-we-playing.html">What Game Are We Playing</a><i>&middot;</i><a href="/strategy-hub/option-d/how-do-we-win.html">How Do We Win</a><i>&middot;</i><a href="#templates">Templates</a><i>&middot;</i><a href="/strategy-hub/option-d/aerointel.html">AeroIntel</a></div>
+    </div>
+  </section>
+  <script>
+  (function(){var p=document.getElementById('ai-pills'),q=document.getElementById('ai-q');if(!p||!q)return;
+    p.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;q.value=b.textContent;q.focus();});})();
+  </script>
+
   <!-- ═══ QUICK START ═══
        The band that already sits on every Fundamental page, lifted to the
        homepage. Four things people come for: learn, do, browse, ask. Same
