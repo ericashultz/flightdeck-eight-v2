@@ -1,0 +1,11 @@
+/* The shared full-screen film overlay (Ken, 16 Oct): one copy for every page that links it.
+   Rules as the homepage carried them, unchanged. */
+.filmmodal{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:3vh 3vw}
+.filmmodal.on{display:flex}
+.filmmodal .scrim{position:absolute;inset:0;background:rgba(0,0,40,.62)}
+.filmmodal .box{position:relative;width:min(1120px,100%);background:#000;border-radius:.25rem;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,40,.5)}
+.filmmodal .ratio{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.filmmodal iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.filmmodal .x{position:absolute;top:-46px;right:0;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.5);
+  background:transparent;color:#fff;font-size:17px;line-height:1;cursor:pointer}
+.filmmodal .x:hover{background:#fff;color:#00003d}

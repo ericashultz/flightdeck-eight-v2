@@ -1,0 +1,304 @@
+/* FLIGHT DECK Activation Hub · rebuilt template · shared design system */
+:root{
+  --bg:#ffffff;
+  --surface:#ffffff;
+  --ink:#0f172a;
+  --muted:#64748b;
+  --line:#e5e7eb;
+  --blue:#155dfc;
+  --navy:#101a4d;
+  --navy-deep:#0a1138;
+  --green:#22c55e;
+  --radius:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Segoe UI",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+
+/* ── SharePoint app rail ── */
+body{padding-left:48px}
+.suite{margin-left:-48px;padding-left:48px}
+.sprail{
+  position:fixed;left:0;top:46px;bottom:0;width:48px;z-index:45;
+  background:var(--surface);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;gap:22px;
+  padding-top:20px;font-size:15px;color:#9ca3af
+}
+.sprail span{cursor:pointer}
+
+/* ── SharePoint suite bar ── */
+.suite{background:#0b0f2b;color:#fff}
+.suite-in{display:flex;align-items:center;gap:18px;height:46px}
+.suite .waffle{display:grid;grid-template-columns:repeat(3,4px);gap:2px;cursor:pointer}
+.suite .waffle i{width:4px;height:4px;background:#cbd5e1;border-radius:1px}
+.suite .org{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;white-space:nowrap}
+.suite .org .monogram{width:22px;height:22px;border-radius:50%;border:1.5px solid #fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;font-style:italic}
+.suite .sp{font-size:13.5px;font-weight:600;white-space:nowrap}
+.suite input{
+  flex:1;max-width:520px;margin:0 auto;background:#fff;border:none;border-radius:4px;
+  padding:7px 14px;font-size:12.5px;font-family:inherit;color:var(--ink)
+}
+.suite .icons{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:14px;opacity:.85}
+/* The account slot was a generic silhouette with nothing beside it. SharePoint
+   shows an initial and a name, so the mock does too. Donny, 31 Aug. */
+.suite .acct{display:flex;align-items:center;gap:9px;opacity:1}
+.suite .acct .av{width:26px;height:26px;border-radius:50%;flex:none;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  /* The account picture. SharePoint renders the signed-in user's photo here. */
+  background:#2256e6 url('/hub/assets/avatar-aero.jpg') center/cover no-repeat;
+  font-size:0;text-indent:-999em;color:transparent}
+.suite .acct .av img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.suite .acct .nm{font-size:13px;font-weight:600;white-space:nowrap}
+@media(max-width:820px){.suite .acct .nm{display:none}}
+
+/* ── SharePoint command bar ── */
+.cmdbar{background:var(--surface);border-bottom:1px solid var(--line)}
+.cmd-in{display:flex;align-items:center;gap:4px;height:42px;font-size:12.5px}
+.cmd-in a{color:#374151;padding:6px 10px;border-radius:4px;white-space:nowrap}
+.cmd-in a:hover{background:var(--bg);text-decoration:none}
+.cmd-in .spacer{flex:1}
+.cmd-in .pub{background:#e8f0fe;color:#1e40af;font-size:11.5px;font-weight:600;border-radius:99px;padding:4px 12px;white-space:nowrap}
+.cmd-in .sens{font-size:11.5px;color:var(--muted);padding:0 8px;white-space:nowrap}
+.serif{font-family:"Iowan Old Style",Iowan,Georgia,serif}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+section{padding:28px 0}
+h2.sec{font-size:17px;font-weight:700;margin-bottom:16px}
+
+/* ── site header ── */
+header.site{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.site-bar{display:flex;align-items:center;flex-wrap:wrap;gap:12px 18px;min-height:60px}
+.site-mark{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.01em;white-space:nowrap}
+.site-mark a{color:var(--ink)}
+.site-mark a:hover{text-decoration:none}
+.site-mark .chip{background:var(--navy);color:#fff;font-size:10px;font-weight:700;letter-spacing:.12em;padding:4px 8px;border-radius:4px;border:1px solid var(--green)}
+nav.primary{display:flex;gap:4px;flex:1;min-width:0}
+/* tablet/mobile: the chrome bars (nav + SharePoint command row) scroll inside their own track
+   instead of pushing the page wide — the fake SP chrome was only handled at <=700 before. */
+@media(max-width:1024px){
+  nav.primary{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+  nav.primary::-webkit-scrollbar{display:none}
+  .cmd-in{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+  .cmd-in::-webkit-scrollbar{display:none}
+}
+/* very narrow: drop the hub name (keep the FLIGHT DECK chip) so the header never overflows */
+@media(max-width:400px){.site-mark a{display:none}.site-bar{gap:12px}}
+@media(max-width:1480px){.badge-sensitive{display:none}}
+/* An eight-item nav fills the bar at every width above 1480, and the badge sat 71px on top of
+   its last item. The badge yields, as it already does below 1480. */
+.site-bar:has(nav.primary>div:nth-child(8)) .badge-sensitive{display:none}
+@media(max-width:1280px){nav.primary a.top{padding:8px 5px;font-size:12px}}
+nav.primary>div{position:relative;flex:none}
+nav.primary a.top{display:block;color:var(--ink);font-size:13px;font-weight:500;padding:8px 9px;border-radius:6px;white-space:nowrap}
+nav.primary a.top:hover{background:var(--bg);text-decoration:none}
+nav.primary a.top.active{color:var(--blue);box-shadow:inset 0 -2px 0 var(--blue);border-radius:6px 6px 0 0}
+nav.primary .caret{color:var(--muted);font-size:11px;margin-left:3px}
+nav.primary .menu{
+  display:none;position:absolute;top:100%;left:0;min-width:240px;
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  box-shadow:0 8px 24px rgba(15,23,42,.10);padding:6px;z-index:60
+}
+nav.primary div:hover .menu{display:block}
+nav.primary .menu a{display:block;padding:8px 12px;color:var(--ink);font-size:13.5px;font-weight:500;border-radius:6px}
+nav.primary .menu a:hover{background:var(--bg);color:var(--blue);text-decoration:none}
+.badge-sensitive{font-size:11px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:4px 12px;white-space:nowrap}
+
+/* ── page hero (fundamental pages) ── */
+.page-hero{
+  background:linear-gradient(100deg,var(--navy-deep) 0%,#13205e 50%,#2b4fc0 100%);
+  color:#fff;padding:56px 0 48px;position:relative
+}
+.page-hero .kicker{display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.14em;padding:5px 10px;border-radius:4px;margin-bottom:14px}
+.page-hero h1{font-size:42px;font-weight:800;letter-spacing:-.01em}
+.page-hero.center{text-align:center;padding-bottom:72px}
+.hero-tiles{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.hero-tiles a{
+  background:var(--surface);color:var(--blue);border-radius:8px;width:118px;padding:14px 10px;
+  font-size:12px;font-weight:700;line-height:1.3;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:8px
+}
+.hero-tiles a:hover{text-decoration:none;transform:translateY(-2px)}
+.hero-tiles .ico{font-size:18px}
+
+/* ── two-column page body ── */
+.page-grid{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start}
+@media(max-width:900px){.page-grid{grid-template-columns:1fr}}
+.pagenav{border:1px solid var(--navy);border-radius:4px;overflow:hidden}
+.pagenav .head{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:10px 14px}
+.pagenav a{display:block;padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px}
+h3.sub{font-size:20px;font-weight:700;margin-bottom:14px}
+.prose p{margin-bottom:12px}
+.prose ul{margin:0 0 12px 22px}
+.prose li{margin-bottom:6px}
+
+/* ── W cards ── */
+.wcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0}
+@media(max-width:900px){.wcards{grid-template-columns:repeat(2,1fr)}}
+.wcard{background:#eef0f3;border-radius:6px;overflow:hidden;font-size:12.5px}
+.wcard h5{background:var(--navy);color:#fff;font-size:13.5px;font-weight:700;padding:12px 14px}
+.wcard h5 u{text-decoration-color:var(--green);text-underline-offset:4px}
+.wcard ul{list-style:none;padding:14px}
+.wcard li{margin-bottom:12px;padding-left:12px;text-indent:-12px}
+.wcard li::before{content:"· "}
+.wcard li:last-child{margin-bottom:0}
+
+/* ── video card ── */
+.vcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 16px rgba(15,23,42,.06)}
+.vcard .player{
+  aspect-ratio:16/9;background:linear-gradient(120deg,#1e293b,#0a1138);
+  display:flex;align-items:center;justify-content:center;color:#fff;position:relative
+}
+.vcard .player .play{
+  width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--navy-deep);
+  display:flex;align-items:center;justify-content:center;font-size:20px;padding-left:4px
+}
+.vcard .player .vtitle{position:absolute;top:12px;left:14px;font-size:12.5px;font-weight:600;color:#e2e8f0}
+.vcard .body{padding:16px 18px}
+.vcard .body h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.vcard .body p{font-size:13px;color:var(--muted)}
+
+/* ── accordion sections ── */
+details.acc{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin-bottom:12px}
+details.acc summary{
+  cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;
+  font-size:16px;font-weight:700;padding:16px 20px
+}
+details.acc summary::before{content:"›";font-size:18px;color:var(--muted);transition:transform .15s}
+details.acc[open] summary::before{transform:rotate(90deg)}
+details.acc .inner{padding:4px 20px 20px}
+
+/* ── download / doc tiles ── */
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.dl-grid{grid-template-columns:1fr 1fr}}
+.dl{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:center;font-size:13px;font-weight:600;color:var(--ink)}
+.dl:hover{border-color:var(--blue);text-decoration:none}
+.dl .ico{flex:none;font-size:15px}
+
+/* ── template library cards ── */
+.tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.tcards{grid-template-columns:1fr 1fr}}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.tcard .name{font-size:13px;font-weight:700;padding:12px 14px;text-align:center;min-height:58px;display:flex;align-items:center;justify-content:center}
+.tcard .thumb{aspect-ratio:16/10;background:linear-gradient(120deg,#101a4d,#1c3aa9);margin:0 14px;border-radius:4px}
+.tcard .thumb.light{background:repeating-linear-gradient(0deg,#f1f5f9 0 14px,#e2e8f0 14px 15px)}
+.tcard .dlbtn{margin:14px auto;background:var(--navy);color:#fff;font-size:12px;font-weight:700;border-radius:99px;padding:7px 18px;display:inline-block}
+.tcard .dlbtn:hover{text-decoration:none;opacity:.9}
+
+/* ── filter sidebar ── */
+.filters{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px}
+.filters h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.filters .tip{font-size:11.5px;font-style:italic;color:var(--muted);margin-bottom:14px}
+.filters label{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;padding:8px 2px;border-top:1px solid var(--line)}
+.filters label .ic{width:20px;text-align:center}
+.filters label input{margin-left:auto;accent-color:var(--blue)}
+.kchips{display:flex;gap:8px;align-items:center;margin:10px 0 16px;flex-wrap:wrap}
+.kchips .chip{background:var(--green);color:#06270f;font-size:12px;font-weight:700;border-radius:99px;padding:5px 12px}
+.kchips .clear{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+.crumb{font-size:13px;font-weight:600;margin-bottom:4px}
+.crumb b{color:var(--blue)}
+
+/* ── prompt cards ── */
+.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.pcards{grid-template-columns:1fr}}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.pcard h4{font-size:15px;font-weight:700}
+.pcard .author{font-size:11.5px;color:var(--muted)}
+.pcard p{font-size:13px;flex:1}
+.pcard .tags{display:flex;gap:6px;flex-wrap:wrap}
+.pcard .tag{font-size:10.5px;font-weight:600;border:1px solid var(--line);border-radius:99px;padding:3px 9px;color:var(--muted)}
+.pcard .acts{display:flex;gap:8px;align-items:center}
+.pcard .btn{font-size:11.5px;font-weight:700;border-radius:99px;padding:5px 14px}
+.pcard .copy{background:var(--navy);color:#fff}
+.pcard .run{background:var(--green);color:#06270f}
+.pcard .stars{font-size:12px;color:#eab308}
+.pcard .stars small{color:var(--muted)}
+
+/* ── leader portal ── */
+.lp-hero{background:linear-gradient(100deg,#0b0f1e,#1a2342 60%,#2b3a6b);color:#fff;padding:72px 0}
+.lp-hero h1{font-size:40px;font-weight:800;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.lp-hero h1 .bar{width:5px;height:44px;background:var(--green);border-radius:2px;display:inline-block}
+.lp-hero h1 .thin{font-weight:300}
+.g-head{font-size:18px;font-weight:700;border-left:4px solid var(--green);padding-left:12px;margin-bottom:18px}
+.btn-blue{display:inline-block;background:var(--blue);color:#fff;font-size:13px;font-weight:700;border-radius:6px;padding:10px 20px}
+.btn-blue:hover{text-decoration:none;opacity:.92}
+.sess{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.sess{grid-template-columns:1fr}}
+.sess .scard{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.sess .thumb{aspect-ratio:16/9;background:linear-gradient(120deg,#0a1138,#1c3aa9)}
+.sess .cap{padding:12px 14px;font-size:13px;font-weight:600}
+.ql{display:flex;flex-direction:column;gap:10px}
+.ql a{display:flex;align-items:center;gap:14px;background:#eef4fb;border:1px solid #a8c0e8;border-radius:4px;padding:18px 16px;color:var(--navy);font-size:14px;font-weight:600}
+.ql a:hover{border-color:var(--blue);text-decoration:none}
+.ql .ico{width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none}
+.ql .ico img{width:24px;height:24px;object-fit:contain;mix-blend-mode:multiply}
+
+/* ── misc ── */
+.note-stub{
+  max-width:680px;margin:80px auto;text-align:center;background:var(--surface);
+  border:1px dashed var(--line);border-radius:12px;padding:48px 40px
+}
+.note-stub h1{font-size:24px;margin-bottom:12px}
+.note-stub p{color:var(--muted);font-size:14px}
+footer.page{border-top:1px solid var(--line);margin-top:24px;padding:22px 0 60px;display:flex;gap:28px;justify-content:center;font-size:12.5px;color:var(--muted)}
+
+/* ── FLIGHT DECK footer (shared across hub pages) ── */
+.fd-footer{background:#00010f;color:#fff;margin-top:56px;font-family:var(--font-sans,"GE Sans",-apple-system,"Helvetica Neue",Arial,sans-serif)}
+.fd-footer .fdf-in{max-width:1280px;margin:0 auto;padding:48px 28px 40px}
+.fd-footer .fdf-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.12)}
+.fd-footer .fdf-brand{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:600;color:#fff}
+.fd-footer .fdf-chip{background:#fff;color:#00010f;font-size:10px;font-weight:800;letter-spacing:.12em;padding:5px 9px;border-radius:4px;border:1px solid #16b364}
+.fd-footer .fdf-cobrand{font-size:13px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.02em}
+.fd-footer .fdf-cobrand i{font-style:normal;opacity:.5;margin:0 5px}
+.fd-footer .fdf-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:30px 0}
+.fd-footer .fdf-h{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7e8aa8;margin-bottom:12px}
+.fd-footer .fdf-col a{display:block;color:rgba(255,255,255,.78);font-size:13.5px;text-decoration:none;padding:5px 0;transition:color .14s}
+.fd-footer .fdf-col a:hover{color:#fff;text-decoration:none}
+.fd-footer .fdf-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:11.5px;color:rgba(255,255,255,.45);letter-spacing:.02em}
+@media(max-width:720px){.fd-footer .fdf-cols{grid-template-columns:1fr 1fr;gap:24px}}
+@media(max-width:440px){.fd-footer .fdf-cols{grid-template-columns:1fr}}
+.sensitive{max-width:780px;margin:0 auto;font-size:12.5px;font-style:italic;color:var(--blue);line-height:1.7}
+
+/* ── neutral glyph icons (replaces emoji) ── */
+.gl-badge{font-size:10px!important;font-weight:700;color:#fff;background:var(--navy);border-radius:3px;letter-spacing:.02em}
+.ico img{width:18px;height:18px;object-fit:contain;border-radius:3px}
+
+/* ── functional carousel ── */
+.carousel{position:relative}
+.car-slide{display:none}
+.car-slide.on{display:block}
+.car-slide img{width:100%;display:block;border-radius:var(--radius)}
+.car-slide .ph{aspect-ratio:1184/672;background:linear-gradient(135deg,#0a1138,#13205e);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:#7c8bd4;font-size:13px}
+.car-ctrl{display:flex;gap:14px;align-items:center;justify-content:center;margin-top:14px}
+.car-ctrl button{background:none;border:none;font-size:18px;color:var(--muted);cursor:pointer;padding:2px 8px}
+.car-ctrl .dots{display:flex;gap:8px;margin:0}
+.car-ctrl .dots span{width:7px;height:7px;border-radius:50%;background:#cbd5e1;cursor:pointer}
+.car-ctrl .dots span.on{background:var(--blue)}
+
+/* ── SharePoint flatness ── */
+.serif-head{font-family:Georgia,"Iowan Old Style",serif;font-weight:700}
+.hero-img{width:100%;display:block}
+.tcard,.pcard,.ql a,.dl,.vcard,.mv-item,details.acc{border-radius:4px}
+.empty-note{padding:28px;border:1px dashed var(--line);border-radius:4px;color:var(--muted);font-size:13px;text-align:center;margin-top:14px}
+
+/* ── mobile: collapse SharePoint chrome, kill horizontal overflow ── */
+@media(max-width:700px){
+  body{padding-left:0}
+  .sprail{display:none}
+  body{padding-left:0}
+  .suite{margin-left:0;padding-left:0}
+  .suite .sp,.suite .icons{display:none}
+  .site-bar{height:auto;flex-wrap:wrap;gap:8px;padding:10px 0}
+  nav.primary{flex-basis:100%;order:3;overflow-x:auto;padding-bottom:4px}
+  .cmd-in{overflow-x:auto}
+  .cmd-in .pub{display:none}
+}
+
+/* Embedded in the workshop deck, the SharePoint authoring bar and the left
+   rail are not part of the page being reviewed. Donny, 27 Aug. */
+body.embed .cmdbar,body.embed .sprail{display:none!important}
+/* The rail is gone, so the 48px gutter it sat in is a white margin. */
+body.embed{padding-left:0!important}
