@@ -931,20 +931,13 @@ body.embed .cmdbar,body.embed .sprail{display:none!important}
 #dash .frec .fdst-mock{margin:0 0 22px;background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:16px 16px 8px;width:300px;max-width:100%;box-sizing:border-box}
 #dash .frec .fdst-mock .tmock{box-shadow:none;border:0;margin:0;width:100%;height:auto}
-/* Dark bands borrowed from option B's navy ramp: intro on --ink (#00003d), feedback on --ink2 (#000018). */
-#dash .fd-say{background:#00003d}
-#dash .fd-say p{color:#fff}
-#dash .fd-say .rule{background:#4181ff}
-#dash .fd-say .say-x{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
-#dash .fd-say .say-x:hover{background:#fff;color:#00003d;border-color:#fff}
-#dash .fd-say .gsx{border-top-color:rgba(255,255,255,.14)}
-#dash .fd-say #px-learn .gsx-close{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
-#dash .fd-say #px-learn .gsx-close:hover{background:#fff;color:#00003d;border-color:#fff}
-#dash .fd-say #px-learn .learn-cols>div{border-top-color:rgba(255,255,255,.14)}
-#dash .fd-say #px-learn .v-label{color:rgba(255,255,255,.52)}
-#dash .fd-say #px-learn .v-title,#dash .fd-say #px-learn .learn-open{color:#fff}
-#dash .fd-say #px-learn .learn-open:hover{border-bottom-color:#fff}
-#dash .fd-say #px-learn .v-small,#dash .fd-say #px-learn p{color:rgba(255,255,255,.74)}
+/* Dark bands borrowed from option B's navy ramp: feedback on --ink2 (#000018). */
+/* Enterprise Strategy slide: a paragraph, not a one-liner, so it gets a wider measure. */
+#dash .annoslide-es .hsub{max-width:62ch;font-size:clamp(17px,1.6vw,22px);line-height:1.45}
+#dash .learn-wrap .v-in{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box;position:relative}
+#dash .learn-wrap:has(.gsx.open){padding:28px 0 8px}
+#dash .learn-wrap .gsx{margin-top:0}
+@media(max-width:860px){#dash .learn-wrap .v-in{padding:0 20px}}
 #dash .fb-band{background:#000018;border-top:0;border-bottom:1px solid rgba(255,255,255,.12)}
 #dash .fb-band .eyebrow{color:rgba(255,255,255,.62)}
 #dash .fb-band h2{color:#fff}
@@ -1311,7 +1304,13 @@ body{padding-left:0}
     <div class="in heroin">
 
       <div class="annotrack" id="annotrack">
-        <article class="annoslide on">
+        <article class="annoslide on annoslide-es">
+          <div class="annotag">Enterprise Strategy</div>
+          <h1>Where we compete and invest</h1>
+          <p class="hsub">Enterprise Strategy is about how we choose where to compete and invest. Our Principles create and reinforce our discipline, and the Operating System gives us the path to ensure opportunities are identified, framed, decided, and executed, in that order.</p>
+          <a class="gpill light" href="#px-learn" data-learn-open aria-expanded="false" aria-controls="px-learn">Learn more <span class="pc"><span>&rarr;</span></span></a>
+        </article>
+        <article class="annoslide">
           <div class="annotag">Strategy Fundamental</div>
           <h1>What Game Are We Playing</h1>
           <a class="gpill light" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span class="pc"><span>&rarr;</span></span></a>
@@ -1335,10 +1334,22 @@ body{padding-left:0}
         <button class="on" aria-label="Announcement 1"></button>
         <button aria-label="Announcement 2"></button>
         <button aria-label="Announcement 3"></button>
+        <button aria-label="Announcement 4"></button>
         <button type="button" class="annoarr" data-anno="1" aria-label="Next announcement">&#8594;</button>
       </div>
     </div>
   </section>
+
+  <section class="learn-wrap"><div class="v-in">
+  <div class="gsx" id="px-learn">
+    <button type="button" class="gsx-close" data-px-close>Close &times;</button>
+    <div class="learn-cols">
+      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">What Game Are We Playing</h4><p class="v-small">GE content: overview</p><a class="learn-open" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span aria-hidden="true">&rarr;</span></a></div>
+      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">How Do We Win</h4><p>How Do We Win (HDWW) is the phase of the enterprise strategy process where strategic opportunities are converted into actionable business strategies.</p><a class="learn-open" href="/strategy-hub/option-d/how-do-we-win.html">Open How Do We Win <span aria-hidden="true">&rarr;</span></a></div>
+      <div><div class="v-label">Watch now</div><h4 class="v-title">Patrick de Castelbajac, Chief Strategy Officer</h4><p class="v-small">GE content: opening video</p></div>
+    </div>
+  </div>
+  </div></section>
 
   <!-- ═══ AEROINTEL ASK ═══
        Ask-first block, first content under the header: a dark card with the question field, example prompts as
@@ -1445,26 +1456,7 @@ body{padding-left:0}
        markup and rules as #sw-b .smod-default on Standard Work, so it is a
        pattern people have already met. Immediately under the hero, because
        anything at the bottom of this page will not be seen. -->
-  <section class="fd-say"><div class="v-in">
-  <button type="button" class="say-x" aria-label="Close" data-say-close>&times;</button>
-  <div>
-    <div class="rule"></div>
-    <p>Enterprise Strategy is about how we choose where to compete and invest. Our Principles create and reinforce our discipline, and the Operating System gives us the path to ensure opportunities are identified, framed, decided, and executed, in that order.</p>
-  </div>
-  <a class="sm-action say-start" href="#px-learn" data-panel="px-learn" aria-expanded="false" aria-controls="px-learn">
-    <div class="sa-shot"><img src="/strategy-hub/img/guiding.jpg" alt="" loading="lazy"></div>
-    <span class="gpill" aria-label="Learn more about the Operating System">Learn more <span class="pc"><span>&rarr;</span></span></span>
-  </a>
-  <div class="gsx" id="px-learn">
-    <button type="button" class="gsx-close" data-px-close>Close &times;</button>
-    <div class="learn-cols">
-      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">What Game Are We Playing</h4><p class="v-small">GE content: overview</p><a class="learn-open" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span aria-hidden="true">&rarr;</span></a></div>
-      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">How Do We Win</h4><p>How Do We Win (HDWW) is the phase of the enterprise strategy process where strategic opportunities are converted into actionable business strategies.</p><a class="learn-open" href="/strategy-hub/option-d/how-do-we-win.html">Open How Do We Win <span aria-hidden="true">&rarr;</span></a></div>
-      <div><div class="v-label">Watch now</div><h4 class="v-title">Patrick de Castelbajac, Chief Strategy Officer</h4><p class="v-small">GE content: opening video</p></div>
-    </div>
-  </div>
 
-</div></section>
 
 <section class="qsband">
     <div class="wrap2">
@@ -2365,6 +2357,21 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
   track.addEventListener('mouseleave',function(){ if(!held) start(); });
   go(0);
   start();
+})();
+</script>
+
+<script>
+/* Enterprise Strategy slide: Learn more toggles the panel under the carousel. */
+(function(){
+  var pill=document.querySelector('#dash [data-learn-open]'), p=document.getElementById('px-learn'); if(!pill||!p) return;
+  pill.addEventListener('click',function(e){
+    e.preventDefault();
+    var was=p.classList.contains('open');
+    document.querySelectorAll('#dash .gsx').forEach(function(x){x.classList.remove('open')});
+    pill.setAttribute('aria-expanded','false');
+    if(!was){p.classList.add('open');pill.setAttribute('aria-expanded','true');p.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+  p.addEventListener('click',function(e){ if(e.target.closest('[data-px-close]')) pill.setAttribute('aria-expanded','false'); });
 })();
 </script>
 
