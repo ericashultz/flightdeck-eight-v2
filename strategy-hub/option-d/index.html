@@ -1279,14 +1279,15 @@ body{padding-left:0}
   border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:22px;line-height:1;
   cursor:pointer;transition:background .18s cubic-bezier(.23,1,.32,1),border-color .18s cubic-bezier(.23,1,.32,1)}
 #vmodal .vmodal-x:hover{background:#fff;border-color:#fff;color:#04070f}
-/* Opening video: opens under the hero carousel, in the flow of the page. */
-#dash .vpanel{display:none}
-#dash .vpanel.open{display:block;padding:28px 0 0;scroll-margin-top:96px}
-#dash .vpanel .v-in{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box}
-#dash .vp-bar{display:flex;justify-content:flex-end;margin-bottom:14px}
-#dash .vp-close{border:1px solid #d9deea;background:#fff;color:#00003d;border-radius:100px;font:inherit;font-size:13px;padding:8px 18px;cursor:pointer}
-#dash .vp-close:hover{background:#00003d;color:#fff;border-color:#00003d}
-#dash .vp-frame{position:relative;width:100%;max-width:1040px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 24px 60px -28px rgba(0,0,40,.55)}
+/* Opening video: a lightbox over the page, on a dark overlay. */
+#dash .vpanel{display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;background:rgba(0,0,25,.78)}
+#dash .vpanel.open{display:flex}
+#dash .vpanel .v-in{position:relative;width:min(860px,100%);padding:0;margin:0}
+#dash .vp-bar{display:flex;justify-content:flex-end;margin-bottom:12px}
+#dash .vp-close{border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:100px;font:inherit;font-size:13px;padding:8px 18px;cursor:pointer}
+#dash .vp-close:hover{background:#fff;color:#00003d;border-color:#fff}
+#dash .vp-close:focus-visible{outline:3px solid #4181ff;outline-offset:2px}
+#dash .vp-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px -20px rgba(0,0,25,.7)}
 #dash .vp-frame video{width:100%;height:100%;display:block;background:#000}
 #dash .vposter{position:absolute;inset:0;background:#000}
 #dash .vposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -1297,7 +1298,6 @@ body{padding-left:0}
 #dash .vplay span{width:0;height:0;margin-left:5px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #00003d}
 #dash .vplay:focus-visible{outline:3px solid #4181ff;outline-offset:3px}
 #dash .vcap{position:absolute;z-index:2;left:22px;bottom:20px;right:22px;font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.02em;color:#fff}
-@media(max-width:860px){#dash .vpanel .v-in{padding:0 20px}}
 #vmodal,#vmodal .vmodal-in{transition:none}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
@@ -1372,7 +1372,7 @@ body{padding-left:0}
     </div>
   </section>
 
-  <section class="vpanel" id="vpanel" aria-label="Opening video"><div class="v-in">
+  <section class="vpanel" id="vpanel" role="dialog" aria-modal="true" aria-label="Opening video"><div class="v-in">
     <div class="vp-bar"><button type="button" class="vp-close" data-vclose>Close &times;</button></div>
     <div class="vp-frame">
       <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
@@ -2773,17 +2773,19 @@ document.addEventListener('click',function(e){
     poster.classList.add('gone');
     var pl=v.play(); if(pl&&pl.catch) pl.catch(function(){});
   }
-  function close(){
-    v.pause(); m.classList.remove('open'); if(pill){ pill.setAttribute('aria-expanded','false'); pill.scrollIntoView({behavior:'smooth',block:'center'}); }
+  function open(){
+    poster.classList.remove('gone'); m.classList.add('open'); document.body.style.overflow='hidden';
+    if(pill) pill.setAttribute('aria-expanded','true');
+    document.getElementById('vplay').focus();
   }
-  if(pill) pill.addEventListener('click',function(e){
-    e.preventDefault();
-    if(m.classList.contains('open')){ close(); return; }
-    poster.classList.remove('gone'); m.classList.add('open'); pill.setAttribute('aria-expanded','true');
-    m.scrollIntoView({behavior:'smooth',block:'start'});
-  });
+  function close(){
+    v.pause(); m.classList.remove('open'); document.body.style.overflow='';
+    if(pill){ pill.setAttribute('aria-expanded','false'); pill.focus(); }
+  }
+  if(pill) pill.addEventListener('click',function(e){ e.preventDefault(); open(); });
   document.getElementById('vplay').addEventListener('click',play);
   m.querySelector('[data-vclose]').addEventListener('click',close);
+  m.addEventListener('click',function(e){ if(e.target===m) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.classList.contains('open')) close(); });
 })();
 </script>
