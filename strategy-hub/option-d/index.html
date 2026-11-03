@@ -1383,7 +1383,6 @@ body{padding-left:0}
        pills, and a recent-conversations list. The announcement carousel
        is the page header above it. -->
   <style>
-  #dash .ai-hero{max-width:1320px;margin:0 auto;padding:28px 40px 72px;box-sizing:border-box}
   #dash .ai-card{position:relative;overflow:hidden;border-radius:10px;color:#fff;padding:clamp(40px,5vw,64px) clamp(24px,4.4vw,56px) clamp(36px,4.4vw,52px);
     background:radial-gradient(90% 120% at 92% -10%,rgba(65,129,255,.26),transparent 60%),linear-gradient(135deg,#050b18 0%,#0a1630 55%,#0d2050 100%)}
   #dash .ai-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0ad64f;margin:0 0 22px}
@@ -1401,16 +1400,16 @@ body{padding-left:0}
   #dash .ai-pills button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
   #dash .ai-ask button:focus-visible,#dash .ai-pills button:focus-visible{outline:2px solid #4181ff;outline-offset:2px}
   #dash .ai-recent{margin-top:34px}
-  #dash .ai-rh{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#44496e;margin:0 0 14px}
-  #dash .ai-row{display:grid;grid-template-columns:128px 1fr 24px;gap:0 20px;align-items:center;padding:18px 8px;border-top:1px solid #e7ebf4;text-decoration:none;color:var(--ink);transition:background .15s}
-  #dash .ai-row:hover{background:#f7f9fd}
-  #dash .ai-when{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:#44496e}
-  #dash .ai-q{display:block;font-size:16.5px;color:#00003d;line-height:1.35}
-  #dash .ai-meta{display:block;margin-top:5px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:#75758f;letter-spacing:.01em}
-  #dash .ai-go{font-size:18px;color:#44496e;justify-self:end}
-  #dash .ai-row:last-child{border-bottom:1px solid #e7ebf4}
+  #dash .ai-rh{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin:0 0 12px}
+  #dash .ai-row{display:grid;grid-template-columns:128px 1fr 24px;gap:0 20px;align-items:center;padding:16px 8px;border-top:1px solid rgba(255,255,255,.18);text-decoration:none;color:#fff;transition:background .15s}
+  #dash .ai-row:hover{background:rgba(255,255,255,.07)}
+  #dash .ai-when{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:rgba(255,255,255,.68)}
+  #dash .ai-q{display:block;font-size:16.5px;color:#fff;line-height:1.35}
+  #dash .ai-meta{display:block;margin-top:5px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:rgba(255,255,255,.6);letter-spacing:.01em}
+  #dash .ai-go{font-size:18px;color:#fff;justify-self:end}
+  #dash .ai-row:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+  #dash .ai-recent{text-shadow:0 1px 10px rgba(0,0,20,.7)}
   @media(max-width:860px){
-    #dash .ai-hero{padding:20px 20px 52px}
     #dash .ai-ask{flex-wrap:wrap}
     #dash .ai-ask input{flex-basis:100%;padding:16px}
     #dash .ai-ask button{margin:0 10px 10px 10px}
@@ -1430,12 +1429,11 @@ body{padding-left:0}
   #dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
   #dash .ai-stage .ai-ask{background:rgba(0,0,20,.4)}
   #dash .ai-stage .ai-pills button{background:rgba(0,0,20,.32)}
-  #dash .ai-hero{padding-top:56px}
-  #dash .ai-recent{margin-top:0}
   @media(max-width:860px){
     #dash .ai-stage-in{padding:36px 20px}
     #dash .ai-stage{min-height:0}
-    #dash .ai-hero{padding-top:36px}
+    #dash .ai-stage .ai-card{background:rgba(0,0,20,.42)}
+    #dash .ai-meta{color:rgba(255,255,255,.75)}
   }
   </style>
   <section class="ai-stage" aria-label="Ask AeroIntel">
@@ -1457,16 +1455,14 @@ body{padding-left:0}
         <button type="button">Summarize the market assessments</button>
         <button type="button">Where do I find help with resourcing?</button>
       </div>
-    </div>
-    </div>
-  </section>
-  <section class="ai-hero" aria-label="Recent conversations">
     <div class="ai-recent">
       <h2 class="ai-rh">Recent conversations</h2>
       <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Yesterday</span><span><span class="ai-q">How do I frame the opportunity for my HDWW memo?</span><span class="ai-meta">How Do We Win &middot; 3 sources &middot; memo outline</span></span><span class="ai-go">&#8599;</span></a>
       <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Mon</span><span><span class="ai-q">What does &ldquo;What Game Are We Playing&rdquo; ask us to decide?</span><span class="ai-meta">Strategy Fundamental &middot; 2 sources &middot; summary</span></span><span class="ai-go">&#8599;</span></a>
       <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Last week</span><span><span class="ai-q">Compare the market assessments for the last two quarters</span><span class="ai-meta">Comparison &middot; 6 sources &middot; key differences</span></span><span class="ai-go">&#8599;</span></a>
       <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Apr 28</span><span><span class="ai-q">Draft a post review summary for a completed strategy</span><span class="ai-meta">Template &middot; Post Review Summary &middot; first draft</span></span><span class="ai-go">&#8599;</span></a>
+    </div>
+    </div>
     </div>
   </section>
   <script>
