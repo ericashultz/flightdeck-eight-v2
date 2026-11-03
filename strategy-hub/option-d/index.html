@@ -1343,6 +1343,8 @@ body{padding-left:0}
 
   <div class="engine-wrap">
     <div class="ai-bg" aria-hidden="true">
+      <span class="ai-ring"></span>
+      <span class="ai-crest"></span>
       <span class="ai-grain"></span>
     </div>
   <section class="hero anno">
@@ -1432,26 +1434,24 @@ body{padding-left:0}
   #dash .engine-wrap .hero.anno::before{background:none}
   /* The first slide's button is long; let it wrap on small screens instead of running off the edge. */
   @media(max-width:700px){#dash .engine-wrap .annoslide .gpill{max-width:100%;box-sizing:border-box;white-space:normal;text-align:left;line-height:1.3;border-radius:28px}}
-  /* Aurora backdrop (supplied snippet): charcoal base, elliptical glows shifted down-left for an upward sweep. */
-  #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-    /* Dark charcoal base colour */
-    background-color:#0b0f17;
-    /* Layered elliptical gradients shifted down and left to create the upward sweep */
-    background-image:
-      /* Top-left soft emerald edge */
-      radial-gradient(ellipse at 10% 20%, rgba(46, 213, 115, 0.22) 0%, transparent 50%),
-      /* The bright teal core pushing up into the centre */
-      radial-gradient(ellipse at 25% 40%, rgba(0, 206, 201, 0.28) 0%, transparent 55%),
-      /* Main diagonal swoop body: deep royal blue anchor from the bottom left */
-      radial-gradient(ellipse at 30% 70%, rgba(9, 132, 227, 0.4) 0%, transparent 60%),
-      /* Low-left dark violet base that feathers out the blue swoop */
-      radial-gradient(ellipse at 15% 85%, rgba(108, 92, 231, 0.25) 0%, transparent 50%);
-    background-blend-mode:normal}
+  /* Halo backdrop: a large glowing arc, circle centred below the screen so only its crest and sides show.
+     --r is the arc's radius (about 47% of the width, or a share of the height on tall screens). */
+  #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#02040a;--r:max(47vw,52vh);--cy:110%}
   #dash .ai-bg>span{position:absolute;display:block}
+  #dash .ai-ring,#dash .ai-crest{inset:0}
+  /* Blue band: sharper bright inner edge, soft fade outward, a faint navy lift just inside it. */
+  #dash .ai-ring{background:radial-gradient(circle var(--r) at 50% var(--cy),
+    rgba(0,0,0,0) 0%, rgba(6,22,46,0) 62%, rgba(8,50,100,.6) 78%, rgba(24,120,185,.95) 85%,
+    rgba(28,128,190,.9) 90%, rgba(20,95,160,.65) 95%, rgba(12,58,120,.3) 100%, rgba(6,30,70,.08) 105%, rgba(0,0,0,0) 110%)}
+  /* Yellow-green crest: the same band, confined to the top centre. */
+  #dash .ai-crest{background:radial-gradient(circle var(--r) at 50% var(--cy),
+    rgba(0,0,0,0) 81%, rgba(110,185,150,.65) 85%, rgba(176,200,126,1) 90%, rgba(160,192,118,.85) 95%, rgba(120,170,110,.35) 100%, rgba(0,0,0,0) 106%);
+    -webkit-mask-image:radial-gradient(ellipse 36vw 34vh at 50% calc(var(--cy) - var(--r)), #000 35%, transparent 100%);
+    mask-image:radial-gradient(ellipse 36vw 34vh at 50% calc(var(--cy) - var(--r)), #000 35%, transparent 100%)}
   /* Fine-grain noise overlay */
   #dash .ai-grain{inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")}
   #dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1320px;margin:0 auto;padding:clamp(48px,7vw,96px) 40px;box-sizing:border-box}
-  #dash .ai-stage .ai-card{max-width:880px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,20,.12);
+  #dash .ai-stage .ai-card{max-width:880px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,16,.38);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
   #dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
   #dash .ai-stage .ai-ask{background:rgba(0,0,20,.4)}
@@ -1459,6 +1459,8 @@ body{padding-left:0}
   @media(max-width:860px){
     #dash .ai-stage-in{padding:36px 20px}
     #dash .ai-stage{min-height:0}
+    #dash .ai-bg{--cy:126%}
+    #dash .ai-crest{opacity:.65}
     #dash .engine-wrap .annoslide h1,#dash .engine-wrap .annoslide .hsub{text-shadow:0 1px 14px rgba(0,0,20,.7)}
     #dash .ai-stage .ai-card{background:rgba(0,0,20,.42)}
     #dash .ai-meta{color:rgba(255,255,255,.75)}
