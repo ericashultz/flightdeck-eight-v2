@@ -1417,8 +1417,41 @@ body{padding-left:0}
     #dash .ai-row{grid-template-columns:1fr 24px;padding:16px 4px}
     #dash .ai-when{grid-column:1 / -1;margin-bottom:6px}
   }
+  /* Frosted-glass question card over a tilted, navy-tinted engine on a dark stage. */
+  #dash .ai-stage{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(80% 90% at 85% 40%,#0d2a78 0%,#00003d 45%,#000018 100%);border-top:1px solid rgba(255,255,255,.1)}
+  #dash .ai-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+  #dash .ai-engine{position:absolute;right:-3%;top:50%;width:min(760px,62vw);aspect-ratio:1;margin-top:calc(min(760px,62vw)/-2 + 30px);border-radius:50%;overflow:hidden;
+    transform:perspective(1200px) rotateY(-38deg) rotateZ(-20deg);transform-origin:50% 50%;
+    box-shadow:0 0 0 3px rgba(170,200,255,.55),0 0 70px 8px rgba(65,129,255,.55),inset 0 0 90px 22px rgba(0,0,40,.8)}
+  #dash .ai-engine img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.9) contrast(1.2) brightness(.8)}
+  #dash .ai-engine::after{content:"";position:absolute;inset:0;border-radius:50%;
+    background:linear-gradient(135deg,rgba(40,80,200,.62),rgba(0,0,50,.7));mix-blend-mode:color}
+  #dash .ai-engine::before{content:"";position:absolute;inset:0;z-index:1;border-radius:50%;
+    background:radial-gradient(circle at 50% 50%,transparent 55%,rgba(0,0,24,.75) 100%)}
+  #dash .ai-arc{position:absolute;right:-220px;top:-760px;width:1560px;height:1560px;border-radius:50%;
+    border:4px solid transparent;border-bottom-color:rgba(205,225,255,.95);border-left-color:rgba(110,150,255,.55);
+    filter:blur(1.2px) drop-shadow(0 0 24px rgba(90,140,255,.9));transform:rotate(14deg)}
+  #dash .ai-stage-in{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:clamp(48px,7vw,96px) 40px;box-sizing:border-box}
+  #dash .ai-stage .ai-card{max-width:880px;border:1px solid rgba(255,255,255,.2);
+    background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04));
+    -webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);
+    box-shadow:0 40px 90px -30px rgba(0,0,30,.85),inset 0 1px 0 rgba(255,255,255,.18)}
+  #dash .ai-stage .ai-ask{background:rgba(0,0,30,.35)}
+  #dash .ai-stage .ai-pills button{background:rgba(255,255,255,.08)}
+  #dash .ai-hero{padding-top:56px}
+  #dash .ai-recent{margin-top:0}
+  @media(max-width:860px){
+    #dash .ai-stage-in{padding:36px 20px}
+    #dash .ai-engine{right:-50%;width:120vw;margin-top:-52vw}
+    #dash .ai-hero{padding-top:36px}
+  }
   </style>
-  <section class="ai-hero" aria-label="Ask AeroIntel">
+  <section class="ai-stage" aria-label="Ask AeroIntel">
+    <div class="ai-bg" aria-hidden="true">
+      <span class="ai-arc"></span>
+      <span class="ai-engine"><img src="/strategy-hub/img/opening.jpg" alt=""></span>
+    </div>
+    <div class="ai-stage-in">
     <div class="ai-card">
       <p class="ai-eyebrow">AeroIntel for Enterprise Strategy</p>
       <h1><b>What do you need today?</b></h1>
@@ -1434,6 +1467,9 @@ body{padding-left:0}
         <button type="button">Where do I find help with resourcing?</button>
       </div>
     </div>
+    </div>
+  </section>
+  <section class="ai-hero" aria-label="Recent conversations">
     <div class="ai-recent">
       <h2 class="ai-rh">Recent conversations</h2>
       <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Yesterday</span><span><span class="ai-q">How do I frame the opportunity for my HDWW memo?</span><span class="ai-meta">How Do We Win &middot; 3 sources &middot; memo outline</span></span><span class="ai-go">&#8599;</span></a>
