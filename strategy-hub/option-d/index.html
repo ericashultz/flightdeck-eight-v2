@@ -1261,15 +1261,25 @@ body{padding-left:0}
   border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:22px;line-height:1;
   cursor:pointer;transition:background .18s cubic-bezier(.23,1,.32,1),border-color .18s cubic-bezier(.23,1,.32,1)}
 #vmodal .vmodal-x:hover{background:#fff;border-color:#fff;color:#04070f}
-#vmodal .vposter{position:absolute;inset:0;background:#000}
-#vmodal .vposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-#vmodal .vposter::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,20,0) 55%,rgba(0,0,20,.55) 100%)}
-#vmodal .vposter.gone{display:none}
-#vmodal .vplay{position:absolute;z-index:2;left:50%;top:50%;width:78px;height:78px;margin:-39px 0 0 -39px;border:0;border-radius:50%;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s}
-#vmodal .vplay:hover{transform:scale(1.06)}
-#vmodal .vplay span{width:0;height:0;margin-left:5px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #00003d}
-#vmodal .vplay:focus-visible{outline:3px solid #4181ff;outline-offset:3px}
-#vmodal .vcap{position:absolute;z-index:2;left:22px;bottom:20px;right:22px;font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.02em;color:#fff}
+/* Opening video: opens under the hero carousel, in the flow of the page. */
+#dash .vpanel{display:none}
+#dash .vpanel.open{display:block;padding:28px 0 0;scroll-margin-top:96px}
+#dash .vpanel .v-in{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+#dash .vp-bar{display:flex;justify-content:flex-end;margin-bottom:14px}
+#dash .vp-close{border:1px solid #d9deea;background:#fff;color:#00003d;border-radius:100px;font:inherit;font-size:13px;padding:8px 18px;cursor:pointer}
+#dash .vp-close:hover{background:#00003d;color:#fff;border-color:#00003d}
+#dash .vp-frame{position:relative;width:100%;max-width:1040px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 24px 60px -28px rgba(0,0,40,.55)}
+#dash .vp-frame video{width:100%;height:100%;display:block;background:#000}
+#dash .vposter{position:absolute;inset:0;background:#000}
+#dash .vposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+#dash .vposter::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,20,0) 55%,rgba(0,0,20,.55) 100%)}
+#dash .vposter.gone{display:none}
+#dash .vplay{position:absolute;z-index:2;left:50%;top:50%;width:78px;height:78px;margin:-39px 0 0 -39px;border:0;border-radius:50%;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+#dash .vplay:hover{transform:scale(1.06)}
+#dash .vplay span{width:0;height:0;margin-left:5px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #00003d}
+#dash .vplay:focus-visible{outline:3px solid #4181ff;outline-offset:3px}
+#dash .vcap{position:absolute;z-index:2;left:22px;bottom:20px;right:22px;font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.02em;color:#fff}
+@media(max-width:860px){#dash .vpanel .v-in{padding:0 20px}}
 #vmodal,#vmodal .vmodal-in{transition:none}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
@@ -1313,7 +1323,7 @@ body{padding-left:0}
           <div class="annotag">Watch now</div>
           <h1>What is Enterprise Strategy</h1>
           <p class="hsub">Enterprise Strategy is about how we choose where to compete and invest. Our Principles create and reinforce our discipline, and the Operating System gives us the path to ensure opportunities are identified, framed, decided, and executed, in that order.</p>
-          <a class="gpill light" href="#" data-film aria-haspopup="dialog">Learn more from our CSO <span class="pc"><span>&rarr;</span></span></a>
+          <a class="gpill light" href="#vpanel" data-film aria-expanded="false" aria-controls="vpanel">Learn more from our CSO <span class="pc"><span>&rarr;</span></span></a>
         </article>
         <article class="annoslide">
           <div class="annotag">Strategy Fundamental</div>
@@ -1344,6 +1354,18 @@ body{padding-left:0}
       </div>
     </div>
   </section>
+
+  <section class="vpanel" id="vpanel" aria-label="Opening video"><div class="v-in">
+    <div class="vp-bar"><button type="button" class="vp-close" data-vclose>Close &times;</button></div>
+    <div class="vp-frame">
+      <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
+      <div class="vposter" id="vposter">
+        <img src="/strategy-hub/img/opening.jpg" alt="">
+        <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
+        <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
+      </div>
+    </div>
+  </div></section>
 
   <!-- ═══ AEROINTEL ASK ═══
        Ask-first block, first content under the header: a dark card with the question field, example prompts as
@@ -2260,17 +2282,6 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
   </div>
 </div>
 
-<div class="vmodal" id="vmodal" hidden>
-  <button type="button" class="vmodal-x" data-vclose aria-label="Close">&times;</button>
-  <div class="vmodal-in" role="dialog" aria-modal="true" aria-label="Opening video">
-    <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
-    <div class="vposter" id="vposter">
-      <img src="/strategy-hub/img/opening.jpg" alt="">
-      <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
-      <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
-    </div>
-  </div>
-</div>
 <footer class="fd-footer">
   <div class="fdf-in">
     <div class="fdf-top">
@@ -2736,8 +2747,8 @@ document.addEventListener('click',function(e){
 
 <script>
 (function(){
-  var m=document.getElementById('vmodal'); if(!m) return;
-  var v=document.getElementById('vmodal-v'), poster=document.getElementById('vposter'), last=null;
+  var m=document.getElementById('vpanel'); if(!m) return;
+  var v=document.getElementById('vmodal-v'), poster=document.getElementById('vposter'), pill=document.querySelector('#dash [data-film]');
   /* GE's address for the opening video goes here when it arrives. Empty, the card shows its poster and Play does nothing. */
   var OPENING_VIDEO_SRC='';
   function play(){
@@ -2746,24 +2757,18 @@ document.addEventListener('click',function(e){
     poster.classList.add('gone');
     var pl=v.play(); if(pl&&pl.catch) pl.catch(function(){});
   }
-  function open(e){
-    e.preventDefault(); last=e.currentTarget;
-    m.hidden=false; poster.classList.remove('gone');
-    requestAnimationFrame(function(){ m.classList.add('on'); });
-    document.body.style.overflow='hidden';
-    var pb=document.getElementById('vplay'); if(pb) pb.focus();
-  }
   function close(){
-    v.pause(); m.classList.remove('on');
-    setTimeout(function(){ m.hidden=true; }, 220);
-    document.body.style.overflow='';
-    if(last) last.focus();
+    v.pause(); m.classList.remove('open'); if(pill){ pill.setAttribute('aria-expanded','false'); pill.scrollIntoView({behavior:'smooth',block:'center'}); }
   }
-  document.querySelectorAll('#dash [data-film]').forEach(function(a){ a.addEventListener('click',open); });
+  if(pill) pill.addEventListener('click',function(e){
+    e.preventDefault();
+    if(m.classList.contains('open')){ close(); return; }
+    poster.classList.remove('gone'); m.classList.add('open'); pill.setAttribute('aria-expanded','true');
+    m.scrollIntoView({behavior:'smooth',block:'start'});
+  });
   document.getElementById('vplay').addEventListener('click',play);
   m.querySelector('[data-vclose]').addEventListener('click',close);
-  m.addEventListener('click',function(e){ if(e.target===m) close(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !m.hidden) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.classList.contains('open')) close(); });
 })();
 </script>
 
