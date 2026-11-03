@@ -934,10 +934,6 @@ body.embed .cmdbar,body.embed .sprail{display:none!important}
 /* Dark bands borrowed from option B's navy ramp: feedback on --ink2 (#000018). */
 /* Enterprise Strategy slide: a paragraph, not a one-liner, so it gets a wider measure. */
 #dash .annoslide-es .hsub{max-width:62ch;font-size:clamp(17px,1.6vw,22px);line-height:1.45}
-#dash .learn-wrap .v-in{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box;position:relative}
-#dash .learn-wrap:has(.gsx.open){padding:28px 0 8px}
-#dash .learn-wrap .gsx{margin-top:0}
-@media(max-width:860px){#dash .learn-wrap .v-in{padding:0 20px}}
 #dash .fb-band{background:#000018;border-top:0;border-bottom:1px solid rgba(255,255,255,.12)}
 #dash .fb-band .eyebrow{color:rgba(255,255,255,.62)}
 #dash .fb-band h2{color:#fff}
@@ -1265,6 +1261,15 @@ body{padding-left:0}
   border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:22px;line-height:1;
   cursor:pointer;transition:background .18s cubic-bezier(.23,1,.32,1),border-color .18s cubic-bezier(.23,1,.32,1)}
 #vmodal .vmodal-x:hover{background:#fff;border-color:#fff;color:#04070f}
+#vmodal .vposter{position:absolute;inset:0;background:#000}
+#vmodal .vposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+#vmodal .vposter::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,20,0) 55%,rgba(0,0,20,.55) 100%)}
+#vmodal .vposter.gone{display:none}
+#vmodal .vplay{position:absolute;z-index:2;left:50%;top:50%;width:78px;height:78px;margin:-39px 0 0 -39px;border:0;border-radius:50%;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+#vmodal .vplay:hover{transform:scale(1.06)}
+#vmodal .vplay span{width:0;height:0;margin-left:5px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #00003d}
+#vmodal .vplay:focus-visible{outline:3px solid #4181ff;outline-offset:3px}
+#vmodal .vcap{position:absolute;z-index:2;left:22px;bottom:20px;right:22px;font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.02em;color:#fff}
 #vmodal,#vmodal .vmodal-in{transition:none}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
@@ -1308,7 +1313,7 @@ body{padding-left:0}
           <div class="annotag">Watch now</div>
           <h1>What is Enterprise Strategy</h1>
           <p class="hsub">Enterprise Strategy is about how we choose where to compete and invest. Our Principles create and reinforce our discipline, and the Operating System gives us the path to ensure opportunities are identified, framed, decided, and executed, in that order.</p>
-          <a class="gpill light" href="#px-learn" data-learn-open aria-expanded="false" aria-controls="px-learn">Learn more from our CSO <span class="pc"><span>&rarr;</span></span></a>
+          <a class="gpill light" href="#" data-film aria-haspopup="dialog">Learn more from our CSO <span class="pc"><span>&rarr;</span></span></a>
         </article>
         <article class="annoslide">
           <div class="annotag">Strategy Fundamental</div>
@@ -1339,17 +1344,6 @@ body{padding-left:0}
       </div>
     </div>
   </section>
-
-  <section class="learn-wrap"><div class="v-in">
-  <div class="gsx" id="px-learn">
-    <button type="button" class="gsx-close" data-px-close>Close &times;</button>
-    <div class="learn-cols">
-      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">What Game Are We Playing</h4><p class="v-small">GE content: overview</p><a class="learn-open" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span aria-hidden="true">&rarr;</span></a></div>
-      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">How Do We Win</h4><p>How Do We Win (HDWW) is the phase of the enterprise strategy process where strategic opportunities are converted into actionable business strategies.</p><a class="learn-open" href="/strategy-hub/option-d/how-do-we-win.html">Open How Do We Win <span aria-hidden="true">&rarr;</span></a></div>
-      <div><div class="v-label">Watch now</div><h4 class="v-title">Patrick de Castelbajac, Chief Strategy Officer</h4><p class="v-small">GE content: opening video</p></div>
-    </div>
-  </div>
-  </div></section>
 
   <!-- ═══ AEROINTEL ASK ═══
        Ask-first block, first content under the header: a dark card with the question field, example prompts as
@@ -2269,7 +2263,12 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
 <div class="vmodal" id="vmodal" hidden>
   <button type="button" class="vmodal-x" data-vclose aria-label="Close">&times;</button>
   <div class="vmodal-in" role="dialog" aria-modal="true" aria-label="Opening video">
-    <video id="vmodal-v" controls playsinline preload="none"></video>
+    <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
+    <div class="vposter" id="vposter">
+      <img src="/strategy-hub/img/opening.jpg" alt="">
+      <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
+      <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
+    </div>
   </div>
 </div>
 <footer class="fd-footer">
@@ -2357,21 +2356,6 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
   track.addEventListener('mouseleave',function(){ if(!held) start(); });
   go(0);
   start();
-})();
-</script>
-
-<script>
-/* Enterprise Strategy slide: Learn more toggles the panel under the carousel. */
-(function(){
-  var pill=document.querySelector('#dash [data-learn-open]'), p=document.getElementById('px-learn'); if(!pill||!p) return;
-  pill.addEventListener('click',function(e){
-    e.preventDefault();
-    var was=p.classList.contains('open');
-    document.querySelectorAll('#dash .gsx').forEach(function(x){x.classList.remove('open')});
-    pill.setAttribute('aria-expanded','false');
-    if(!was){p.classList.add('open');pill.setAttribute('aria-expanded','true');p.scrollIntoView({behavior:'smooth',block:'start'});}
-  });
-  p.addEventListener('click',function(e){ if(e.target.closest('[data-px-close]')) pill.setAttribute('aria-expanded','false'); });
 })();
 </script>
 
@@ -2753,13 +2737,21 @@ document.addEventListener('click',function(e){
 <script>
 (function(){
   var m=document.getElementById('vmodal'); if(!m) return;
-  var v=document.getElementById('vmodal-v'), last=null;
+  var v=document.getElementById('vmodal-v'), poster=document.getElementById('vposter'), last=null;
+  /* GE's address for the opening video goes here when it arrives. Empty, the card shows its poster and Play does nothing. */
+  var OPENING_VIDEO_SRC='';
+  function play(){
+    if(!OPENING_VIDEO_SRC) return;
+    if(v.getAttribute('src')!==OPENING_VIDEO_SRC){ v.setAttribute('src',OPENING_VIDEO_SRC); v.load(); }
+    poster.classList.add('gone');
+    var pl=v.play(); if(pl&&pl.catch) pl.catch(function(){});
+  }
   function open(e){
     e.preventDefault(); last=e.currentTarget;
-    m.hidden=false; v.preload='auto';
+    m.hidden=false; poster.classList.remove('gone');
     requestAnimationFrame(function(){ m.classList.add('on'); });
     document.body.style.overflow='hidden';
-    var pl=v.play(); if(pl&&pl.catch) pl.catch(function(){});
+    var pb=document.getElementById('vplay'); if(pb) pb.focus();
   }
   function close(){
     v.pause(); m.classList.remove('on');
@@ -2768,6 +2760,7 @@ document.addEventListener('click',function(e){
     if(last) last.focus();
   }
   document.querySelectorAll('#dash [data-film]').forEach(function(a){ a.addEventListener('click',open); });
+  document.getElementById('vplay').addEventListener('click',play);
   m.querySelector('[data-vclose]').addEventListener('click',close);
   m.addEventListener('click',function(e){ if(e.target===m) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !m.hidden) close(); });
