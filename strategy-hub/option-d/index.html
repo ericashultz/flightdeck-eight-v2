@@ -1329,6 +1329,22 @@ body{padding-left:0}
        left, and everything functional sits below it. The GE call asked for a
        header that carries announcements and can carry a carousel or video, so
        this is that hero with the announcement rotating inside it. -->
+  <section class="vpanel" id="vpanel" role="dialog" aria-modal="true" aria-label="Opening video"><div class="v-in">
+    <div class="vp-bar"><button type="button" class="vp-close" data-vclose>Close &times;</button></div>
+    <div class="vp-frame">
+      <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
+      <div class="vposter" id="vposter">
+        <img src="/strategy-hub/img/opening.jpg" alt="">
+        <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
+        <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
+      </div>
+    </div>
+  </div></section>
+
+  <div class="engine-wrap">
+    <div class="ai-bg" aria-hidden="true">
+      <img src="/strategy-hub/img/engine-bg.webp?v=2" alt="">
+    </div>
   <section class="hero anno">
     <video class="herovid" autoplay muted loop playsinline preload="metadata"
            poster="/strategy-hub/img/home.jpg"></video>
@@ -1365,18 +1381,6 @@ body{padding-left:0}
       </div>
     </div>
   </section>
-
-  <section class="vpanel" id="vpanel" role="dialog" aria-modal="true" aria-label="Opening video"><div class="v-in">
-    <div class="vp-bar"><button type="button" class="vp-close" data-vclose>Close &times;</button></div>
-    <div class="vp-frame">
-      <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
-      <div class="vposter" id="vposter">
-        <img src="/strategy-hub/img/opening.jpg" alt="">
-        <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
-        <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
-      </div>
-    </div>
-  </div></section>
 
   <!-- ═══ AEROINTEL ASK ═══
        Ask-first block, first content under the header: a dark card with the question field, example prompts as
@@ -1418,7 +1422,12 @@ body{padding-left:0}
   }
   /* Frosted-glass question card over a full-screen engine backdrop. The image is fixed to the
      viewport and clipped to this band, so it stays put while the page scrolls over it. */
-  #dash .ai-stage{position:relative;isolation:isolate;clip-path:inset(0);display:flex;align-items:center;min-height:max(560px,88vh);background:#000018;border-top:1px solid rgba(255,255,255,.1)}
+  #dash .ai-stage{position:relative;display:flex;align-items:center;min-height:max(560px,88vh)}
+  /* One engine backdrop behind the hero carousel and the card: fixed to the viewport, clipped to this wrapper. */
+  #dash .engine-wrap{position:relative;isolation:isolate;clip-path:inset(0);background:#000018}
+  #dash .engine-wrap>.hero,#dash .engine-wrap>.ai-stage{position:relative;z-index:1}
+  #dash .hero.anno{background:transparent}
+  #dash .engine-wrap .heroscrim{background:linear-gradient(90deg,rgba(0,0,20,.55) 0%,rgba(0,0,20,.3) 55%,rgba(0,0,20,.12) 100%)}
   #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:#000018}
   #dash .ai-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.12) brightness(1.15)}
   #dash .ai-bg::before{content:"";position:absolute;inset:0;background:rgba(0,4,30,.28)}
@@ -1437,9 +1446,6 @@ body{padding-left:0}
   }
   </style>
   <section class="ai-stage" aria-label="Ask AeroIntel">
-    <div class="ai-bg" aria-hidden="true">
-      <img src="/strategy-hub/img/engine-bg.webp?v=2" alt="">
-    </div>
     <div class="ai-stage-in">
     <div class="ai-card">
       <p class="ai-eyebrow">AeroIntel for Enterprise Strategy</p>
@@ -1465,6 +1471,7 @@ body{padding-left:0}
     </div>
     </div>
   </section>
+  </div>
   <script>
   (function(){var p=document.getElementById('ai-pills'),q=document.getElementById('ai-q');if(!p||!q)return;
     p.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;q.value=b.textContent;q.focus();});})();
