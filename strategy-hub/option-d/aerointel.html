@@ -1293,6 +1293,9 @@ body{padding-left:0}
   #dash .duo{grid-template-columns:minmax(0,880px);gap:36px;padding:36px 20px}
   #dash .duo>.fb-band>.in{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
 }
+#fdl-finder .fdl-wrap{position:relative}
+#dash #fdl-finder .sect-close{right:40px}
+@media(max-width:860px){#dash #fdl-finder .sect-close{right:20px}}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1570,8 +1573,9 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
   #fdl-finder .fdl-wrap{padding:0 20px}
 }
 </style>
-<section id="fdl-finder">
+<section id="fdl-finder" class="sect-x">
   <div class="fdl-wrap">
+    <button type="button" class="gsx-close sect-close" data-sect-close>Close &times;</button>
     <div class="fdl-eyebrow">Where do I find Help?</div>
     <h2 class="fdl-h2">The team behind AeroIntel</h2>
     <p class="fdl-sub">If you need additional help, below are some of our most experienced leaders in this enablement tool</p>
@@ -2260,6 +2264,27 @@ window.FDL_PREVIEW_DATA = [{"n": "Stotz, Sarah", "t": "Sr Marketing Manager - Ma
 <script>if(/[?&]embed=1/.test(location.search))document.body.classList.add('embed');</script>
 
 <script>
+/* "Where do I find Help?" stays hidden until its tile is clicked, then opens under the tiles like the other panels. */
+(function(){
+  var fdl=document.getElementById('fdl-finder'), tile=document.querySelector('#dash .sm-action[href="#fdl-finder"]'); if(!fdl||!tile) return;
+  tile.setAttribute('aria-expanded','false'); tile.setAttribute('aria-controls','fdl-finder');
+  function shut(){ fdl.classList.remove('open'); tile.setAttribute('aria-expanded','false'); }
+  tile.addEventListener('click',function(e){
+    e.preventDefault();
+    var was=fdl.classList.contains('open');
+    [].forEach.call(document.querySelectorAll('#dash .gsx.open, #templates.open'),function(p){p.classList.remove('open');});
+    [].forEach.call(document.querySelectorAll('#dash .sm-action[data-panel]'),function(t){t.setAttribute('aria-expanded','false');});
+    if(was){ shut(); return; }
+    fdl.classList.add('open'); tile.setAttribute('aria-expanded','true');
+    requestAnimationFrame(function(){ fdl.scrollIntoView({behavior:'smooth',block:'start'}); });
+  });
+  [].forEach.call(document.querySelectorAll('#dash .sm-action[data-panel], #dash .sm-action[href="#templates"]'),function(t){ t.addEventListener('click',shut); });
+  fdl.querySelector('[data-sect-close]').addEventListener('click',function(){ tile.setAttribute('aria-expanded','false'); });
+  if(location.hash==='#fdl-finder') setTimeout(function(){ tile.click(); },0);
+})();
+</script>
+
+<script>
 /* Every tile acts on this page. Three open a panel in place, Browse Templates
    scrolls to the templates already below. Nothing navigates away. */
 (function(){
@@ -2611,7 +2636,7 @@ document.addEventListener('click',function(e){
       var sec=b.closest('.sect-x'); if(!sec) return;
       sec.classList.remove('open');
       var t=document.querySelector(sec.id==='templates'
-        ? '#dash .sm-action[href="#templates"]' : '#dash .sm-action[data-panel="px-fund"]');
+        ? '#dash .sm-action[href="#templates"]' : sec.id==='fdl-finder' ? '#dash .sm-action[href="#fdl-finder"]' : '#dash .sm-action[data-panel="px-fund"]');
       if(t) t.scrollIntoView({behavior:'smooth',block:'center'});
     });
   });
