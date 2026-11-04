@@ -1373,6 +1373,15 @@ body{padding-left:0}
 #dash .aiband-card p{margin:0;max-width:56ch;font-size:16px;line-height:1.6;color:rgba(255,255,255,.78)}
 #dash .aiband-card .gpill{flex:none}
 @media(max-width:900px){#dash .aiband{padding:36px 20px}#dash .aiband-card{flex-direction:column;align-items:flex-start;gap:26px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}}
+/* Resources: the finder opens in a Next steps panel on a light stage. */
+#dash .gsx-stage{display:none;background:#f7f9fd;padding:0}
+#dash .gsx-stage:has(.gsx.open){display:block}
+#dash .gsx-stage .gsx.open{margin-top:0;padding-bottom:84px}
+#dash #px-res{position:relative}
+#dash #px-res .gsx-close{position:absolute;top:0;right:0;float:none;margin:0;z-index:6}
+#dash #px-res section#fdl-finder{background:transparent;border:0;padding:64px 0 0}
+#dash #px-res #fdl-finder .fdl-wrap{max-width:none;padding:0}
+#dash #px-res #fdl-finder .fdl-sub{max-width:62ch}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1540,14 +1549,129 @@ body{padding-left:0}
           <div class="sa-body"><strong>Standards and Templates</strong><p>Memo Standards &middot; HDWW Memo Coach Prompt &middot; Post Review Summary</p></div>
           <span class="circ"><span>&rarr;</span></span>
         </a>
-        <a class="sm-action" href="/strategy-hub/option-d/how-do-we-win.html#fdl-finder">
+        <a class="sm-action" href="#px-res" data-panel="px-res" aria-expanded="false" aria-controls="px-res">
           <div class="sa-shot"><img src="/strategy-hub/img/leaders.jpg" alt="" loading="lazy" style="object-position:center 40%"></div>
-          <div class="sa-body"><strong>Where do I find Help?</strong><p>de Castelbajac, Patrick, Chief Strategy Officer</p></div>
+          <div class="sa-body"><strong>Resources</strong><p>Find strategy contacts within your business</p></div>
           <span class="circ"><span>&rarr;</span></span>
         </a>
       </div>
     </div>
   </section>
+
+  <!-- The Resources panel opens here, in its own block directly below the Next steps cards. -->
+  <section class="gsx-stage" id="gsx-stage" aria-label="Next steps details">
+    <div class="wrap2">
+      <div class="gsx" id="px-res">
+        <button type="button" class="gsx-close" data-px-close>Close &times;</button>
+<section id="fdl-finder">
+  <div class="fdl-wrap">
+    <div class="fdl-eyebrow">Where do I find help?</div>
+    <h2 class="fdl-h2">Resources</h2>
+    <p class="fdl-sub">If you need additional help, below are some of our most experienced leaders in this fundamental</p>
+
+    <div class="fdl-box">
+      <label class="fdl-label" for="fdl-q">Organization or team</label>
+      <div class="fdl-field">
+        <svg class="fdl-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="fdl-q" type="text" autocomplete="off" spellcheck="false" disabled
+               placeholder="Loading leaders&hellip;"
+               role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fdl-list">
+        <button type="button" class="fdl-clear" id="fdl-clear" aria-label="Clear search" hidden>&times;</button>
+      </div>
+      <ul class="fdl-list" id="fdl-list" role="listbox" aria-label="Suggestions" hidden></ul>
+    </div>
+
+    <div class="fdl-chips" role="group" aria-label="Example searches">
+      <button type="button" class="fdl-chip">P&amp;AT</button>
+      <button type="button" class="fdl-chip">CES</button>
+      <button type="button" class="fdl-chip">Commercial</button>
+      <button type="button" class="fdl-chip">Defense</button>
+    </div>
+
+    <div class="fdl-status" id="fdl-status" aria-live="polite"></div>
+    <div id="fdl-results"></div>
+  </div>
+</section>
+      </div>
+    </div>
+  </section>
+<style>
+/* Find your FLIGHT DECK leader. Everything is scoped to #fdl-finder so it can't
+   restyle the rest of the SharePoint page. Mirrors the Activation Hub site styles. */
+@font-face{font-family:"GE Sans";font-weight:300;font-style:normal;font-display:swap;src:url("/assets/fonts/ge-sans/sons-light.woff2") format("woff2")}
+@font-face{font-family:"GE Sans";font-weight:400;font-style:normal;font-display:swap;src:url("/assets/fonts/ge-sans/sons-regular.woff2") format("woff2")}
+@font-face{font-family:"GE Sans";font-weight:600;font-style:normal;font-display:swap;src:url("/assets/fonts/ge-sans/sons-semibold.woff2") format("woff2")}
+
+/* "section#" so the host page's generic "#dash section" padding can't override it. */
+section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--tint:#f6f6f9;--line:#e6e6ee;
+  color:var(--ink);background:#f7f9fd;border-top:1px solid #e7ebf4;padding:84px 0;
+  font-family:"GE Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;text-align:left}
+#fdl-finder *{box-sizing:border-box}
+#fdl-finder .fdl-wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 40px}
+
+#fdl-finder .fdl-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:#44496e;margin-bottom:14px}
+#fdl-finder .fdl-eyebrow::before{content:"";width:7px;height:7px;background:#16b364;border-radius:1px;flex-shrink:0}
+#fdl-finder .fdl-h2{font-family:inherit;font-size:clamp(28px,2.6vw,40px);font-weight:300;letter-spacing:-.028em;
+  line-height:1.04;color:var(--ink);margin:0 0 14px}
+#fdl-finder .fdl-sub{margin:0 0 28px;max-width:62ch;font-size:16px;line-height:1.5;color:var(--lav)}
+
+#fdl-finder .fdl-box{position:relative;max-width:640px}
+#fdl-finder .fdl-label{display:block;font-size:13px;font-weight:600;color:#44496e;margin:0 0 8px}
+#fdl-finder .fdl-field{position:relative;display:flex;align-items:center}
+#fdl-finder .fdl-ico{position:absolute;left:20px;width:18px;height:18px;fill:none;stroke:#75758f;stroke-width:1.8;stroke-linecap:round;pointer-events:none}
+#fdl-finder .fdl-field input{width:100%;appearance:none;font-family:inherit;font-size:16px;line-height:1.2;color:var(--ink);
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:15px 48px;margin:0;transition:border-color .15s,box-shadow .15s}
+#fdl-finder .fdl-field input::placeholder{color:#9a9ab0}
+#fdl-finder .fdl-field input:focus{outline:none;border-color:#4181ff;box-shadow:0 0 0 4px rgba(65,129,255,.15)}
+#fdl-finder .fdl-field input:disabled{background:var(--tint);cursor:progress}
+#fdl-finder .fdl-clear{position:absolute;right:10px;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:var(--pill);
+  color:var(--ink);font-family:inherit;font-size:18px;line-height:1;cursor:pointer}
+#fdl-finder .fdl-clear:hover{background:var(--pillh)}
+#fdl-finder .fdl-clear[hidden]{display:none}
+
+#fdl-finder .fdl-list{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:20;list-style:none;margin:0;padding:8px;background:#fff;
+  border:1px solid #e6e6ee;border-radius:12px;box-shadow:0 18px 55px rgba(3,8,30,.18);max-height:340px;overflow:auto}
+#fdl-finder .fdl-list[hidden]{display:none}
+#fdl-finder .fdl-list li{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:0;padding:10px 12px;border-radius:8px;
+  font-size:15px;color:var(--ink);cursor:pointer}
+#fdl-finder .fdl-list li[aria-selected="true"],#fdl-finder .fdl-list li[role="option"]:hover{background:var(--tint)}
+#fdl-finder .fdl-list li.fdl-sec{display:block;padding:12px 12px 6px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#75758f;cursor:default}
+#fdl-finder .fdl-list li.fdl-sec:first-child{padding-top:6px}
+#fdl-finder .fdl-crumb{color:var(--lav)}
+#fdl-finder .fdl-list li mark{background:none;color:#2256e6;font-weight:600}
+#fdl-finder .fdl-n{flex:none;font-size:12px;font-weight:400;color:var(--lav);background:var(--pill);border-radius:999px;padding:3px 9px}
+#fdl-finder .fdl-all{color:#2256e6;font-weight:600}
+
+#fdl-finder .fdl-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+#fdl-finder .fdl-chip{appearance:none;border:0;font-family:inherit;font-size:14px;font-weight:400;line-height:normal;padding:9px 18px;border-radius:999px;background:var(--pill);color:var(--ink);cursor:pointer;transition:background .18s,color .18s}
+#fdl-finder .fdl-chip:hover{background:var(--pillh)}
+#fdl-finder .fdl-chip:focus-visible{outline:3px solid #4181ff;outline-offset:2px}
+#fdl-finder .fdl-status{margin:28px 0 0;font-size:15px;color:#44496e}
+#fdl-finder .fdl-status b{color:var(--ink)}
+#fdl-finder .fdl-status a{color:#2256e6}
+
+#fdl-finder .fdl-group{margin-top:36px}
+#fdl-finder .fdl-group h3{display:flex;align-items:center;gap:10px;margin:0;padding-bottom:14px;border-bottom:1px solid #e7ebf4;
+  font-family:inherit;font-size:18px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+#fdl-finder .fdl-people{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 34px;margin-top:24px;align-items:start}
+#fdl-finder .fdl-person{display:flex;align-items:flex-start;gap:14px}
+#fdl-finder .fdl-avatar{width:44px;height:44px;border-radius:50%;background:#e7ecf7;flex:none;object-fit:cover}
+#fdl-finder .fdl-meta{display:flex;flex-direction:column;min-width:0}
+#fdl-finder .fdl-meta b{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+#fdl-finder .fdl-meta span{font-size:14px;color:var(--lav);line-height:1.4;overflow-wrap:anywhere}
+#fdl-finder .fdl-meta a{font-size:14px;color:#2256e6;text-decoration:none;overflow-wrap:break-word;margin-top:2px}
+#fdl-finder .fdl-meta a:hover{text-decoration:underline}
+#fdl-finder .fdl-more{margin-top:24px;appearance:none;border:0;font-family:inherit;font-size:15px;padding:11px 22px;border-radius:999px;
+  background:var(--pill);color:var(--ink);cursor:pointer}
+#fdl-finder .fdl-more:hover{background:var(--pillh)}
+
+@media (max-width:640px){
+  section#fdl-finder{padding:56px 0}
+  #fdl-finder .fdl-wrap{padding:0 20px}
+}
+</style>
 
   <!-- Standards and Templates opens here, directly under the Next steps block. -->
 <section class="tplsec sect-x" id="templates">
@@ -1836,7 +1960,7 @@ body{padding-left:0}
     t.addEventListener('click',function(e){
       e.preventDefault();
       var p=document.getElementById(t.dataset.panel), was=p.classList.contains('open');
-      close();
+      close(); var tp=document.getElementById('templates'); if(tp) tp.classList.remove('open');
       if(!was){ p.classList.add('open'); t.setAttribute('aria-expanded','true');
         // start, not nearest: nearest does the least it can get away with, so a
         // panel already half in view barely moved and the tile looked inert.
@@ -2192,6 +2316,502 @@ document.addEventListener('click',function(e){
 
 </script>
 
+<script>/* GE copy: the experts and the team behind AeroIntel, from the How Do We Win and AeroIntel pages. */
+window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy Officer", "d": "How Do We Win", "e": ""}, {"n": "Stotz, Sarah", "t": "Sr Marketing Manager - Market Intelligence", "d": "AeroIntel", "e": ""}, {"n": "Edupuganti, Yasaswini", "t": "Lead Project Management Specialist", "d": "AeroIntel", "e": ""}, {"n": "Flores, Nicholas", "t": "Principal Analytics Engineer", "d": "AeroIntel", "e": ""}, {"n": "Schanche, Kristin", "t": "Sr Project Management Manager", "d": "AeroIntel", "e": ""}, {"n": "Leber, Nicole", "t": "Sr Director - Technical Product Management", "d": "AeroIntel", "e": ""}, {"n": "Ensor, David", "t": "Principal Technical Product Manager", "d": "AeroIntel", "e": ""}, {"n": "Saadati, Leila", "t": "Sr Staff Data Scientist", "d": "AeroIntel", "e": ""}, {"n": "Potter, Emily", "t": "Executive - Digital Market Intelligence", "d": "AeroIntel", "e": ""}, {"n": "Cahill, Matthew", "t": "Sr BD Manager - Business Development", "d": "AeroIntel", "e": ""}, {"n": "Tripathy, Satyakam", "t": "Staff Data Engineer - Physical Infrastructure", "d": "AeroIntel", "e": ""}];</script>
+<script>
+/* Find your FLIGHT DECK leader. Reads the "FLIGHT DECK Leaders" SharePoint group
+   live, as the signed-in user, and looks up each member's department and title
+   in the site's User Information List. Members listed in the FLIGHT DECK leader
+   directory (FDL_DIR below) are also findable by segment > area > site.
+
+   Every value read from SharePoint (names, titles, departments, emails) goes onto
+   the page as text, through textContent and createElement. Nothing here assigns
+   markup, so a value that holds "<" or "&" shows as written and adds no element. */
+(function () {
+  /* The group lives on the production hub. Both sites share one origin, so the sandbox
+     page reads the same group. Server-relative, so every request stays same-origin, and
+     each system path is added to this site prefix, never addressed from the tenant root. */
+  var SITE = '/sites/flight-deck-activation-hub';
+  var GROUP = 'FLIGHT DECK Leaders';
+  var FEEDBACK = 'https://app.smartsheet.com/b/form/a6cbe79d0be84418bdcdd008debaa3cb?ss_v=331.0.0';
+  var CACHE_KEY = 'fdl-finder-v2', CACHE_MS = 60 * 60 * 1000;
+  var PAGE = 24, MAX_PATHS = 8, MAX_DEPTS = 5, ID_CHUNK = 40;
+  var CES_ALL = 'CES (all segments)';
+
+  /* DESIGN PREVIEW: GE's segment > area > site paths are real; the email map points
+     the fictional demo leaders at a few of them. The tenant copy carries GE's map.
+     Leader directory, written by build_fdl_directory.py from the Listed rows:
+     p = [segment, area, site, coverage, segment kind], m = email -> index into p.
+     A blank area or site means the leader covers everything below that level. */
+  var FDL_DIR = /*FDL_DIR_START*/{
+ "p": [
+  [
+   "Additive",
+   "Supply Chain",
+   "",
+   "Area",
+   "Business"
+  ],
+  [
+   "Avio Aero",
+   "",
+   "",
+   "Segment",
+   "Business"
+  ],
+  [
+   "Avio Aero",
+   "Commercial Aviation Operations",
+   "Bielsko",
+   "Site",
+   "Business"
+  ],
+  [
+   "Avio Aero",
+   "Engineering",
+   "",
+   "Area",
+   "Business"
+  ],
+  [
+   "Avio Aero",
+   "Northstar",
+   "Chicago",
+   "Site",
+   "Business"
+  ],
+  [
+   "Avionics",
+   "",
+   "",
+   "Segment",
+   "Business"
+  ],
+  [
+   "Avionics",
+   "Engineering",
+   "",
+   "Area",
+   "Business"
+  ]
+ ],
+ "m": {
+  "skyler.gallagher@example.com": 1,
+  "casey.varga@example.com": 3,
+  "jamie.okafor@example.com": 2,
+  "parker.petrov@example.com": 4,
+  "riley.novak@example.com": 0,
+  "val.novak@example.com": 5,
+  "blake.moreau@example.com": 6,
+  "toby.okafor@example.com": 1,
+  "robin.ibarra@example.com": 3,
+  "val.zimmer@example.com": 2,
+  "sawyer.lindqvist@example.com": 4,
+  "oakley.ibarra@example.com": 0,
+  "skyler.zimmer@example.com": 5,
+  "remy.delgado@example.com": 6,
+  "wren.kim@example.com": 1,
+  "taylor.kowalski@example.com": 3,
+  "riley.sato@example.com": 2,
+  "harper.kim@example.com": 4,
+  "logan.castillo@example.com": 0,
+  "drew.gallagher@example.com": 5,
+  "taylor.brennan@example.com": 6,
+  "parker.hartley@example.com": 1,
+  "finley.kowalski@example.com": 3,
+  "skyler.ibarra@example.com": 2
+ }
+}/*FDL_DIR_END*/;
+
+  /* Preview mode, for copies of the page outside SharePoint: when the page defines
+     window.FDL_PREVIEW_DATA, use it instead of the live group, and show a
+     placeholder avatar since SharePoint photos need a SharePoint sign-in. */
+  var PREVIEW = location.hostname !== 'ge.sharepoint.us' && window.FDL_PREVIEW_DATA;
+  var SILHOUETTE = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44"><rect width="44" height="44" fill="#e7ecf7"/><g fill="none" stroke="#75758f" stroke-width="1.6" stroke-linecap="round" transform="translate(10 10)"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></g></svg>');
+
+  /* Design preview only: the live SharePoint read is the tenant copy's job
+     (ge-gcch/handoff/incoming/fdl-finder.js). Here the finder runs on FDL_PREVIEW_DATA. */
+  function api() { return Promise.reject(new Error('preview')); }
+
+  /* 'Last, First (GE Aerospace, US)' -> 'First Last' */
+  function displayName(raw) {
+    var name = String(raw || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+    var i = name.indexOf(',');
+    return i === -1 ? name : name.slice(i + 1).trim() + ' ' + name.slice(0, i).trim();
+  }
+
+  /* Group members as {n: name, t: title, d: department, e: email}. */
+  function loadMembers() {
+    if (PREVIEW) return Promise.resolve(PREVIEW);
+    try {
+      var c = JSON.parse(sessionStorage.getItem(CACHE_KEY) || 'null');
+      if (c && Date.now() - c.at < CACHE_MS && c.people && c.people.length) return Promise.resolve(c.people);
+    } catch (e) {}
+
+    var groupPath = "web/sitegroups/getbyname('" + GROUP.replace(/'/g, "''") + "')/users?$select=Id,Title,Email,PrincipalType&$top=5000";
+    return api(groupPath).then(function (res) {
+      var users = (res.value || []).filter(function (u) { return u.PrincipalType === 1 && u.Email; });
+      var chunks = [];
+      for (var i = 0; i < users.length; i += ID_CHUNK) chunks.push(users.slice(i, i + ID_CHUNK));
+
+      // Look up only the members' rows; the User Information List is far larger than the group.
+      var info = {};
+      function fetchChunk(ids) {
+        var filter = ids.map(function (u) { return '(ID eq ' + (+u.Id) + ')'; }).join(' or ');
+        return api('web/siteuserinfolist/items?$select=ID,Department,JobTitle&$top=' + ID_CHUNK + '&$filter=' + encodeURIComponent(filter))
+          .then(function (r) { (r.value || []).forEach(function (it) { info[it.ID] = it; }); });
+      }
+      var next = 0;
+      function worker() {
+        if (next >= chunks.length) return Promise.resolve();
+        return fetchChunk(chunks[next++]).then(worker);
+      }
+      return Promise.all([worker(), worker(), worker(), worker()]).then(function () {
+        var people = users.map(function (u) {
+          var row = info[u.Id] || {};
+          return {
+            n: displayName(u.Title),
+            t: String(row.JobTitle || '').replace(/\s+/g, ' ').trim(),
+            d: String(row.Department || '').trim(),
+            e: String(u.Email).trim()
+          };
+        });
+        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), people: people })); } catch (e) {}
+        return people;
+      });
+    });
+  }
+
+  /* Attach directory paths, drop anyone with neither a path nor a department
+     (nothing to find them by), and build the segment > area > site tree. */
+  function prepare(members) {
+    var people = [], nodes = {}, cesSegs = {};
+    members.forEach(function (m) {
+      var ix = FDL_DIR.m[String(m.e).toLowerCase()];
+      var row = ix === undefined ? null : FDL_DIR.p[ix];
+      var k = row ? { seg: row[0], area: row[1], site: row[2], cov: row[3], kind: row[4] } : null;
+      if (!k && !m.d) return;
+      var p = { n: m.n, t: m.t || '', d: m.d || '', e: m.e, k: k };
+      p.text = [k ? crumb(k.seg, k.area, k.site) : '', p.d, p.t].join(' ').toLowerCase();
+      people.push(p);
+      if (!k) return;
+      if (k.kind === 'CES' && k.seg !== CES_ALL) cesSegs[k.seg] = 1;
+      addNode(nodes, k.seg, '', '');
+      if (k.area) addNode(nodes, k.seg, k.area, '');
+      if (k.site) addNode(nodes, k.seg, k.area, k.site);
+    });
+    var list = Object.keys(nodes).map(function (key) { return nodes[key]; });
+    list.forEach(function (nd) {
+      nd.groups = groupsFor(nd, people, cesSegs);
+      nd.count = nd.groups.reduce(function (s, g) { return s + g.people.length; }, 0);
+    });
+    return { people: people, nodes: list };
+  }
+
+  function crumb(seg, area, site) { return [seg, area, site].filter(Boolean).join(' › '); }
+
+  function addNode(nodes, seg, area, site) {
+    var key = seg + '|' + area + '|' + site;
+    if (nodes[key]) return;
+    nodes[key] = { seg: seg, area: area, site: site, lvl: site ? 2 : area ? 1 : 0,
+                   label: site || area || seg, crumb: crumb(seg, area, site) };
+  }
+
+  /* Result groups for a picked path, most specific coverage first. Leaders who cover
+     a whole segment (or all of CES) appear under every area and site inside it. */
+  function groupsFor(nd, people, cesSegs) {
+    function where(fn) { return people.filter(function (p) { return p.k && fn(p.k); }); }
+    var S = nd.seg, A = nd.area, T = nd.site, g = [];
+    if (nd.lvl === 2) {
+      g.push({ title: 'At ' + T, people: where(function (k) { return k.seg === S && k.area === A && k.site === T; }) });
+      g.push({ title: 'Across ' + A, people: where(function (k) { return k.seg === S && k.area === A && !k.site; }) });
+    } else if (nd.lvl === 1) {
+      g.push({ title: 'Across ' + A, people: where(function (k) { return k.seg === S && k.area === A && !k.site; }) });
+      g.push({ title: 'At sites in ' + A, people: where(function (k) { return k.seg === S && k.area === A && k.site; }), bySite: true });
+    }
+    g.push({ title: S === CES_ALL ? 'Across all of CES' : 'Across all of ' + S, people: where(function (k) { return k.seg === S && !k.area; }) });
+    if (nd.lvl === 0) {
+      g.push({ title: 'Across areas in ' + S, people: where(function (k) { return k.seg === S && k.area && !k.site; }) });
+      g.push({ title: 'At sites in ' + S, people: where(function (k) { return k.seg === S && k.site; }), bySite: true });
+    }
+    if (cesSegs[S]) g.push({ title: 'Across all of CES', people: where(function (k) { return k.seg === CES_ALL; }) });
+    return g.filter(function (x) { return x.people.length; });
+  }
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = String(text);
+    return n;
+  }
+  /* Replace a node's content with a list of parts: a string becomes a text node,
+     a node is appended as it is. */
+  function fill(node, parts) {
+    node.textContent = '';
+    parts.forEach(function (p) { node.appendChild(typeof p === 'string' ? document.createTextNode(p) : p); });
+    return node;
+  }
+  function feedbackLink(text) {
+    var a = el('a', null, text);
+    a.href = FEEDBACK; a.target = '_blank'; a.rel = 'noopener';
+    return a;
+  }
+  function quoted(s) { return el('b', null, '“' + s + '”'); }
+
+  function tokens(s) { return s.toLowerCase().split(/\s+/).filter(Boolean); }
+  function matches(text, toks) { var t = text.toLowerCase(); return toks.every(function (k) { return t.indexOf(k) !== -1; }); }
+  /* The text with every typed word wrapped in <mark>, built as nodes. */
+  function highlight(text, toks) {
+    var low = text.toLowerCase(), hit = [];
+    toks.forEach(function (k) {
+      for (var i = low.indexOf(k); i !== -1; i = low.indexOf(k, i + 1)) {
+        for (var j = i; j < i + k.length; j++) hit[j] = true;
+      }
+    });
+    var frag = document.createDocumentFragment(), i = 0;
+    while (i < text.length) {
+      var on = !!hit[i], j = i;
+      while (j < text.length && !!hit[j] === on) j++;
+      frag.appendChild(on ? el('mark', null, text.slice(i, j)) : document.createTextNode(text.slice(i, j)));
+      i = j;
+    }
+    return frag;
+  }
+  function photo(email) {
+    return SILHOUETTE;
+  }
+
+  function start(root) {
+    var q = root.querySelector('#fdl-q'), list = root.querySelector('#fdl-list'),
+        clear = root.querySelector('#fdl-clear'), status = root.querySelector('#fdl-status'),
+        out = root.querySelector('#fdl-results');
+    var PEOPLE = [], NODES = [], depts = {}, deptNames = [], opts = [], active = -1;
+
+    /* The starting state is set here as well as in the markup: the hidden and disabled
+       attributes can be dropped when the page is saved, and these lines put them back. */
+    list.hidden = true; clear.hidden = true; q.disabled = true;
+
+    /* A path matches when every word appears in its breadcrumb and at least one word
+       is in its own name, so "Supply Chain" suggests the Supply Chain segment and
+       areas, not every site underneath them. */
+    function pathHits(raw, toks) {
+      var lr = raw.toLowerCase();
+      return NODES.filter(function (nd) {
+        var own = nd.label.toLowerCase();
+        return matches(nd.crumb, toks) && toks.some(function (k) { return own.indexOf(k) !== -1; });
+      }).sort(function (a, b) {
+        // Broad to narrow (segment, area, site), then names that start with the query, then size.
+        var ra = a.label.toLowerCase().indexOf(lr) === 0 ? 0 : 1;
+        var rb = b.label.toLowerCase().indexOf(lr) === 0 ? 0 : 1;
+        return a.lvl - b.lvl || ra - rb || b.count - a.count || a.crumb.localeCompare(b.crumb);
+      });
+    }
+
+    function everyone(toks) { return PEOPLE.filter(function (p) { return matches(p.text, toks); }); }
+
+    function section(text) {
+      var li = el('li', 'fdl-sec', text);
+      li.setAttribute('role', 'presentation');
+      return li;
+    }
+    function option(o, parts) {
+      var i = opts.push(o) - 1;
+      var li = el('li');
+      li.setAttribute('role', 'option');
+      li.id = 'fdl-opt-' + i;
+      li.setAttribute('data-i', i);
+      li.setAttribute('aria-selected', 'false');
+      parts.forEach(function (p) { li.appendChild(p); });
+      return li;
+    }
+
+    function suggest() {
+      var raw = q.value.trim(), toks = tokens(raw);
+      clear.hidden = !q.value;
+      if (raw.length < 2) { closeList(); return; }
+      var paths = pathHits(raw, toks).slice(0, MAX_PATHS);
+      var dhits = deptNames.filter(function (d) { return matches(d, toks); })
+        .sort(function (a, b) { return depts[b] - depts[a] || a.localeCompare(b); }).slice(0, MAX_DEPTS);
+      var all = everyone(toks).length;
+      if (!paths.length && !dhits.length && !all) { closeList(); showEmpty(raw); return; }
+
+      opts = [];
+      list.textContent = '';
+      if (paths.length) {
+        list.appendChild(section('Areas'));
+        paths.forEach(function (nd) {
+          var name = el('span');
+          if (nd.lvl) name.appendChild(el('span', 'fdl-crumb', crumb(nd.seg, nd.lvl === 2 ? nd.area : '', '') + ' › '));
+          name.appendChild(highlight(nd.label, toks));
+          list.appendChild(option({ node: nd }, [name, el('span', 'fdl-n', nd.count)]));
+        });
+      }
+      if (dhits.length) {
+        list.appendChild(section('Departments'));
+        dhits.forEach(function (d) {
+          list.appendChild(option({ dept: d }, [fill(el('span'), [highlight(d, toks)]), el('span', 'fdl-n', depts[d])]));
+        });
+      }
+      if (all) list.appendChild(option({ all: true },
+        [el('span', 'fdl-all', 'Search everything for “' + raw + '”'), el('span', 'fdl-n', all)]));
+
+      active = -1;
+      list.hidden = false;
+      q.setAttribute('aria-expanded', 'true');
+      q.removeAttribute('aria-activedescendant');
+    }
+
+    function closeList() {
+      list.hidden = true; opts = []; active = -1;
+      q.setAttribute('aria-expanded', 'false');
+      q.removeAttribute('aria-activedescendant');
+    }
+
+    function setActive(i) {
+      var items = list.querySelectorAll('li[role="option"]');
+      if (!items.length) return;
+      active = (i + items.length) % items.length;
+      items.forEach(function (li, j) { li.setAttribute('aria-selected', j === active ? 'true' : 'false'); });
+      q.setAttribute('aria-activedescendant', 'fdl-opt-' + active);
+      items[active].scrollIntoView({ block: 'nearest' });
+    }
+
+    function choose(o) {
+      var raw = q.value.trim();
+      closeList();
+      if (o.node) {
+        q.value = o.node.crumb;
+        render(o.node.groups, [el('b', null, o.node.crumb)]);
+      } else if (o.dept) {
+        q.value = o.dept;
+        render([{ title: o.dept, people: PEOPLE.filter(function (p) { return p.d === o.dept; }) }], [el('b', null, o.dept)]);
+      } else {
+        var hits = everyone(tokens(raw));
+        if (!hits.length) { showEmpty(raw); return; }
+        render([{ title: 'Matching “' + raw + '”', people: hits }], ['results matching ', quoted(raw)]);
+      }
+    }
+
+    function showEmpty(raw) {
+      out.textContent = '';
+      fill(status, ['No matches for ', quoted(raw),
+        '. Try your segment, area, site or department, e.g. “Supply Chain” or “Singapore”. Still can’t find it? ',
+        feedbackLink('Let us know'), '.']);
+    }
+
+    function card(p) {
+      var row = el('div', 'fdl-person');
+      var img = el('img', 'fdl-avatar');
+      img.alt = ''; img.loading = 'lazy';
+      // No photo, or no access to it: keep the plain circle rather than a broken-image icon.
+      img.addEventListener('error', function () {
+        var blank = el('span', 'fdl-avatar');
+        blank.setAttribute('aria-hidden', 'true');
+        if (img.parentNode) img.parentNode.replaceChild(blank, img);
+      });
+      img.src = photo(p.e);
+      var meta = el('div', 'fdl-meta');
+      meta.appendChild(el('b', null, p.n));
+      if (p.t) meta.appendChild(el('span', null, p.t));
+      if (p.d) meta.appendChild(el('span', null, p.d));
+      var mail = el('a');
+      mail.href = 'mailto:' + p.e;
+      var at = p.e.indexOf('@');
+      if (at > 0) fill(mail, [p.e.slice(0, at), document.createElement('wbr'), p.e.slice(at)]);
+      else mail.textContent = p.e;
+      meta.appendChild(mail);
+      row.appendChild(img);
+      row.appendChild(meta);
+      return row;
+    }
+
+    function group(spec) {
+      var people = spec.people.slice().sort(function (a, b) {
+        return (spec.bySite ? a.k.site.localeCompare(b.k.site) : 0) || a.n.localeCompare(b.n);
+      });
+      var g = el('div', 'fdl-group');
+      g.appendChild(fill(el('h3'), [spec.title + ' ', el('span', 'fdl-n', people.length)]));
+      var grid = g.appendChild(el('div', 'fdl-people')), shown = 0;
+      function show(upTo) {
+        people.slice(shown, upTo).forEach(function (p) { grid.appendChild(card(p)); });
+        shown = Math.min(upTo, people.length);
+      }
+      show(PAGE);
+      if (shown < people.length) {
+        var btn = el('button', 'fdl-more', 'Show all ' + people.length);
+        btn.type = 'button';
+        btn.addEventListener('click', function () { show(people.length); btn.remove(); });
+        g.appendChild(btn);
+      }
+      return g;
+    }
+
+    function render(groups, label) {
+      var n = groups.reduce(function (s, g) { return s + g.people.length; }, 0);
+      fill(status, [n + (n === 1 ? ' person' : ' people') + ' for '].concat(label, ['.']));
+      out.textContent = '';
+      groups.forEach(function (spec) { out.appendChild(group(spec)); });
+    }
+
+    q.addEventListener('input', function () { status.textContent = ''; out.textContent = ''; suggest(); });
+    q.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); if (list.hidden) suggest(); setActive(active + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active - 1); }
+      else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (!opts.length) suggest();
+        if (opts.length) choose(opts[active >= 0 ? active : 0]);
+      }
+      else if (e.key === 'Escape') { closeList(); }
+    });
+    list.addEventListener('mousedown', function (e) {
+      var li = e.target.closest('li[role="option"]'); if (!li) return;
+      e.preventDefault(); choose(opts[+li.getAttribute('data-i')]);
+    });
+    q.addEventListener('blur', function () { setTimeout(closeList, 120); });
+    clear.addEventListener('click', function () {
+      q.value = ''; clear.hidden = true; status.textContent = ''; out.textContent = ''; closeList(); q.focus();
+    });
+
+    loadMembers().then(function (members) {
+      var data = prepare(members);
+      PEOPLE = data.people; NODES = data.nodes;
+      PEOPLE.forEach(function (p) { if (p.d) depts[p.d] = (depts[p.d] || 0) + 1; });
+      deptNames = Object.keys(depts).sort();
+      q.disabled = false;
+      q.placeholder = 'e.g. strategy principals for CES';
+    }).catch(function (err) {
+      console.error('[fdl-finder]', err);
+      q.placeholder = 'Unavailable';
+      fill(status, ['We couldn’t load the contacts right now. Please refresh the page, or ',
+        feedbackLink('let us know'), ' if it keeps happening.']);
+    });
+  }
+
+  /* The Script Editor may run this before its HTML is on the page, and SharePoint
+     can re-run it on in-site navigation; wait for the markup and start once. */
+  var tries = 0;
+  (function boot() {
+    var root = document.getElementById('fdl-finder');
+    if (root && !root.dataset.fdlReady) { root.dataset.fdlReady = '1'; start(root); return; }
+    if (!root && ++tries < 100) setTimeout(boot, 100);
+  })();
+})();
+</script>
+<script>
+/* Example pills under the finder's search: fill the box and run the first match, as if typed and Enter pressed. */
+(function(){
+  var q=document.getElementById('fdl-q'); if(!q) return;
+  [].forEach.call(document.querySelectorAll('#fdl-finder .fdl-chip'),function(b){
+    b.addEventListener('click',function(){
+      if(q.disabled) return;
+      q.value=b.textContent.trim();
+      q.dispatchEvent(new Event('input',{bubbles:true}));
+      q.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));
+    });
+  });
+})();
+</script>
 <link rel="stylesheet" href="/hub/film-modal.css">
 <script src="/hub/film-modal.js"></script>
 
