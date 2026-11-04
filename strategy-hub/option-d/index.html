@@ -1335,17 +1335,6 @@ body{padding-left:0}
        left, and everything functional sits below it. The GE call asked for a
        header that carries announcements and can carry a carousel or video, so
        this is that hero with the announcement rotating inside it. -->
-  <section class="vpanel" id="vpanel" role="dialog" aria-modal="true" aria-label="Opening video"><div class="v-in">
-    <div class="vp-bar"><button type="button" class="vp-close" data-vclose>Close &times;</button></div>
-    <div class="vp-frame">
-      <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
-      <div class="vposter" id="vposter">
-        <img src="/strategy-hub/img/opening.jpg" alt="">
-        <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
-        <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
-      </div>
-    </div>
-  </div></section>
 
   <div class="engine-wrap">
     <div class="ai-bg" aria-hidden="true"></div>
@@ -1459,6 +1448,30 @@ body{padding-left:0}
     </div></div>
   </section>
 
+  <!-- ═══ OPENING MESSAGE — video panel ═══
+       Opens under the carousel from the second slide's Watch Now pill, the same way the Enterprise Strategy panel does. -->
+  <section class="espanel vpanel" id="vpanel" aria-label="A message from our CSO" inert>
+    <div class="es-clip"><div class="es-pad">
+      <div class="es-card">
+        <div class="es-head">
+          <div>
+            <div class="es-eyebrow">Opening message</div>
+            <h2 class="es-title">A message from our CSO</h2>
+          </div>
+          <button type="button" class="es-close" data-vclose aria-label="Close"><span class="es-close-txt">Close </span>&times;</button>
+        </div>
+        <div class="vp-frame">
+          <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
+          <div class="vposter" id="vposter">
+            <img src="/strategy-hub/img/opening.jpg" alt="">
+            <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
+            <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
   <!-- ═══ AEROINTEL ASK ═══
        Ask-first block, first content under the header: a dark card with the question field, example prompts as
        pills, and a recent-conversations list. The announcement carousel
@@ -1517,15 +1530,8 @@ body{padding-left:0}
   /* Backdrop: metal-arcs.jpg (blue brushed-metal arcs), fixed to the viewport and clipped to this band. */
   #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#000020 url(/strategy-hub/img/metal-arcs-final.jpg?v=1) center/cover no-repeat}
   #dash .ai-bg::after{content:none}
-  /* Opening video: a lightbox over the page, on a dark overlay. */
-  #dash .vpanel{display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;background:rgba(0,0,25,.78)}
-  #dash .vpanel.open{display:flex}
-  #dash .vpanel .v-in{position:relative;width:min(860px,100%);padding:0;margin:0}
-  #dash .vp-bar{display:flex;justify-content:flex-end;margin-bottom:12px}
-  #dash .vp-close{border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:100px;font:inherit;font-size:13px;padding:8px 18px;cursor:pointer}
-  #dash .vp-close:hover{background:#fff;color:#00003d;border-color:#fff}
-  #dash .vp-close:focus-visible{outline:3px solid #4181ff;outline-offset:2px}
-  #dash .vp-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px -20px rgba(0,0,25,.7)}
+  /* Opening video panel: reuses the .espanel accordion + glass card; only the frame is its own. */
+  #dash .vp-frame{position:relative;width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px -20px rgba(0,0,25,.7)}
   #dash .vp-frame video{width:100%;height:100%;display:block;background:#000}
   #dash .vposter{position:absolute;inset:0;background:#000}
   #dash .vposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -2976,19 +2982,20 @@ document.addEventListener('click',function(e){
     var pl=v.play(); if(pl&&pl.catch) pl.catch(function(){});
   }
   function open(){
-    poster.classList.remove('gone'); m.classList.add('open'); document.body.style.overflow='hidden';
+    var other=document.getElementById('espanel'); if(other&&other.classList.contains('open')){ var op=document.querySelector('#dash [data-es]'); if(op) op.click(); }
+    poster.classList.remove('gone'); m.removeAttribute('inert'); m.classList.add('open');
     if(pill) pill.setAttribute('aria-expanded','true');
-    document.getElementById('vplay').focus();
+    setTimeout(function(){ var r=m.getBoundingClientRect(); if(r.bottom>innerHeight||r.top<0) m.scrollIntoView({behavior:'smooth',block:'center'}); },60);
   }
-  function close(){
-    v.pause(); m.classList.remove('open'); document.body.style.overflow='';
-    if(pill){ pill.setAttribute('aria-expanded','false'); pill.focus(); }
+  function close(focus){
+    v.pause(); m.classList.remove('open'); m.setAttribute('inert','');
+    if(pill){ pill.setAttribute('aria-expanded','false'); if(focus) pill.focus(); }
   }
-  if(pill) pill.addEventListener('click',function(e){ e.preventDefault(); open(); });
+  m._close=close;
+  if(pill) pill.addEventListener('click',function(e){ e.preventDefault(); m.classList.contains('open')?close(false):open(); });
   document.getElementById('vplay').addEventListener('click',play);
-  m.querySelector('[data-vclose]').addEventListener('click',close);
-  m.addEventListener('click',function(e){ if(e.target===m) close(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.classList.contains('open')) close(); });
+  m.querySelector('[data-vclose]').addEventListener('click',function(){ close(true); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && m.classList.contains('open')) close(true); });
 })();
 </script>
 
@@ -2997,6 +3004,7 @@ document.addEventListener('click',function(e){
 (function(){
   var p=document.getElementById('espanel'), pill=document.querySelector('#dash [data-es]'); if(!p||!pill) return;
   function open(){
+    var vp=document.getElementById('vpanel'); if(vp&&vp._close&&vp.classList.contains('open')) vp._close(false);
     p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true');
     setTimeout(function(){ var r=p.getBoundingClientRect(); if(r.bottom>innerHeight||r.top<0) p.scrollIntoView({behavior:'smooth',block:'center'}); },60);
   }
