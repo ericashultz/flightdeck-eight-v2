@@ -1345,6 +1345,12 @@ body{padding-left:0}
 #dash .wg-lab{font-size:14px;font-weight:700;line-height:1.3}
 #dash .wg-ans{display:block;margin-top:2px;font-size:14px;line-height:1.4;color:#44496e;overflow-wrap:anywhere}
 #dash .wg-row:not(.done) .wg-ans{color:#9a9ab0}
+#dash .wg-tiplbl{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#75758f;margin:0 0 8px}
+#dash .wg-tips{margin:0 0 14px;padding:0 0 0 18px;font-size:14.5px;line-height:1.5;color:#44496e}
+#dash .wg-tips li{margin:0 0 6px}
+#dash .wg-take{margin:0 0 18px;padding:10px 14px;border-left:3px solid #16b364;background:#f3faf6;border-radius:0 8px 8px 0;font-size:14px;line-height:1.45;color:#2b5a41}
+#dash .wg-btn2{background:transparent;color:var(--ink);border:1px solid #cfd6ea;text-decoration:none;display:inline-block}
+#dash .wg-btn2:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 @media(max-width:900px){
   #dash .wg-grid{grid-template-columns:minmax(0,1fr)}
   #dash .wg-pad{padding:56px 20px 56px}
@@ -1407,7 +1413,7 @@ body{padding-left:0}
       <button type="button" class="wg-close" id="wg-close">Close &times;</button>
       <div class="wg-eyebrow">Guided game finder</div>
       <h2 class="wg-h">Answer nine questions, see your game</h2>
-      <p class="wg-intro">One question per screen. Your answers fill in the page beside you, and at the end you get the game you are playing, read back in one place.</p>
+      <p class="wg-intro">This is guidance, not a template. Answer one question per screen, with a few prompts to think about under each. Your answers fill in the page beside you, and at the end you get the game you are playing, read back in one place.</p>
       <div class="wg-grid">
         <div>
           <div class="wg-card" id="wg-card">
@@ -1415,7 +1421,9 @@ body{padding-left:0}
               <div class="wg-prog"><div class="wg-bar"><i id="wg-fill"></i></div><div class="wg-count" id="wg-count"></div></div>
               <p class="wg-topic" id="wg-topic"></p>
               <h3 class="wg-q" id="wg-q"></h3>
-              <p class="wg-help" id="wg-help"></p>
+              <p class="wg-tiplbl">Think about</p>
+              <ul class="wg-tips" id="wg-tips"></ul>
+              <p class="wg-take" id="wg-take"></p>
               <textarea class="wg-in" id="wg-in" rows="3" aria-labelledby="wg-q" aria-describedby="wg-err"></textarea>
               <p class="wg-err" id="wg-err" role="alert"></p>
               <div class="wg-acts">
@@ -1430,8 +1438,15 @@ body{padding-left:0}
               <h3 class="wg-q" tabindex="-1" id="wg-rh">Here is the game you are playing</h3>
               <p class="wg-lead" id="wg-lead"></p>
               <p class="wg-help">The page on the right is your game on one sheet. Select any row to change that answer, or copy the whole thing to start your memo.</p>
+              <p class="wg-tiplbl">Before the strategy meeting</p>
+              <ul class="wg-tips">
+                <li>Don&rsquo;t skip past &ldquo;what game are we playing&rdquo; to jump to a recommendation.</li>
+                <li>Define the market and consider how competitors will respond.</li>
+                <li>Seek input early. You can&rsquo;t over-delegate strategy.</li>
+              </ul>
               <div class="wg-acts">
                 <button type="button" class="wg-btn" id="wg-copy">Copy summary</button>
+                <a class="wg-btn wg-btn2" href="/strategy-hub/option-d/how-do-we-win.html">Next: How do we win</a>
                 <button type="button" class="wg-ghost" id="wg-restart">Start over</button>
               </div>
             </div>
@@ -1686,15 +1701,15 @@ body{padding-left:0}
 /* What game are we playing: nine questions, one at a time. Get started opens the panel under the hero. */
 (function(){
   var Q=[
-    ['Market definition','Where are we playing?','Name the market, segment or customer set you are in.'],
-    ['Market attractiveness','Is the market attractive / growing? What are the key headwinds / tailwinds?','Size, growth and what is pushing for and against you.'],
-    ['Value chain','What is the value chain and where do we sit?','The steps from raw input to the customer, and the ones you own.'],
-    ['Regulatory','What is the regulatory environment across the value chain? Is it stable?','Rules, certifications and anything likely to change.'],
-    ['Customer','What is the customer value chain? What are the customer purchasing behaviors? What are the customer needs? How are they evolving? Why?','Who buys, how they decide, and what is shifting.'],
-    ['Competitor','What are our competitors’ strategies? Their strengths / opportunities?','Who you play against and what they are doing about it.'],
-    ['Disruptors','What disruptors (e.g., technologies, business models, new entrants) could impact the game?','What could change the rules in the next few years.'],
-    ['GE Aerospace positioning','What is our win rate? How is it trending vs. our competitors? What are the key opportunities & threats?','Where you stand today, with numbers if you have them.'],
-    ['Ambition','What is our objective / what are we trying to achieve? (informed by “what’s the game?”)','The outcome you want, in one line.']
+    ["Market definition", "Where are we playing?", ["Zoom out one to three levels beyond today’s segment to define the full market and its boundaries.", "Define the segments and what differentiates them. Is this the same market, or an adjacent one?", "Map the ecosystem to understand its structure, size and share."], "Market definition is the foundation: deceptively hard, and important to get right."],
+    ["Market attractiveness", "Is the market attractive / growing? What are the key headwinds / tailwinds?", ["Understand the market’s trajectory (growth and trends) and how fragmented it is.", "Hypothesize the future growth drivers and what they mean for the business.", "Assess where the profitable pools are and how they could evolve."], "Market dynamics are complex. Few get them right the first time."],
+    ["Value chain", "What is the value chain and where do we sit?", ["Chart the value chain from raw inputs to the end consumer, with supplier and customer touchpoints.", "Estimate the economics at each step (size, average margin) and the competitive landscape.", "Look for bottlenecks and imbalances, and how the chain could change."], "Zoom in from the market to where the value is created. That informs where to focus."],
+    ["Regulatory", "What is the regulatory environment across the value chain? Is it stable?", ["Identify the major existing regulations and the bodies behind them, globally and locally.", "Track proposed legislation and policy trends that could affect the industry.", "Ask which segments could benefit or suffer, and where new standards raise barriers to entry."], "Regulation reshapes markets and market players."],
+    ["Customer", "What is the customer value chain? What are the customer purchasing behaviors? What are the customer needs? How are they evolving? Why?", ["Segment customers by behavior and size the segments.", "Map the buying cycle and the customer journey, including pain points.", "Understand the key purchase criteria, and the customer’s own stated strategy."], "Customer reality sets the strategy: what customers value, why, and when."],
+    ["Competitor", "What are our competitors’ strategies? Their strengths / opportunities?", ["Identify the primary competitor set and their business model.", "Understand their stated strategy and technical roadmap.", "Build scenarios for likely competitor actions, and how we would respond."], "Product evaluation is not enough to measure a competitor."],
+    ["Disruptors", "What disruptors (e.g., technologies, business models, new entrants) could impact the game?", ["Identify the macro indicators and trends that predict where the industry is heading.", "Assess which emerging trends are headwinds and which are tailwinds.", "Take a future-back view of how customer, partner and supplier needs could evolve."], "Profitable markets attract disruption."],
+    ["GE Aerospace positioning", "What is our win rate? How is it trending vs. our competitors? What are the key opportunities & threats?", ["Compare size, profitability, relative market share and margins with competitors.", "Assess how well GE Aerospace meets the key customer needs, and how customers see us.", "Look at the supplier relationship: where we are strong and where we are vulnerable."], "Know our relative position: benchmark, validate, and name the strengths and vulnerabilities that shape our options."],
+    ["Ambition", "What is our objective / what are we trying to achieve? (informed by “what’s the game?”)", ["Balance growth inside and outside the core. Are you playing offense (upside) or defense (protecting the downside)?", "Consider the urgency, and how much funding and time you have.", "Did you start with the customer, and does the ambition fit GE Aerospace goals?"], "Align strategic intent with financial capacity and timing."]
   ];
   var p=document.getElementById('wgpanel'), pill=document.querySelector('#dash [data-wg]'); if(!p||!pill) return;
   var $=function(id){return document.getElementById(id)};
@@ -1720,7 +1735,9 @@ body{padding-left:0}
     $('wg-count').textContent='Question '+(i+1)+' of '+Q.length;
     $('wg-fill').style.width=(i/Q.length*100)+'%';
     $('wg-topic').textContent=Q[i][0]+' · '+(i+1)+' of '+Q.length;
-    $('wg-q').textContent=Q[i][1]; $('wg-help').textContent=Q[i][2];
+    $('wg-q').textContent=Q[i][1];
+    var tl=$('wg-tips'); tl.textContent=''; Q[i][2].forEach(function(t){ var li=document.createElement('li'); li.textContent=t; tl.appendChild(li); });
+    $('wg-take').textContent=Q[i][3];
     inp.value=A[i]; inp.placeholder='Type your answer here'; err.textContent='';
     next.textContent=i===Q.length-1?'See my game':'Continue'; back.hidden=i===0;
     paint();
