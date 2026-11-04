@@ -1269,7 +1269,7 @@ body{padding-left:0}
 #dash .engine-wrap .hero .in{max-width:1280px;padding:116px 28px}
 #dash .engine-wrap .hero.anno{justify-content:flex-start;padding-top:0;min-height:0}
 @media(max-width:700px){#dash .engine-wrap .hero .in{padding:72px 20px}#dash .engine-wrap .annoslide .gpill{max-width:100%;box-sizing:border-box;white-space:normal;text-align:left;line-height:1.3;border-radius:28px}#dash .engine-wrap .annoslide h1,#dash .engine-wrap .annoslide .hsub{text-shadow:0 1px 14px rgba(0,0,20,.7)}}
-#dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(90deg,#000020 var(--bgx),rgba(0,0,32,0) calc(var(--bgx) + var(--bgf))) 0 0/100% 100% no-repeat,url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgx) center/cover no-repeat,#000020}
+#dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgpos)/var(--bgsize) no-repeat,#000020}
 #dash .ai-bg::after{content:none}
 #dash .fb-band .eyebrow{color:rgba(255,255,255,.7)}
 #dash .fb-band h2{color:#fff}
@@ -1277,7 +1277,7 @@ body{padding-left:0}
 #dash .duo{position:relative;isolation:isolate;clip-path:inset(0);background:#000018;
   display:grid;grid-template-columns:minmax(0,1080px);justify-content:center;gap:28px;align-items:stretch;padding:72px 28px}
 #dash .duo::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:linear-gradient(90deg,#000020 var(--bgx),rgba(0,0,32,0) calc(var(--bgx) + var(--bgf))) 0 0/100% 100% no-repeat,url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgx) center/cover no-repeat,#000020}
+  background:url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgpos)/var(--bgsize) no-repeat,#000020}
 #dash .duo::after{content:none}
 #dash .duo>.fb-band{display:flex;padding:0;border:0;background:transparent;color:#fff;
   position:static;clip-path:none;isolation:auto}
@@ -1361,7 +1361,7 @@ body{padding-left:0}
 @media(prefers-reduced-motion:reduce){#dash .wgpanel,#dash .wgpanel.open,#dash .wg-bar i{transition:none}}
 /* AeroIntel band: same fixed metal-arcs backdrop as the hero, with a glass card. */
 #dash .aiband{position:relative;isolation:isolate;clip-path:inset(0);background:#000018;padding:72px 28px;display:grid;grid-template-columns:minmax(0,1080px);justify-content:center}
-#dash .aiband::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#000020 var(--bgx),rgba(0,0,32,0) calc(var(--bgx) + var(--bgf))) 0 0/100% 100% no-repeat,url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgx) center/cover no-repeat,#000020}
+#dash .aiband::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgpos)/var(--bgsize) no-repeat,#000020}
 #dash .aiband-card{display:flex;align-items:center;justify-content:space-between;gap:36px;box-sizing:border-box;border-radius:22px;color:#fff;
   padding:clamp(36px,5vw,60px) clamp(24px,4.4vw,56px);
   background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
@@ -1388,9 +1388,9 @@ body{padding-left:0}
 #dash .engine-wrap .annoslide .hsub{margin-left:0;margin-right:auto}
 #dash .engine-wrap .annonav{justify-content:flex-start}
 @media(max-width:900px){#dash .engine-wrap .hero .in{padding-left:20px;padding-right:20px}}
-/* Backdrop shifted right so the top-left glare sits clear of the left-aligned copy; the strip it uncovers fades into the page navy. */
-#dash{--bgx:min(28vw,420px);--bgf:240px}
-@media(max-width:700px){#dash{--bgx:0px;--bgf:0px}}
+/* Backdrop shifted left (and slightly enlarged) so the top-left glare falls off the edge, clear of the left-aligned copy. */
+#dash{--bgpos:right center;--bgsize:auto 125%}
+@media(max-width:700px){#dash{--bgpos:center;--bgsize:cover}}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>

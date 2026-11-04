@@ -970,7 +970,7 @@ body{padding-left:0}
 #dash .duo{position:relative;isolation:isolate;clip-path:inset(0);background:#000018;
   display:grid;grid-template-columns:minmax(0,1080px);justify-content:center;gap:28px;align-items:stretch;padding:72px 28px}
 #dash .duo::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:linear-gradient(90deg,#000020 var(--bgx),rgba(0,0,32,0) calc(var(--bgx) + var(--bgf))) 0 0/100% 100% no-repeat,url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgx) center/cover no-repeat,#000020}
+  background:url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgpos)/var(--bgsize) no-repeat,#000020}
 #dash .duo::after{content:none}
 #dash .duo>.fb-band{display:flex;padding:0;border:0;background:transparent;color:#fff;
   position:static;clip-path:none;isolation:auto}
@@ -1519,7 +1519,7 @@ body{padding-left:0}
   /* The first slide's button is long; let it wrap on small screens instead of running off the edge. */
   @media(max-width:700px){#dash .engine-wrap .annoslide .gpill{max-width:100%;box-sizing:border-box;white-space:normal;text-align:left;line-height:1.3;border-radius:28px}}
   /* Backdrop: metal-arcs.jpg (blue brushed-metal arcs), fixed to the viewport and clipped to this band. */
-  #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(90deg,#000020 var(--bgx),rgba(0,0,32,0) calc(var(--bgx) + var(--bgf))) 0 0/100% 100% no-repeat,url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgx) center/cover no-repeat,#000020}
+  #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:url(/strategy-hub/img/metal-arcs-final.jpg?v=1) var(--bgpos)/var(--bgsize) no-repeat,#000020}
   #dash .ai-bg::after{content:none}
   /* Opening video panel: reuses the .espanel accordion + glass card; only the frame is its own. */
   #dash .vp-frame{position:relative;width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px -20px rgba(0,0,25,.7)}
@@ -1624,9 +1624,9 @@ body{padding-left:0}
   #dash .engine-wrap .annoslide .hsub{margin-left:0;margin-right:auto}
   #dash .engine-wrap .annonav{justify-content:flex-start}
   @media(max-width:860px){#dash .engine-wrap .hero .in{width:calc(100% - 40px)}}
-  /* Backdrop shifted right so the top-left glare sits clear of the left-aligned copy; the strip it uncovers fades into the page navy. */
-  #dash{--bgx:min(28vw,420px);--bgf:240px}
-  @media(max-width:700px){#dash{--bgx:0px;--bgf:0px}}
+  /* Backdrop shifted left (and slightly enlarged) so the top-left glare falls off the edge, clear of the left-aligned copy. */
+  #dash{--bgpos:right center;--bgsize:auto 125%}
+  @media(max-width:700px){#dash{--bgpos:center;--bgsize:cover}}
   </style>
   <section class="ai-stage" aria-label="Ask AeroIntel">
     <div class="ai-stage-in">
