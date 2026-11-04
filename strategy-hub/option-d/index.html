@@ -1626,10 +1626,11 @@ body{padding-left:0}
   @media(max-width:860px){#dash .engine-wrap .hero .in{width:calc(100% - 40px)}}
   /* Backdrop at its original scale and position (centred, cover). */
   #dash{--bgpos:center;--bgsize:cover}
-  /* Hero copy sits low in a taller banner; the dots keep their 72px gap to the card below. */
+  /* Hero copy sits low in a taller banner, 72px (56px on phones) above its bottom edge like the other pages; the card below then starts flush, so the dots keep a 72px gap to it. */
   #dash .engine-wrap .hero.anno{display:flex;flex-direction:row;align-items:flex-end;min-height:560px}
-  #dash .engine-wrap .hero .in{padding-top:0;padding-bottom:0}
-  @media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:480px}}
+  #dash .engine-wrap .hero .in{padding-top:0;padding-bottom:72px}
+  #dash .engine-wrap .ai-stage-in{padding-top:0}
+  @media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:480px}#dash .engine-wrap .hero .in{padding-bottom:56px}}
   </style>
   <section class="ai-stage" aria-label="Ask AeroIntel">
     <div class="ai-stage-in">
