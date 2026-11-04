@@ -1362,6 +1362,29 @@ body{padding-left:0}
 #fdl-finder .fdl-wrap{position:relative}
 #dash #fdl-finder .sect-close{right:40px}
 @media(max-width:860px){#dash #fdl-finder .sect-close{right:20px}}
+/* AeroIntel band: same fixed metal-arcs backdrop as the hero, with a glass card. */
+#dash .aiband{position:relative;isolation:isolate;clip-path:inset(0);background:#000018;padding:72px 28px;display:grid;grid-template-columns:minmax(0,1080px);justify-content:center}
+#dash .aiband::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:#000020 url(/strategy-hub/img/metal-arcs-final.jpg?v=1) center/cover no-repeat}
+#dash .aiband-card{display:flex;align-items:center;justify-content:space-between;gap:36px;box-sizing:border-box;border-radius:22px;color:#fff;
+  padding:clamp(36px,5vw,60px) clamp(24px,4.4vw,56px);
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:inset 0 0 60px rgba(255,255,255,.035),0 30px 70px -20px rgba(0,0,25,.6)}
+#dash .aiband-eyebrow{display:flex;align-items:center;gap:9px;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0ad64f;font-weight:600;margin:0 0 14px}
+#dash .aiband-eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:#0ad64f}
+#dash .aiband-card h2{margin:0 0 12px;color:#fff;font-weight:300;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.028em;line-height:1.1;text-shadow:0 2px 18px rgba(0,0,20,.55)}
+#dash .aiband-card p{margin:0;max-width:56ch;font-size:16px;line-height:1.6;color:rgba(255,255,255,.78)}
+#dash .aiband-card .gpill{flex:none}
+@media(max-width:900px){#dash .aiband{padding:36px 20px}#dash .aiband-card{flex-direction:column;align-items:flex-start;gap:26px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}}
+/* Resources: the finder opens in a Next steps panel on a light stage. */
+#dash .gsx-stage{display:none;background:#f7f9fd;padding:0}
+#dash .gsx-stage:has(.gsx.open){display:block}
+#dash .gsx-stage .gsx.open{margin-top:0;padding-bottom:84px}
+#dash #px-res{position:relative}
+#dash #px-res .gsx-close{position:absolute;top:0;right:0;float:none;margin:0;z-index:6}
+#dash #px-res section#fdl-finder{background:transparent;border:0;padding:64px 0 0}
+#dash #px-res #fdl-finder .fdl-wrap{max-width:none;padding:0}
+#dash #px-res #fdl-finder .fdl-sub{max-width:62ch}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1459,6 +1482,18 @@ body{padding-left:0}
         </div>
       </div>
     </div></div>
+  </section>
+
+  <!-- ═══ AEROINTEL — analysis for complex strategic questions. Same backdrop as the hero. ═══ -->
+  <section class="aiband" aria-label="AeroIntel">
+    <div class="aiband-card">
+      <div>
+        <div class="aiband-eyebrow">AeroIntel</div>
+        <h2>Use AeroIntel for analysis on complex strategic questions</h2>
+        <p>AeroIntel applies AI to GE Aerospace&rsquo;s curated expert content, giving teams faster, more consistent analysis. Bring your answers and take them further.</p>
+      </div>
+      <a class="gpill" href="/strategy-hub/option-d/aerointel.html">Open AeroIntel <span class="pc"><span>&rarr;</span></span></a>
+    </div>
   </section>
 
   <!-- ═══ QUICK START ═══
