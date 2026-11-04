@@ -1398,19 +1398,16 @@ body{padding-left:0}
         <article class="annoslide on">
           <div class="annotag">Strategy Fundamental</div>
           <h1>What game are we playing?</h1>
-          <p class="hsub">Nine questions to get you started.</p>
-          <a class="gpill light" href="#wgpanel" data-wg aria-expanded="false" aria-controls="wgpanel">Get started <span class="pc"><span>&rarr;</span></span></a>
         </article>
       </div>
     </div>
   </section>
   </div>
 
-  <!-- ═══ GUIDED QUESTIONS — opens under the hero from Get started ═══
+  <!-- ═══ GUIDED QUESTIONS — always visible under the hero ═══
        Nine questions, one per screen; the sheet on the right fills in as you answer, and the last screen reads the game back. Nothing is sent anywhere. -->
-  <section class="wgpanel" id="wgpanel" aria-label="What game are we playing: nine questions" inert>
+  <section class="wgpanel open" id="wgpanel" aria-label="What game are we playing: nine questions">
     <div class="wg-clip"><div class="wg-pad">
-      <button type="button" class="wg-close" id="wg-close">Close &times;</button>
       <div class="wg-eyebrow">Guided game finder</div>
       <h2 class="wg-h">Answer nine questions, see your game</h2>
       <p class="wg-intro">This is guidance, not a template. Answer one question per screen, with a few prompts to think about under each. Your answers fill in the page beside you, and at the end you get the game you are playing, read back in one place.</p>
@@ -1491,26 +1488,7 @@ body{padding-left:0}
        markup and rules as #sw-b .smod-default on Standard Work, so it is a
        pattern people have already met. Immediately under the hero, because
        anything at the bottom of this page will not be seen. -->
-  <section class="fd-say"><div class="v-in">
-  <button type="button" class="say-x" aria-label="Close" data-say-close>&times;</button>
-  <div>
-    <div class="rule"></div>
-    <p>GE content: introduction</p>
-  </div>
-  <a class="sm-action say-start" href="#px-learn" data-panel="px-learn" aria-expanded="false" aria-controls="px-learn">
-    <div class="sa-shot"><img src="/strategy-hub/img/wgawp-formation.jpg" alt="" loading="lazy"></div>
-    <span class="gpill" aria-label="Learn more about the Operating System">Learn more <span class="pc"><span>&rarr;</span></span></span>
-  </a>
-  <div class="gsx" id="px-learn">
-    <button type="button" class="gsx-close" data-px-close>Close &times;</button>
-    <div class="learn-cols">
-      <div><div class="v-label">Watch now</div><h4 class="v-title">What Game Are We Playing</h4><p class="v-small">GE content: video</p></div>
-      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">How Do We Win</h4><p>How Do We Win (HDWW) is the phase of the enterprise strategy process where strategic opportunities are converted into actionable business strategies.</p><a class="learn-open" href="/strategy-hub/option-d/how-do-we-win.html">Open How Do We Win <span aria-hidden="true">&rarr;</span></a></div>
-      <div><div class="v-label">Strategy Tool</div><h4 class="v-title">AeroIntel</h4><p>AeroIntel applies AI to GE Aerospace&rsquo;s curated expert content, giving teams faster, more consistent analysis for complex strategic questions.</p><a class="learn-open" href="/strategy-hub/option-d/aerointel.html">Open AeroIntel <span aria-hidden="true">&rarr;</span></a></div>
-    </div>
-  </div>
-
-</div></section>
+  
 
 <section class="qsband">
     <div class="wrap2">
@@ -1698,7 +1676,7 @@ body{padding-left:0}
 <script>if(/[?&]embed=1/.test(location.search))document.body.classList.add('embed');</script>
 
 <script>
-/* What game are we playing: nine questions, one at a time. Get started opens the panel under the hero. */
+/* What game are we playing: nine questions, one at a time. The block sits open under the hero. */
 (function(){
   var Q=[
     ["Market definition", "Where are we playing?", ["Zoom out one to three levels beyond today’s segment to define the full market and its boundaries.", "Define the segments and what differentiates them. Is this the same market, or an adjacent one?", "Map the ecosystem to understand its structure, size and share."], "Market definition is the foundation: deceptively hard, and important to get right."],
@@ -1711,7 +1689,7 @@ body{padding-left:0}
     ["GE Aerospace positioning", "What is our win rate? How is it trending vs. our competitors? What are the key opportunities & threats?", ["Compare size, profitability, relative market share and margins with competitors.", "Assess how well GE Aerospace meets the key customer needs, and how customers see us.", "Look at the supplier relationship: where we are strong and where we are vulnerable."], "Know our relative position: benchmark, validate, and name the strengths and vulnerabilities that shape our options."],
     ["Ambition", "What is our objective / what are we trying to achieve? (informed by “what’s the game?”)", ["Balance growth inside and outside the core. Are you playing offense (upside) or defense (protecting the downside)?", "Consider the urgency, and how much funding and time you have.", "Did you start with the customer, and does the ambition fit GE Aerospace goals?"], "Align strategic intent with financial capacity and timing."]
   ];
-  var p=document.getElementById('wgpanel'), pill=document.querySelector('#dash [data-wg]'); if(!p||!pill) return;
+  var p=document.getElementById('wgpanel'); if(!p) return;
   var $=function(id){return document.getElementById(id)};
   var inp=$('wg-in'),err=$('wg-err'),next=$('wg-next'),back=$('wg-back'),sheet=$('wg-sheet'),stepEl=$('wg-step'),resEl=$('wg-result');
   var A=new Array(Q.length).fill(''), cur=0, rows=[];
@@ -1773,15 +1751,6 @@ body{padding-left:0}
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok,function(){});
     else { var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); ok();}catch(e){} ta.remove(); }
   });
-  function open(){
-    p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true');
-    if(firstOpen()===A.length) finish(); else show(Math.min(cur<0?firstOpen():cur,firstOpen()));
-    setTimeout(function(){ var r=p.getBoundingClientRect(); if(r.bottom>innerHeight||r.top<0) p.scrollIntoView({behavior:'smooth',block:'start'}); if(!stepEl.hidden) inp.focus({preventScroll:true}); },560);
-  }
-  function close(focus){ p.classList.remove('open'); p.setAttribute('inert',''); pill.setAttribute('aria-expanded','false'); if(focus) pill.focus(); }
-  pill.addEventListener('click',function(e){ e.preventDefault(); p.classList.contains('open')?close(false):open(); });
-  $('wg-close').addEventListener('click',function(){ close(true); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&p.classList.contains('open')) close(true); });
   show(0);
 })();
 </script>
