@@ -1384,7 +1384,7 @@ body{padding-left:0}
         <div class="es-head">
           <div>
             <div class="es-eyebrow">The big picture</div>
-            <h2 class="es-title">How we turn strategy into results</h2>
+            <h2 class="es-title">How we turn strategy <span class="es-t2">into results</span></h2>
           </div>
           <button type="button" class="es-close" data-esclose>Close &times;</button>
         </div>
@@ -1536,6 +1536,10 @@ body{padding-left:0}
   #dash .es-t-xs{font-size:12px;font-weight:400;fill:rgba(255,255,255,.7);font-family:ui-monospace,Menlo,monospace;letter-spacing:.04em}
   @media(max-width:760px){
     #dash .es-pad{padding:36px 20px 0}
+    #dash .es-card{position:relative}
+    #dash .es-close{position:absolute;top:16px;right:16px}
+    #dash .es-title{font-size:min(28px,7.2vw)}
+    #dash .es-title .es-t2{display:block}
     #dash .es-diagram{flex-direction:column}
     #dash .es-node{flex:none;width:min(78%,300px)}
     #dash .es-culture{margin-top:22px}
