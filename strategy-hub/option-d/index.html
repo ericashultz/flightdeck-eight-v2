@@ -3023,6 +3023,15 @@ document.addEventListener('click',function(e){
 <script src="/hub/film-modal.js"></script>
 
 <script>
+/* Shared by the two hero panels: scroll so an opening panel ends up in the middle of the window; if it is taller than the window, line its top up under the nav instead. */
+function centrePanel(p){
+  var pad=p.querySelector('.es-pad'), h=pad?pad.offsetHeight:p.offsetHeight, top=p.getBoundingClientRect().top+window.pageYOffset;
+  var t=(h+120>window.innerHeight)?top-96:top+h/2-window.innerHeight/2;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({top:Math.max(0,t),behavior:reduce?'auto':'smooth'});
+}
+</script>
+<script>
 (function(){
   var m=document.getElementById('vpanel'); if(!m) return;
   var v=document.getElementById('vmodal-v'), poster=document.getElementById('vposter'), pill=document.querySelector('#dash [data-film]');
@@ -3038,7 +3047,7 @@ document.addEventListener('click',function(e){
     var other=document.getElementById('espanel'); if(other&&other.classList.contains('open')){ var op=document.querySelector('#dash [data-es]'); if(op) op.click(); }
     poster.classList.remove('gone'); m.removeAttribute('inert'); m.classList.add('open');
     if(pill) pill.setAttribute('aria-expanded','true');
-    m.scrollIntoView({behavior:'smooth',block:'start'});
+    centrePanel(m);
   }
   function close(focus){
     v.pause(); m.classList.remove('open'); m.setAttribute('inert','');
@@ -3059,8 +3068,8 @@ document.addEventListener('click',function(e){
   function open(){
     var vp=document.getElementById('vpanel'); if(vp&&vp._close&&vp.classList.contains('open')) vp._close(false);
     p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true');
-    /* Same as the Next steps panels: scroll so the panel starts at the top of the screen. */
-    p.scrollIntoView({behavior:'smooth',block:'start'});
+    /* Scroll down so the opened panel sits in the middle of the screen (judged by its full height, since it is still unfolding). */
+    centrePanel(p);
   }
   function close(focus){
     p.classList.remove('open'); p.setAttribute('inert',''); pill.setAttribute('aria-expanded','false'); if(focus) pill.focus();
