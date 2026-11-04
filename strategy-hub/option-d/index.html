@@ -985,9 +985,8 @@ body{padding-left:0}
 #dash .duo{position:relative;isolation:isolate;clip-path:inset(0);background:#000018;
   display:grid;grid-template-columns:repeat(2,minmax(0,598px));justify-content:center;gap:28px;align-items:stretch;padding:72px 28px}
 #dash .duo::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:#000 url(/strategy-hub/img/gradient.jpg?v=1) center/cover no-repeat;filter:brightness(.72)}
-#dash .duo::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:#00003d;mix-blend-mode:color}
+  background:#000020 url(/strategy-hub/img/metal-arcs.jpg?v=1) 50% 82%/cover no-repeat}
+#dash .duo::after{content:none}
 #dash .duo>.fb-band,#dash .duo>section#fdl-finder{display:flex;padding:0;border:0;background:transparent;color:#fff;
   position:static;clip-path:none;isolation:auto}
 #dash .duo>.fb-band>.in,#dash .duo>section#fdl-finder>.fdl-wrap{flex:1;width:auto;max-width:none;margin:0;box-sizing:border-box;
@@ -1463,9 +1462,9 @@ body{padding-left:0}
   #dash .engine-wrap .hero .in{padding-top:116px}
   /* The first slide's button is long; let it wrap on small screens instead of running off the edge. */
   @media(max-width:700px){#dash .engine-wrap .annoslide .gpill{max-width:100%;box-sizing:border-box;white-space:normal;text-align:left;line-height:1.3;border-radius:28px}}
-  /* Backdrop: gradient.jpg tinted to the site navy (#00003d) with a colour-blend overlay, fixed to the viewport and clipped to this band. */
-  #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#000 url(/strategy-hub/img/gradient.jpg?v=1) center/cover no-repeat;filter:brightness(.72)}
-  #dash .ai-bg::after{content:"";position:absolute;inset:0;background:#00003d;mix-blend-mode:color}
+  /* Backdrop: metal-arcs.jpg (blue brushed-metal arcs), fixed to the viewport and clipped to this band. */
+  #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#000020 url(/strategy-hub/img/metal-arcs.jpg?v=1) 50% 78%/cover no-repeat}
+  #dash .ai-bg::after{content:none}
   #dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:72px 28px clamp(48px,7vw,96px);box-sizing:border-box}
   /* Centre the hero copy and the ask card on the screen (same 1280px / 28px container as the nav). */
   #dash .engine-wrap .hero .in{max-width:1280px;padding-left:28px;padding-right:28px;padding-top:116px;padding-bottom:0}
