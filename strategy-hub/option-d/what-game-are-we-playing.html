@@ -1395,6 +1395,7 @@ body{padding-left:0}
 #dash .engine-wrap .hero.anno{display:flex;flex-direction:row;align-items:center;min-height:495px}
 #dash .engine-wrap .hero .in{padding-top:0;padding-bottom:0}
 @media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:420px}}
+#dash .wgpanel{scroll-margin-top:64px}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1434,6 +1435,7 @@ body{padding-left:0}
         <article class="annoslide on">
           <div class="annotag">Strategy Fundamental</div>
           <h1>What game are we playing</h1>
+          <a class="gpill light" href="#wgpanel" data-wgjump>Find out now <span class="pc"><span>&darr;</span></span></a>
         </article>
       </div>
     </div>
@@ -2822,6 +2824,18 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
       q.dispatchEvent(new Event('input',{bubbles:true}));
       q.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));
     });
+  });
+})();
+</script>
+<script>
+/* Find out now scrolls down to the question block and puts the cursor in the answer box. */
+(function(){
+  var a=document.querySelector('#dash [data-wgjump]'), p=document.getElementById('wgpanel'); if(!a||!p) return;
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    p.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    setTimeout(function(){ var i=document.getElementById('wg-in'); if(i&&!i.closest('[hidden]')) i.focus({preventScroll:true}); },reduce?0:700);
   });
 })();
 </script>
