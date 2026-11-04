@@ -1293,55 +1293,66 @@ body{padding-left:0}
   #dash .duo{grid-template-columns:minmax(0,880px);gap:36px;padding:36px 20px}
   #dash .duo>.fb-band>.in{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
 }
-/* ── Chat block as the hero banner (from the home page) ── */
-  #dash .ai-card{position:relative;overflow:hidden;border-radius:10px;color:#fff;padding:clamp(40px,5vw,64px) clamp(24px,4.4vw,56px) clamp(36px,4.4vw,52px);
-    background:radial-gradient(90% 120% at 92% -10%,rgba(65,129,255,.26),transparent 60%),linear-gradient(135deg,#050b18 0%,#0a1630 55%,#0d2050 100%)}
-  #dash .ai-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0ad64f;margin:0 0 22px;text-shadow:0 1px 10px rgba(0,0,20,.85)}
-  #dash .ai-card h1{margin:0 0 28px;font-size:clamp(32px,3.8vw,46px);line-height:1.05;letter-spacing:-.015em;font-weight:300;color:#fff;max-width:14em}
-  #dash .ai-card h1 b{font-weight:700;display:block}
-  #dash .ai-card .ai-sub{margin:12px 0 28px;font-size:clamp(17px,1.5vw,21px);font-weight:300;color:rgba(255,255,255,.86)}
-  #dash .ai-ask{display:flex;align-items:stretch;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:4px;padding:0}
-  #dash .ai-ask:focus-within{border-color:#4181ff;background:rgba(255,255,255,.1)}
-  #dash .ai-ask input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:inherit;font-size:16px;padding:20px 20px}
-  #dash .ai-ask input::placeholder{color:rgba(255,255,255,.62)}
-  #dash .ai-ask button{align-self:center;margin:0 10px 0 0;border:0;border-radius:3px;background:#0a5cff;color:#fff;font:inherit;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer;transition:background .15s}
-  #dash .ai-ask button:hover{background:#2f78ff}
-  #dash .ai-pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
-  #dash .ai-pills button{font:inherit;font-size:13px;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:10px 18px;cursor:pointer;transition:background .15s,border-color .15s}
-  #dash .ai-pills button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
-  #dash .ai-ask button:focus-visible,#dash .ai-pills button:focus-visible{outline:2px solid #4181ff;outline-offset:2px}
-  #dash .ai-recent{margin-top:34px}
-  #dash .ai-rh{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin:0 0 12px}
-  #dash .ai-row{display:grid;grid-template-columns:128px 1fr 24px;gap:0 20px;align-items:center;padding:16px 8px;border-top:1px solid rgba(255,255,255,.18);text-decoration:none;color:#fff;transition:background .15s}
-  #dash .ai-row:hover{background:rgba(255,255,255,.07)}
-  #dash .ai-when{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:rgba(255,255,255,.68)}
-  #dash .ai-q{display:block;font-size:16.5px;color:#fff;line-height:1.35}
-  #dash .ai-meta{display:block;margin-top:5px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:rgba(255,255,255,.6);letter-spacing:.01em}
-  #dash .ai-go{font-size:18px;color:#fff;justify-self:end}
-  #dash .ai-row:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
-  #dash .ai-recent{text-shadow:0 1px 10px rgba(0,0,20,.7)}
-  @media(max-width:860px){
-    #dash .ai-ask{flex-wrap:wrap}
-    #dash .ai-ask input{flex-basis:100%;padding:16px}
-    #dash .ai-ask button{margin:0 10px 10px 10px}
-    #dash .ai-row{grid-template-columns:1fr 24px;padding:16px 4px}
-    #dash .ai-when{grid-column:1 / -1;margin-bottom:6px}
-  }
-#dash .ai-stage{position:relative;display:flex;align-items:center;min-height:0;padding:0}
-#dash .engine-wrap>.ai-stage{position:relative;z-index:1}
-#dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:72px 28px clamp(48px,7vw,96px);box-sizing:border-box}
-#dash .ai-stage .ai-card{margin-left:auto;margin-right:auto;max-width:880px;border:0;border-radius:22px;
-  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  box-shadow:inset 0 0 60px rgba(255,255,255,.035),0 30px 70px -20px rgba(0,0,25,.6)}
-#dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
-#dash .ai-stage .ai-ask{background:rgba(0,0,20,.4)}
-#dash .ai-stage .ai-pills button{background:rgba(0,0,20,.32)}
-@media(max-width:860px){
-  #dash .ai-stage-in{padding:56px 20px 36px}
-  #dash .ai-stage .ai-card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
-  #dash .ai-meta{color:rgba(255,255,255,.75)}
+/* ── Hero banner + guided "What game are we playing?" panel ── */
+#dash .engine-wrap .hero .in{padding:72px 28px}
+@media(max-width:700px){#dash .engine-wrap .hero .in{padding:56px 20px}}
+#dash .wgpanel{position:relative;padding:0;display:grid;grid-template-rows:0fr;visibility:hidden;background:#f7f9fd;border-bottom:1px solid #e7ebf4;
+  transition:grid-template-rows .5s cubic-bezier(.23,1,.32,1),visibility 0s linear .5s}
+#dash .wgpanel.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .5s cubic-bezier(.23,1,.32,1),visibility 0s}
+#dash .wg-clip{min-height:0;overflow:hidden}
+#dash .wg-pad{position:relative;max-width:1180px;margin:0 auto;padding:72px 40px 84px;box-sizing:border-box}
+#dash .wg-eyebrow{display:flex;align-items:center;gap:9px;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#16a34a;font-weight:600;margin:0 0 14px}
+#dash .wg-eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:#16b364}
+#dash .wg-h{margin:0 0 14px;font-size:clamp(26px,2.6vw,40px);font-weight:300;letter-spacing:-.028em;line-height:1.1;color:var(--ink)}
+#dash .wg-intro{margin:0 0 36px;max-width:56ch;font-size:16px;line-height:1.6;color:#4a506a}
+#dash .wg-close{position:absolute;top:64px;right:40px;border:1px solid var(--line);background:#fff;border-radius:100px;font:inherit;font-size:13px;color:var(--ink);padding:9px 18px;cursor:pointer}
+#dash .wg-close:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+#dash .wg-close:focus-visible,#dash .wg-btn:focus-visible,#dash .wg-ghost:focus-visible,#dash .wg-row:focus-visible{outline:3px solid #4181ff;outline-offset:2px}
+#dash .wg-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 32px;align-items:start}
+#dash .wg-card{background:#fff;border:1px solid #e6e6ee;border-radius:16px;padding:28px 28px 30px;box-shadow:0 10px 30px -18px rgba(0,0,61,.2)}
+#dash .wg-prog{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+#dash .wg-bar{flex:1;height:6px;border-radius:6px;background:#eceef5;overflow:hidden}
+#dash .wg-bar i{display:block;height:100%;width:0;background:#1a5ce6;border-radius:6px;transition:width .35s cubic-bezier(.23,1,.32,1)}
+#dash .wg-count{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#44496e;white-space:nowrap}
+#dash .wg-topic{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2256e6;margin:0 0 12px}
+#dash .wg-q{margin:0 0 10px;font-size:clamp(22px,2vw,28px);font-weight:400;letter-spacing:-.02em;line-height:1.2;color:var(--ink)}
+#dash .wg-help{margin:0 0 20px;font-size:15px;line-height:1.5;color:#44496e}
+#dash .wg-in{width:100%;box-sizing:border-box;display:block;font:inherit;font-size:16px;line-height:1.45;color:var(--ink);background:#fff;border:2px solid #cfd6ea;border-radius:12px;padding:14px 16px;min-height:96px;resize:vertical}
+#dash .wg-in::placeholder{color:#9a9ab0}
+#dash .wg-in:focus{outline:none;border-color:#4181ff;box-shadow:0 0 0 4px rgba(65,129,255,.15)}
+#dash .wg-err{min-height:20px;margin:8px 0 0;font-size:13px;color:#c0392b}
+#dash .wg-acts{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap}
+#dash .wg-btn{border:0;border-radius:12px;background:#1a5ce6;color:#fff;font:inherit;font-size:16px;font-weight:600;padding:14px 28px;cursor:pointer;transition:background .15s}
+#dash .wg-btn:hover{background:#1247c0}
+#dash .wg-ghost{border:0;background:transparent;font:inherit;font-size:15px;color:#44496e;padding:12px 8px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+#dash .wg-ghost:hover{color:var(--ink)}
+#dash .wg-ghost[hidden],#dash .wg-hint[hidden]{display:none}
+#dash .wg-hint{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#75758f}
+#dash .wg-hint kbd{font:inherit;border:1px solid #d6dbea;border-radius:5px;padding:1px 6px;background:#f6f6f9}
+#dash .wg-note{margin-top:18px;border:1px solid #bfe6cf;background:#eefaf3;border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.5;color:#2b5a41}
+#dash .wg-note b{display:block;color:#16a34a;margin-bottom:2px}
+#dash .wg-result .wg-q{font-size:clamp(24px,2.3vw,32px);margin-bottom:16px}
+#dash .wg-lead{margin:0 0 14px;font-size:17px;line-height:1.55;color:var(--ink)}
+#dash .wg-lead strong{font-weight:600;color:#1247c0}
+#dash .wg-sheetlbl{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#44496e;margin:0 0 12px}
+#dash .wg-sheet{background:#fff;border:1px solid #e6e6ee;border-radius:12px;padding:8px 8px;box-shadow:0 18px 40px -24px rgba(0,0,61,.3);list-style:none;margin:0}
+#dash .wg-row{display:grid;grid-template-columns:30px 1fr;gap:0 14px;align-items:start;width:100%;text-align:left;border:0;background:transparent;font:inherit;color:var(--ink);padding:11px 12px;border-radius:9px;cursor:pointer}
+#dash .wg-row:hover{background:#f6f8fd}
+#dash .wg-row.cur{background:#eef3ff}
+#dash .wg-n{width:28px;height:28px;border-radius:50%;background:#ecebf3;color:#44496e;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600}
+#dash .wg-row.done .wg-n{background:#00003d;color:#fff}
+#dash .wg-row.cur .wg-n{background:#1a5ce6;color:#fff}
+#dash .wg-lab{font-size:14px;font-weight:700;line-height:1.3}
+#dash .wg-ans{display:block;margin-top:2px;font-size:14px;line-height:1.4;color:#44496e;overflow-wrap:anywhere}
+#dash .wg-row:not(.done) .wg-ans{color:#9a9ab0}
+@media(max-width:900px){
+  #dash .wg-grid{grid-template-columns:minmax(0,1fr)}
+  #dash .wg-pad{padding:56px 20px 56px}
+  #dash .wg-close{top:48px;right:20px}
+  #dash .wg-card{padding:22px 18px 24px}
+  #dash .wg-hint{display:none}
 }
+@media(prefers-reduced-motion:reduce){#dash .wgpanel,#dash .wgpanel.open,#dash .wg-bar i{transition:none}}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1375,37 +1386,65 @@ body{padding-left:0}
        this is that hero with the announcement rotating inside it. -->
   <div class="engine-wrap">
     <div class="ai-bg" aria-hidden="true"></div>
-  <section class="ai-stage" aria-label="Ask AeroIntel about What Game Are We Playing">
-    <div class="ai-stage-in">
-    <div class="ai-card">
-      <p class="ai-eyebrow">AeroIntel &middot; Strategy Fundamental</p>
-      <h1><b>What game are we playing?</b></h1>
-      <form class="ai-ask" id="ai-form" action="/strategy-hub/option-d/aerointel.html" method="get" role="search">
-        <input id="ai-q" name="q" type="text" autocomplete="off" spellcheck="false" aria-label="Ask AeroIntel a question"
-               placeholder="e.g., &quot;How do I describe the game my business is playing?&quot;">
-        <button type="submit">Send</button>
-      </form>
-      <div class="ai-pills" id="ai-pills">
-        <button type="button">What does What Game Are We Playing ask us to decide?</button>
-        <button type="button">Walk me through the WGAWP process</button>
-        <button type="button">How is WGAWP different from HDWW?</button>
-        <button type="button">Where do I find the WGAWP templates?</button>
+  <section class="hero anno">
+    <div class="in heroin">
+      <div class="annotrack">
+        <article class="annoslide on">
+          <div class="annotag">Strategy Fundamental</div>
+          <h1>What game are we playing?</h1>
+          <p class="hsub">Nine questions to get you started.</p>
+          <a class="gpill light" href="#wgpanel" data-wg aria-expanded="false" aria-controls="wgpanel">Get started <span class="pc"><span>&rarr;</span></span></a>
+        </article>
       </div>
-    <div class="ai-recent">
-      <h2 class="ai-rh">Recent conversations</h2>
-      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Yesterday</span><span><span class="ai-q">How do I describe the game my business is playing?</span><span class="ai-meta">What Game Are We Playing &middot; 3 sources &middot; framing outline</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
-      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Mon</span><span><span class="ai-q">What does &ldquo;What Game Are We Playing&rdquo; ask us to decide?</span><span class="ai-meta">Strategy Fundamental &middot; 2 sources &middot; summary</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
-      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Last week</span><span><span class="ai-q">How does What Game Are We Playing hand off to How Do We Win?</span><span class="ai-meta">Comparison &middot; 2 sources &middot; key differences</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
-      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Apr 28</span><span><span class="ai-q">Draft a What Game Are We Playing summary for my business</span><span class="ai-meta">Template &middot; first draft</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
-    </div>
-    </div>
     </div>
   </section>
-  <script>
-  (function(){var p=document.getElementById('ai-pills'),q=document.getElementById('ai-q');if(!p||!q)return;
-    p.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;q.value=b.textContent;q.focus();});})();
-  </script>
   </div>
+
+  <!-- ═══ GUIDED QUESTIONS — opens under the hero from Get started ═══
+       Nine questions, one per screen; the sheet on the right fills in as you answer, and the last screen reads the game back. Nothing is sent anywhere. -->
+  <section class="wgpanel" id="wgpanel" aria-label="What game are we playing: nine questions" inert>
+    <div class="wg-clip"><div class="wg-pad">
+      <button type="button" class="wg-close" id="wg-close">Close &times;</button>
+      <div class="wg-eyebrow">Guided game finder</div>
+      <h2 class="wg-h">Answer nine questions, see your game</h2>
+      <p class="wg-intro">One question per screen. Your answers fill in the page beside you, and at the end you get the game you are playing, read back in one place.</p>
+      <div class="wg-grid">
+        <div>
+          <div class="wg-card" id="wg-card">
+            <div class="wg-step" id="wg-step">
+              <div class="wg-prog"><div class="wg-bar"><i id="wg-fill"></i></div><div class="wg-count" id="wg-count"></div></div>
+              <p class="wg-topic" id="wg-topic"></p>
+              <h3 class="wg-q" id="wg-q"></h3>
+              <p class="wg-help" id="wg-help"></p>
+              <textarea class="wg-in" id="wg-in" rows="3" aria-labelledby="wg-q" aria-describedby="wg-err"></textarea>
+              <p class="wg-err" id="wg-err" role="alert"></p>
+              <div class="wg-acts">
+                <button type="button" class="wg-btn" id="wg-next">Continue</button>
+                <button type="button" class="wg-ghost" id="wg-back" hidden>Back</button>
+                <span class="wg-hint" id="wg-hint"><kbd>&crarr;</kbd> to continue</span>
+              </div>
+            </div>
+            <div class="wg-result" id="wg-result" hidden>
+              <div class="wg-prog"><div class="wg-bar"><i style="width:100%"></i></div><div class="wg-count">Complete</div></div>
+              <p class="wg-topic">Your game</p>
+              <h3 class="wg-q" tabindex="-1" id="wg-rh">Here is the game you are playing</h3>
+              <p class="wg-lead" id="wg-lead"></p>
+              <p class="wg-help">The page on the right is your game on one sheet. Select any row to change that answer, or copy the whole thing to start your memo.</p>
+              <div class="wg-acts">
+                <button type="button" class="wg-btn" id="wg-copy">Copy summary</button>
+                <button type="button" class="wg-ghost" id="wg-restart">Start over</button>
+              </div>
+            </div>
+          </div>
+          <div class="wg-note"><b>Nothing leaves this tab</b>Your answers stay in this browser. Close the tab and they are gone.</div>
+        </div>
+        <div>
+          <p class="wg-sheetlbl">Your game, on one page</p>
+          <ol class="wg-sheet" id="wg-sheet"></ol>
+        </div>
+      </div>
+    </div></div>
+  </section>
 
   <!-- ═══ QUICK START ═══
        The band that already sits on every Fundamental page, lifted to the
@@ -1642,6 +1681,93 @@ body{padding-left:0}
 </script>
 
 <script>if(/[?&]embed=1/.test(location.search))document.body.classList.add('embed');</script>
+
+<script>
+/* What game are we playing: nine questions, one at a time. Get started opens the panel under the hero. */
+(function(){
+  var Q=[
+    ['Market definition','Where are we playing?','Name the market, segment or customer set you are in.'],
+    ['Market attractiveness','Is the market attractive / growing? What are the key headwinds / tailwinds?','Size, growth and what is pushing for and against you.'],
+    ['Value chain','What is the value chain and where do we sit?','The steps from raw input to the customer, and the ones you own.'],
+    ['Regulatory','What is the regulatory environment across the value chain? Is it stable?','Rules, certifications and anything likely to change.'],
+    ['Customer','What is the customer value chain? What are the customer purchasing behaviors? What are the customer needs? How are they evolving? Why?','Who buys, how they decide, and what is shifting.'],
+    ['Competitor','What are our competitors’ strategies? Their strengths / opportunities?','Who you play against and what they are doing about it.'],
+    ['Disruptors','What disruptors (e.g., technologies, business models, new entrants) could impact the game?','What could change the rules in the next few years.'],
+    ['GE Aerospace positioning','What is our win rate? How is it trending vs. our competitors? What are the key opportunities & threats?','Where you stand today, with numbers if you have them.'],
+    ['Ambition','What is our objective / what are we trying to achieve? (informed by “what’s the game?”)','The outcome you want, in one line.']
+  ];
+  var p=document.getElementById('wgpanel'), pill=document.querySelector('#dash [data-wg]'); if(!p||!pill) return;
+  var $=function(id){return document.getElementById(id)};
+  var inp=$('wg-in'),err=$('wg-err'),next=$('wg-next'),back=$('wg-back'),sheet=$('wg-sheet'),stepEl=$('wg-step'),resEl=$('wg-result');
+  var A=new Array(Q.length).fill(''), cur=0, rows=[];
+  Q.forEach(function(q,i){
+    var li=document.createElement('li'), b=document.createElement('button'); b.type='button'; b.className='wg-row';
+    var n=document.createElement('span'); n.className='wg-n'; n.textContent=i+1;
+    var t=document.createElement('span'), l=document.createElement('span'), a=document.createElement('span');
+    l.className='wg-lab'; l.textContent=q[0]; a.className='wg-ans'; a.textContent='Not answered yet'; t.appendChild(l); t.appendChild(a);
+    b.appendChild(n); b.appendChild(t); b.addEventListener('click',function(){ if(!A[i] && i>firstOpen()) return; go(i); });
+    li.appendChild(b); sheet.appendChild(li); rows.push({b:b,a:a});
+  });
+  function firstOpen(){ for(var i=0;i<A.length;i++) if(!A[i]) return i; return A.length; }
+  function paint(){
+    rows.forEach(function(r,i){
+      r.b.classList.toggle('done',!!A[i]); r.b.classList.toggle('cur',i===cur && !resEl.hidden===false);
+      r.a.textContent=A[i]||'Not answered yet';
+    });
+  }
+  function show(i){
+    cur=i; stepEl.hidden=false; resEl.hidden=true;
+    $('wg-count').textContent='Question '+(i+1)+' of '+Q.length;
+    $('wg-fill').style.width=(i/Q.length*100)+'%';
+    $('wg-topic').textContent=Q[i][0]+' · '+(i+1)+' of '+Q.length;
+    $('wg-q').textContent=Q[i][1]; $('wg-help').textContent=Q[i][2];
+    inp.value=A[i]; inp.placeholder='Type your answer here'; err.textContent='';
+    next.textContent=i===Q.length-1?'See my game':'Continue'; back.hidden=i===0;
+    paint();
+  }
+  function trim(t){return t.replace(/\s+/g,' ').replace(/[.\s]+$/,'')}
+  function finish(){
+    cur=-1; stepEl.hidden=true; resEl.hidden=false; paint();
+    var lead=$('wg-lead'); lead.textContent='';
+    function strong(t){var s=document.createElement('strong'); s.textContent=t; return s}
+    lead.appendChild(document.createTextNode('You are playing in ')); lead.appendChild(strong(trim(A[0])));
+    lead.appendChild(document.createTextNode('. The market: ')); lead.appendChild(strong(trim(A[1])));
+    lead.appendChild(document.createTextNode('. What you are going for: ')); lead.appendChild(strong(trim(A[8])));
+    lead.appendChild(document.createTextNode('.'));
+    $('wg-rh').focus({preventScroll:true});
+  }
+  function go(i){ show(i); setTimeout(function(){ inp.focus({preventScroll:true}); },0); }
+  function advance(){
+    var v=inp.value.trim();
+    if(v.length<2){ err.textContent='Add a line before you continue.'; inp.focus(); return; }
+    A[cur]=v;
+    var n=firstOpen();
+    if(n===A.length){ finish(); } else if(cur<Q.length-1){ go(cur+1); } else { go(n); }
+  }
+  next.addEventListener('click',advance);
+  back.addEventListener('click',function(){ A[cur]=inp.value.trim()||A[cur]; go(cur-1); });
+  inp.addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); advance(); } });
+  inp.addEventListener('input',function(){ err.textContent=''; });
+  $('wg-restart').addEventListener('click',function(){ A=new Array(Q.length).fill(''); go(0); });
+  $('wg-copy').addEventListener('click',function(){
+    var t='What game are we playing?\n\n'+Q.map(function(q,i){return (i+1)+'. '+q[0]+': '+A[i]}).join('\n');
+    var b=$('wg-copy');
+    function ok(){ b.textContent='Copied'; setTimeout(function(){ b.textContent='Copy summary'; },1800); }
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok,function(){});
+    else { var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); ok();}catch(e){} ta.remove(); }
+  });
+  function open(){
+    p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true');
+    if(firstOpen()===A.length) finish(); else show(Math.min(cur<0?firstOpen():cur,firstOpen()));
+    setTimeout(function(){ var r=p.getBoundingClientRect(); if(r.bottom>innerHeight||r.top<0) p.scrollIntoView({behavior:'smooth',block:'start'}); if(!stepEl.hidden) inp.focus({preventScroll:true}); },560);
+  }
+  function close(focus){ p.classList.remove('open'); p.setAttribute('inert',''); pill.setAttribute('aria-expanded','false'); if(focus) pill.focus(); }
+  pill.addEventListener('click',function(e){ e.preventDefault(); p.classList.contains('open')?close(false):open(); });
+  $('wg-close').addEventListener('click',function(){ close(true); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&p.classList.contains('open')) close(true); });
+  show(0);
+})();
+</script>
 
 <script>
 /* Every tile acts on this page. Three open a panel in place, Browse Templates
