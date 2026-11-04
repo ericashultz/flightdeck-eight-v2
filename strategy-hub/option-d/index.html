@@ -981,10 +981,10 @@ body{padding-left:0}
 #dash section#fdl-finder .fdl-more{background:rgba(255,255,255,.1);color:#fff}
 #dash section#fdl-finder .fdl-more:hover{background:rgba(255,255,255,.2)}
 /* Resourcing (Where do I find help?) and Feedback sit side by side as two equal glass cards on the navy-tinted gradient.
-   The .duo wrapper paints its own copy of the backdrop across its full height (not viewport-fixed, so no white can show below the fold). */
+   Same backdrop as the hero and ask card: the image is fixed to the viewport (cover, centred) and clipped to this band, so the page scrolls over it. The navy fill on the band is only a fallback. */
 #dash .duo{position:relative;isolation:isolate;clip-path:inset(0);background:#000018;
   display:grid;grid-template-columns:repeat(2,minmax(0,598px));justify-content:center;gap:28px;align-items:stretch;padding:72px 28px}
-#dash .duo::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+#dash .duo::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:#000020 url(/strategy-hub/img/metal-arcs-final.jpg?v=1) center/cover no-repeat}
 #dash .duo::after{content:none}
 #dash .duo>.fb-band,#dash .duo>section#fdl-finder{display:flex;padding:0;border:0;background:transparent;color:#fff;
