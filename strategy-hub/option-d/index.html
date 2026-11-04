@@ -1213,6 +1213,10 @@ body{padding-left:0}
    straight into whatever followed. Air on both sides, and a little more
    between the heading block and the rail. */
 #dash .gsx.open{margin-top:64px;padding-bottom:80px}
+#dash .gsx-stage{display:none;background:#f7f9fd;padding:0}
+#dash .gsx-stage:has(.gsx.open){display:block}
+#dash .gsx-stage .gsx.open{margin-top:0;padding-bottom:84px}
+
 #dash .gsx.open .gsx-close{margin-top:0}
 #dash #px-learn .learn-cols>div{border-top:0;padding-top:0}
 
@@ -1710,6 +1714,12 @@ body{padding-left:0}
           <span class="circ"><span>&rarr;</span></span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- The Next steps panels open here, in their own block directly below the tiles. -->
+  <section class="gsx-stage" id="gsx-stage" aria-label="Next steps details">
+    <div class="wrap2">
       <div class="gsx" id="px-fund">
         <button type="button" class="gsx-close" data-px-close>Close &times;</button>
         <!-- Behaviors sit above the fundamentals in this panel, per Brent's markup #51. -->
