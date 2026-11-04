@@ -965,42 +965,35 @@ body{padding-left:0}
 #dash .fb-band h2{color:#fff}
 #dash .fb-band p{color:rgba(255,255,255,.74)}
 /* Where do I find help on --ink2 (#000018); the suggestion list stays a white card. */
-#dash section#fdl-finder{background:#000018;border-top:0;color:#fff}
-#dash section#fdl-finder .fdl-eyebrow{color:rgba(255,255,255,.7)}
-#dash section#fdl-finder .fdl-h2{color:#fff}
-#dash section#fdl-finder .fdl-sub{color:rgba(255,255,255,.74)}
-#dash section#fdl-finder .fdl-label{color:rgba(255,255,255,.82)}
-#dash section#fdl-finder .fdl-status{color:rgba(255,255,255,.74)}
-#dash section#fdl-finder .fdl-status b{color:#fff}
-#dash section#fdl-finder .fdl-status a{color:#7fa8ff}
-#dash section#fdl-finder .fdl-group h3{color:#fff;border-bottom-color:rgba(255,255,255,.16)}
-#dash section#fdl-finder .fdl-meta b{color:#fff}
-#dash section#fdl-finder .fdl-meta span{color:rgba(255,255,255,.7)}
-#dash section#fdl-finder .fdl-meta a{color:#7fa8ff}
-#dash section#fdl-finder .fdl-avatar{background:rgba(255,255,255,.12)}
-#dash section#fdl-finder .fdl-more{background:rgba(255,255,255,.1);color:#fff}
-#dash section#fdl-finder .fdl-more:hover{background:rgba(255,255,255,.2)}
 /* Resourcing (Where do I find help?) and Feedback sit side by side as two equal glass cards on the navy-tinted gradient.
    Same backdrop as the hero and ask card: the image is fixed to the viewport (cover, centred) and clipped to this band, so the page scrolls over it. The navy fill on the band is only a fallback. */
 #dash .duo{position:relative;isolation:isolate;clip-path:inset(0);background:#000018;
-  display:grid;grid-template-columns:repeat(2,minmax(0,598px));justify-content:center;gap:28px;align-items:stretch;padding:72px 28px}
+  display:grid;grid-template-columns:minmax(0,1080px);justify-content:center;gap:28px;align-items:stretch;padding:72px 28px}
 #dash .duo::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:#000020 url(/strategy-hub/img/metal-arcs-final.jpg?v=1) center/cover no-repeat}
 #dash .duo::after{content:none}
-#dash .duo>.fb-band,#dash .duo>section#fdl-finder{display:flex;padding:0;border:0;background:transparent;color:#fff;
+#dash .duo>.fb-band{display:flex;padding:0;border:0;background:transparent;color:#fff;
   position:static;clip-path:none;isolation:auto}
-#dash .duo>.fb-band>.in,#dash .duo>section#fdl-finder>.fdl-wrap{flex:1;width:auto;max-width:none;margin:0;box-sizing:border-box;
+#dash .duo>.fb-band>.in{flex:1;width:auto;max-width:none;margin:0;box-sizing:border-box;
   border-radius:22px;padding:clamp(40px,5vw,64px) clamp(24px,4.4vw,56px) clamp(36px,4.4vw,52px);
   background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   box-shadow:inset 0 0 60px rgba(255,255,255,.035),0 30px 70px -20px rgba(0,0,25,.6)}
-#dash .duo>.fb-band>.in{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:0}
-#dash .duo>.fb-band>.in>div{margin-bottom:33px} /* 28px + the label's own leading, so the pill's top edge sits where the "Organization or team" text starts */
+#dash .duo>.fb-band>.in{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:28px}
+@media(max-width:700px){#dash .duo>.fb-band>.in{flex-direction:column;align-items:flex-start}#dash .duo>.fb-band>.in>div{margin-bottom:22px}}
 #dash .duo>.fb-band p{margin:0}
 @media(max-width:1000px){
   #dash .duo{grid-template-columns:minmax(0,880px);gap:36px;padding:36px 20px}
-  #dash .duo>.fb-band>.in,#dash .duo>section#fdl-finder>.fdl-wrap{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
+  #dash .duo>.fb-band>.in{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
 }
+
+/* Resources: the finder now lives in a Next steps panel on the light stage, so it drops its own band. */
+#dash #px-res{position:relative}
+#dash #px-res .gsx-close{position:absolute;top:0;right:0;float:none;margin:0;z-index:6}
+#dash #px-res section#fdl-finder{background:transparent;border:0;padding:64px 0 0}
+#dash #px-res #fdl-finder .fdl-wrap{max-width:none;padding:0}
+#dash #px-res #fdl-finder .fdl-sub{max-width:62ch}
+@media(max-width:700px){#dash #px-res section#fdl-finder{padding-top:64px}}
 
 /* Taller template sheets: the SW band crops its mock at a fixed height; give the
    preview more paper so the card reads as a document, not a strip. */
@@ -1699,9 +1692,9 @@ body{padding-left:0}
         </div>
       </div>
       <div class="sm-actions">
-        <a class="sm-action" href="#fdl-finder">
+        <a class="sm-action" href="#px-res" data-panel="px-res" aria-expanded="false" aria-controls="px-res">
           <div class="sa-shot"><img src="/strategy-hub/img/leaders.jpg" alt="" loading="lazy" style="object-position:center 40%"></div>
-          <div class="sa-body"><strong>Resourcing</strong><p>Where do I find help?</p></div>
+          <div class="sa-body"><strong>Resources</strong><p>Where do I find help?</p></div>
           <span class="circ"><span>&rarr;</span></span>
         </a>
         <a class="sm-action" href="#templates">
@@ -1726,6 +1719,31 @@ body{padding-left:0}
   <!-- The Next steps panels open here, in their own block directly below the tiles. -->
   <section class="gsx-stage" id="gsx-stage" aria-label="Next steps details">
     <div class="wrap2">
+      <div class="gsx" id="px-res">
+        <button type="button" class="gsx-close" data-px-close>Close &times;</button>
+<section id="fdl-finder">
+  <div class="fdl-wrap">
+    <div class="fdl-eyebrow">Where do I find help?</div>
+    <h2 class="fdl-h2">Resources</h2>
+    <p class="fdl-sub">If you need additional help, below are some of our most experienced leaders in this fundamental</p>
+
+    <div class="fdl-box">
+      <label class="fdl-label" for="fdl-q">Organization or team</label>
+      <div class="fdl-field">
+        <svg class="fdl-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="fdl-q" type="text" autocomplete="off" spellcheck="false" disabled
+               placeholder="Loading leaders&hellip;"
+               role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fdl-list">
+        <button type="button" class="fdl-clear" id="fdl-clear" aria-label="Clear search" hidden>&times;</button>
+      </div>
+      <ul class="fdl-list" id="fdl-list" role="listbox" aria-label="Suggestions" hidden></ul>
+    </div>
+
+    <div class="fdl-status" id="fdl-status" aria-live="polite"></div>
+    <div id="fdl-results"></div>
+  </div>
+</section>
+      </div>
       <div class="gsx" id="px-fund">
         <button type="button" class="gsx-close" data-px-close>Close &times;</button>
         <!-- Behaviors sit above the fundamentals in this panel, per Brent's markup #51. -->
@@ -1828,6 +1846,47 @@ body{padding-left:0}
     </div>
   </section>
 
+  <!-- Standards and Templates opens here too, directly under the Next steps block. -->
+  <section class="tplsec sect-x" id="templates">
+    <div class="wrap2">
+      <button type="button" class="gsx-close sect-close" data-sect-close>Close &times;</button>
+      <div class="t5-head rise">
+        <div>
+          <div class="eyebrow">Standards and Templates</div>
+          <h2>Standards and Templates</h2>
+                  </div>
+        <a href="#" class="act">Documents</a>
+      </div>
+      <div class="t5-grid rise" id="tpl-list">
+      <div class="t5-card" data-fn="all" data-name="HDWW SOP Memo Standard" data-users="0" data-recent="0" data-for="Memo Standards">
+        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview HDWW SOP Memo Standard" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">HDWW SOP Memo Standard</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
+        <div class="t5-meta"><p class="t5-name">HDWW SOP Memo Standard</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
+      </div>
+      <div class="t5-card" data-fn="all" data-name="Appendix I - HDWW Memo Template" data-users="0" data-recent="0" data-for="Memo Standards">
+        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview Appendix I - HDWW Memo Template" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">Appendix I - HDWW Memo Template</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
+        <div class="t5-meta"><p class="t5-name">Appendix I - HDWW Memo Template</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
+      </div>
+      <div class="t5-card" data-fn="all" data-name="HDWW Memo Coaching Prompt for Wingmate.V1" data-users="0" data-recent="0" data-for="HDWW Memo Coach Prompt">
+        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview HDWW Memo Coaching Prompt for Wingmate.V1" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">HDWW Memo Coaching Prompt for Wingmate.V1</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
+        <div class="t5-meta"><p class="t5-name">HDWW Memo Coaching Prompt for Wingmate.V1</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
+      </div>
+      <div class="t5-card" data-fn="all" data-name="How to Use the AI Prompt" data-users="0" data-recent="0" data-for="HDWW Memo Coach Prompt">
+        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview How to Use the AI Prompt" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">How to Use the AI Prompt</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
+        <div class="t5-meta"><p class="t5-name">How to Use the AI Prompt</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
+      </div>
+      <div class="t5-card" data-fn="all" data-name="HDWW SOP Post Review Summary" data-users="0" data-recent="0" data-for="Post Review Summary">
+        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview HDWW SOP Post Review Summary" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">HDWW SOP Post Review Summary</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
+        <div class="t5-meta"><p class="t5-name">HDWW SOP Post Review Summary</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
+      </div>
+      <div class="t5-card" data-fn="all" data-name="Appendix I - Post Review Summary Template" data-users="0" data-recent="0" data-for="Post Review Summary">
+        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview Appendix I - Post Review Summary Template" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">Appendix I - Post Review Summary Template</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
+        <div class="t5-meta"><p class="t5-name">Appendix I - Post Review Summary Template</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
+      </div>
+      </div>
+      <div class="t5-nav rise"><span class="pg" id="t5-pg"></span><button type="button" id="t5-prev" aria-label="Previous templates">&larr;</button><button type="button" id="t5-next" aria-label="Next templates">&rarr;</button></div>
+    </div>
+  </section>
+
 <!-- ============================================================
      Find your FLIGHT DECK leader (replaces the FAQ section)
      Source: fdl-finder/sharepoint/fdl-finder.html / .css / .js
@@ -1910,28 +1969,6 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
 }
 </style>
 <div class="duo">
-<section id="fdl-finder">
-  <div class="fdl-wrap">
-    <div class="fdl-eyebrow">Where do I find help?</div>
-    <h2 class="fdl-h2">Resourcing</h2>
-    <p class="fdl-sub">If you need additional help, below are some of our most experienced leaders in this fundamental</p>
-
-    <div class="fdl-box">
-      <label class="fdl-label" for="fdl-q">Organization or team</label>
-      <div class="fdl-field">
-        <svg class="fdl-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-        <input id="fdl-q" type="text" autocomplete="off" spellcheck="false" disabled
-               placeholder="Loading leaders&hellip;"
-               role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fdl-list">
-        <button type="button" class="fdl-clear" id="fdl-clear" aria-label="Clear search" hidden>&times;</button>
-      </div>
-      <ul class="fdl-list" id="fdl-list" role="listbox" aria-label="Suggestions" hidden></ul>
-    </div>
-
-    <div class="fdl-status" id="fdl-status" aria-live="polite"></div>
-    <div id="fdl-results"></div>
-  </div>
-</section>
 <section class="fb-band">
   <div class="in">
     <div>
@@ -2429,45 +2466,6 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
 
 
 
-<section class="tplsec sect-x" id="templates">
-    <div class="wrap2">
-      <button type="button" class="gsx-close sect-close" data-sect-close>Close &times;</button>
-      <div class="t5-head rise">
-        <div>
-          <div class="eyebrow">Standards and Templates</div>
-          <h2>Standards and Templates</h2>
-                  </div>
-        <a href="#" class="act">Documents</a>
-      </div>
-      <div class="t5-grid rise" id="tpl-list">
-      <div class="t5-card" data-fn="all" data-name="HDWW SOP Memo Standard" data-users="0" data-recent="0" data-for="Memo Standards">
-        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview HDWW SOP Memo Standard" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">HDWW SOP Memo Standard</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
-        <div class="t5-meta"><p class="t5-name">HDWW SOP Memo Standard</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
-      </div>
-      <div class="t5-card" data-fn="all" data-name="Appendix I - HDWW Memo Template" data-users="0" data-recent="0" data-for="Memo Standards">
-        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview Appendix I - HDWW Memo Template" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">Appendix I - HDWW Memo Template</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
-        <div class="t5-meta"><p class="t5-name">Appendix I - HDWW Memo Template</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
-      </div>
-      <div class="t5-card" data-fn="all" data-name="HDWW Memo Coaching Prompt for Wingmate.V1" data-users="0" data-recent="0" data-for="HDWW Memo Coach Prompt">
-        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview HDWW Memo Coaching Prompt for Wingmate.V1" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">HDWW Memo Coaching Prompt for Wingmate.V1</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
-        <div class="t5-meta"><p class="t5-name">HDWW Memo Coaching Prompt for Wingmate.V1</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
-      </div>
-      <div class="t5-card" data-fn="all" data-name="How to Use the AI Prompt" data-users="0" data-recent="0" data-for="HDWW Memo Coach Prompt">
-        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview How to Use the AI Prompt" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">How to Use the AI Prompt</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
-        <div class="t5-meta"><p class="t5-name">How to Use the AI Prompt</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
-      </div>
-      <div class="t5-card" data-fn="all" data-name="HDWW SOP Post Review Summary" data-users="0" data-recent="0" data-for="Post Review Summary">
-        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview HDWW SOP Post Review Summary" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">HDWW SOP Post Review Summary</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
-        <div class="t5-meta"><p class="t5-name">HDWW SOP Post Review Summary</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
-      </div>
-      <div class="t5-card" data-fn="all" data-name="Appendix I - Post Review Summary Template" data-users="0" data-recent="0" data-for="Post Review Summary">
-        <div class="t5-thumb" role="button" tabindex="0" aria-label="Preview Appendix I - Post Review Summary Template" onclick="swbPreview(this.closest('.t5-card'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();swbPreview(this.closest('.t5-card'));}"><div class="tmock dm-combination"><div class="tm-h">Appendix I - Post Review Summary Template</div><div class="tm-row"><span class="tm-s m" style="width:32%"></span><span class="tm-s k" style="width:24%"></span><span class="tm-s w" style="width:10%"></span></div><div class="tm-row"><span class="tm-s m" style="width:26%"></span><span class="tm-s k" style="width:30%"></span><span class="tm-s w" style="width:8%"></span></div><div class="tm-row"><span class="tm-s m" style="width:40%"></span><span class="tm-s k" style="width:18%"></span><span class="tm-s w" style="width:12%"></span></div><div class="tm-row"><span class="tm-s m" style="width:22%"></span><span class="tm-s k" style="width:26%"></span><span class="tm-s w" style="width:9%"></span></div><div class="tm-row"><span class="tm-s m" style="width:34%"></span><span class="tm-s k" style="width:20%"></span><span class="tm-s w" style="width:14%"></span></div><div class="tm-row"><span class="tm-s m" style="width:28%"></span><span class="tm-s k" style="width:28%"></span><span class="tm-s w" style="width:7%"></span></div><span class="tm-takt"></span></div><span class="t5-peek">&#10530; Preview</span></div>
-        <div class="t5-meta"><p class="t5-name">Appendix I - Post Review Summary Template</p><div class="t5-acts"><a class="dl" href="#">&#8595; Download</a><button class="pv" type="button" onclick="swbCopyLink(this)">&#10697; Copy link</button></div></div>
-      </div>
-      </div>
-      <div class="t5-nav rise"><span class="pg" id="t5-pg"></span><button type="button" id="t5-prev" aria-label="Previous templates">&larr;</button><button type="button" id="t5-next" aria-label="Next templates">&rarr;</button></div>
-    </div>
-  </section>
 
   
 
@@ -2610,7 +2608,7 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
     t.addEventListener('click',function(e){
       e.preventDefault();
       var p=document.getElementById(t.dataset.panel), was=p.classList.contains('open');
-      close();
+      close(); var tp=document.getElementById('templates'); if(tp) tp.classList.remove('open');
       if(!was){ p.classList.add('open'); t.setAttribute('aria-expanded','true');
         // start, not nearest: nearest does the least it can get away with, so a
         // panel already half in view barely moved and the tile looked inert.
