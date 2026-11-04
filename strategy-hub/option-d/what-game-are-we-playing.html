@@ -1293,6 +1293,55 @@ body{padding-left:0}
   #dash .duo{grid-template-columns:minmax(0,880px);gap:36px;padding:36px 20px}
   #dash .duo>.fb-band>.in{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
 }
+/* ── Chat block as the hero banner (from the home page) ── */
+  #dash .ai-card{position:relative;overflow:hidden;border-radius:10px;color:#fff;padding:clamp(40px,5vw,64px) clamp(24px,4.4vw,56px) clamp(36px,4.4vw,52px);
+    background:radial-gradient(90% 120% at 92% -10%,rgba(65,129,255,.26),transparent 60%),linear-gradient(135deg,#050b18 0%,#0a1630 55%,#0d2050 100%)}
+  #dash .ai-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0ad64f;margin:0 0 22px;text-shadow:0 1px 10px rgba(0,0,20,.85)}
+  #dash .ai-card h1{margin:0 0 28px;font-size:clamp(32px,3.8vw,46px);line-height:1.05;letter-spacing:-.015em;font-weight:300;color:#fff;max-width:14em}
+  #dash .ai-card h1 b{font-weight:700;display:block}
+  #dash .ai-card .ai-sub{margin:12px 0 28px;font-size:clamp(17px,1.5vw,21px);font-weight:300;color:rgba(255,255,255,.86)}
+  #dash .ai-ask{display:flex;align-items:stretch;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:4px;padding:0}
+  #dash .ai-ask:focus-within{border-color:#4181ff;background:rgba(255,255,255,.1)}
+  #dash .ai-ask input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:inherit;font-size:16px;padding:20px 20px}
+  #dash .ai-ask input::placeholder{color:rgba(255,255,255,.62)}
+  #dash .ai-ask button{align-self:center;margin:0 10px 0 0;border:0;border-radius:3px;background:#0a5cff;color:#fff;font:inherit;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer;transition:background .15s}
+  #dash .ai-ask button:hover{background:#2f78ff}
+  #dash .ai-pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+  #dash .ai-pills button{font:inherit;font-size:13px;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:10px 18px;cursor:pointer;transition:background .15s,border-color .15s}
+  #dash .ai-pills button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+  #dash .ai-ask button:focus-visible,#dash .ai-pills button:focus-visible{outline:2px solid #4181ff;outline-offset:2px}
+  #dash .ai-recent{margin-top:34px}
+  #dash .ai-rh{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin:0 0 12px}
+  #dash .ai-row{display:grid;grid-template-columns:128px 1fr 24px;gap:0 20px;align-items:center;padding:16px 8px;border-top:1px solid rgba(255,255,255,.18);text-decoration:none;color:#fff;transition:background .15s}
+  #dash .ai-row:hover{background:rgba(255,255,255,.07)}
+  #dash .ai-when{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:rgba(255,255,255,.68)}
+  #dash .ai-q{display:block;font-size:16.5px;color:#fff;line-height:1.35}
+  #dash .ai-meta{display:block;margin-top:5px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:rgba(255,255,255,.6);letter-spacing:.01em}
+  #dash .ai-go{font-size:18px;color:#fff;justify-self:end}
+  #dash .ai-row:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+  #dash .ai-recent{text-shadow:0 1px 10px rgba(0,0,20,.7)}
+  @media(max-width:860px){
+    #dash .ai-ask{flex-wrap:wrap}
+    #dash .ai-ask input{flex-basis:100%;padding:16px}
+    #dash .ai-ask button{margin:0 10px 10px 10px}
+    #dash .ai-row{grid-template-columns:1fr 24px;padding:16px 4px}
+    #dash .ai-when{grid-column:1 / -1;margin-bottom:6px}
+  }
+#dash .ai-stage{position:relative;display:flex;align-items:center;min-height:0}
+#dash .engine-wrap>.ai-stage{position:relative;z-index:1}
+#dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:116px 28px clamp(48px,7vw,96px);box-sizing:border-box}
+#dash .ai-stage .ai-card{margin-left:auto;margin-right:auto;max-width:880px;border:0;border-radius:22px;
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:inset 0 0 60px rgba(255,255,255,.035),0 30px 70px -20px rgba(0,0,25,.6)}
+#dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
+#dash .ai-stage .ai-ask{background:rgba(0,0,20,.4)}
+#dash .ai-stage .ai-pills button{background:rgba(0,0,20,.32)}
+@media(max-width:860px){
+  #dash .ai-stage-in{padding:72px 20px 36px}
+  #dash .ai-stage .ai-card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
+  #dash .ai-meta{color:rgba(255,255,255,.75)}
+}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1326,22 +1375,36 @@ body{padding-left:0}
        this is that hero with the announcement rotating inside it. -->
   <div class="engine-wrap">
     <div class="ai-bg" aria-hidden="true"></div>
-  <section class="hero anno">
-    <video class="herovid" autoplay muted loop playsinline preload="metadata"
-           poster="/strategy-hub/img/wgawp.jpg"></video>
-    <div class="heroscrim"></div>
-    <div class="in heroin">
-
-      <div class="annotrack" id="annotrack">
-        <article class="annoslide on">
-          <div class="annotag">Strategy Fundamental</div>
-          <h1>What Game Are We Playing</h1>
-          <a class="gpill light" href="/strategy-hub/option-d/how-do-we-win.html">Open How Do We Win <span class="pc"><span>&rarr;</span></span></a>
-        </article>
+  <section class="ai-stage" aria-label="Ask AeroIntel about What Game Are We Playing">
+    <div class="ai-stage-in">
+    <div class="ai-card">
+      <p class="ai-eyebrow">AeroIntel &middot; Strategy Fundamental</p>
+      <h1><b>What game are we playing?</b></h1>
+      <form class="ai-ask" id="ai-form" action="/strategy-hub/option-d/aerointel.html" method="get" role="search">
+        <input id="ai-q" name="q" type="text" autocomplete="off" spellcheck="false" aria-label="Ask AeroIntel a question"
+               placeholder="e.g., &quot;How do I describe the game my business is playing?&quot;">
+        <button type="submit">Send</button>
+      </form>
+      <div class="ai-pills" id="ai-pills">
+        <button type="button">What does What Game Are We Playing ask us to decide?</button>
+        <button type="button">Walk me through the WGAWP process</button>
+        <button type="button">How is WGAWP different from HDWW?</button>
+        <button type="button">Where do I find the WGAWP templates?</button>
       </div>
-
+    <div class="ai-recent">
+      <h2 class="ai-rh">Recent conversations</h2>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Yesterday</span><span><span class="ai-q">How do I describe the game my business is playing?</span><span class="ai-meta">What Game Are We Playing &middot; 3 sources &middot; framing outline</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Mon</span><span><span class="ai-q">What does &ldquo;What Game Are We Playing&rdquo; ask us to decide?</span><span class="ai-meta">Strategy Fundamental &middot; 2 sources &middot; summary</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Last week</span><span><span class="ai-q">How does What Game Are We Playing hand off to How Do We Win?</span><span class="ai-meta">Comparison &middot; 2 sources &middot; key differences</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Apr 28</span><span><span class="ai-q">Draft a What Game Are We Playing summary for my business</span><span class="ai-meta">Template &middot; first draft</span></span><span class="ai-go" aria-hidden="true">&rarr;</span></a>
+    </div>
+    </div>
     </div>
   </section>
+  <script>
+  (function(){var p=document.getElementById('ai-pills'),q=document.getElementById('ai-q');if(!p||!q)return;
+    p.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;q.value=b.textContent;q.focus();});})();
+  </script>
   </div>
 
   <!-- ═══ QUICK START ═══
