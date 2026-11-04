@@ -980,28 +980,25 @@ body{padding-left:0}
 #dash section#fdl-finder .fdl-avatar{background:rgba(255,255,255,.12)}
 #dash section#fdl-finder .fdl-more{background:rgba(255,255,255,.1);color:#fff}
 #dash section#fdl-finder .fdl-more:hover{background:rgba(255,255,255,.2)}
-/* Resourcing (Where do I find help?) and Feedback: no solid fill, they show the same navy-tinted gradient as the hero.
-   Each band clips its own fixed copy of the backdrop, so the image stays put while the page scrolls over it. */
-#dash .fb-band,#dash section#fdl-finder{position:relative;isolation:isolate;clip-path:inset(0);background:transparent}
-#dash .fb-band::before,#dash section#fdl-finder::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+/* Resourcing (Where do I find help?) and Feedback sit side by side as two equal glass cards on the navy-tinted gradient.
+   The .duo wrapper clips its own fixed copy of the backdrop, so the image stays put while the page scrolls over it. */
+#dash .duo{position:relative;isolation:isolate;clip-path:inset(0);background:transparent;
+  display:grid;grid-template-columns:repeat(2,minmax(0,598px));justify-content:center;gap:28px;align-items:stretch;padding:72px 28px}
+#dash .duo::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:#000 url(/strategy-hub/img/gradient.jpg?v=1) center/cover no-repeat;filter:brightness(.72)}
-#dash .fb-band::after,#dash section#fdl-finder::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+#dash .duo::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:#00003d;mix-blend-mode:color}
-#dash .fb-band>.in,#dash section#fdl-finder>.fdl-wrap{position:relative;z-index:1}
-/* Blocks 4 and 5 are glass cards like the ask card: same 880px width and the same navy glass, centred on the gradient. */
-#dash .fb-band,#dash section#fdl-finder{border:0;padding-left:28px;padding-right:28px}
-#dash section#fdl-finder{padding-top:72px;padding-bottom:36px}
-#dash .fb-band{padding-top:36px;padding-bottom:72px}
-#dash .fb-band>.in,#dash section#fdl-finder>.fdl-wrap{width:100%;max-width:880px;margin:0 auto;box-sizing:border-box;
+#dash .duo>.fb-band,#dash .duo>section#fdl-finder{display:flex;padding:0;border:0;background:transparent;color:#fff;
+  position:static;clip-path:none;isolation:auto}
+#dash .duo>.fb-band>.in,#dash .duo>section#fdl-finder>.fdl-wrap{flex:1;width:auto;max-width:none;margin:0;box-sizing:border-box;
   border-radius:22px;padding:clamp(40px,5vw,64px) clamp(24px,4.4vw,56px) clamp(36px,4.4vw,52px);
   background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   box-shadow:inset 0 0 60px rgba(255,255,255,.035),0 30px 70px -20px rgba(0,0,25,.6)}
-@media(max-width:860px){
-  #dash .fb-band,#dash section#fdl-finder{padding-left:20px;padding-right:20px}
-  #dash section#fdl-finder{padding-top:36px}
-  #dash .fb-band{padding-bottom:36px}
-  #dash .fb-band>.in,#dash section#fdl-finder>.fdl-wrap{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
+#dash .duo>.fb-band>.in{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:28px}
+@media(max-width:1000px){
+  #dash .duo{grid-template-columns:minmax(0,880px);gap:36px;padding:36px 20px}
+  #dash .duo>.fb-band>.in,#dash .duo>section#fdl-finder>.fdl-wrap{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
 }
 
 /* Taller template sheets: the SW band crops its mock at a fixed height; give the
@@ -1766,6 +1763,7 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
   #fdl-finder .fdl-wrap{padding:0 20px}
 }
 </style>
+<div class="duo">
 <section id="fdl-finder">
   <div class="fdl-wrap">
     <div class="fdl-eyebrow">Where do I find help?</div>
@@ -1788,6 +1786,17 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
     <div id="fdl-results"></div>
   </div>
 </section>
+<section class="fb-band">
+  <div class="in">
+    <div>
+      <div class="eyebrow">Feedback</div>
+      <h2>Have a suggestion?</h2>
+      <p>Your feedback helps us drive continuous improvement on the Enterprise Strategy Center</p>
+    </div>
+    <a class="gpill" href="#">Feedback form <span class="pc"><span>&nearr;</span></span></a>
+  </div>
+</section>
+</div>
 <script>/* GE copy: the experts and the team behind AeroIntel, from the How Do We Win and AeroIntel pages. */
 window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy Officer", "d": "How Do We Win", "e": ""}, {"n": "Stotz, Sarah", "t": "Sr Marketing Manager - Market Intelligence", "d": "AeroIntel", "e": ""}, {"n": "Edupuganti, Yasaswini", "t": "Lead Project Management Specialist", "d": "AeroIntel", "e": ""}, {"n": "Flores, Nicholas", "t": "Principal Analytics Engineer", "d": "AeroIntel", "e": ""}, {"n": "Schanche, Kristin", "t": "Sr Project Management Manager", "d": "AeroIntel", "e": ""}, {"n": "Leber, Nicole", "t": "Sr Director - Technical Product Management", "d": "AeroIntel", "e": ""}, {"n": "Ensor, David", "t": "Principal Technical Product Manager", "d": "AeroIntel", "e": ""}, {"n": "Saadati, Leila", "t": "Sr Staff Data Scientist", "d": "AeroIntel", "e": ""}, {"n": "Potter, Emily", "t": "Executive - Digital Market Intelligence", "d": "AeroIntel", "e": ""}, {"n": "Cahill, Matthew", "t": "Sr BD Manager - Business Development", "d": "AeroIntel", "e": ""}, {"n": "Tripathy, Satyakam", "t": "Staff Data Engineer - Physical Infrastructure", "d": "AeroIntel", "e": ""}];</script>
 <script>
@@ -2327,16 +2336,6 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
 
 
 
-<section class="fb-band">
-  <div class="in">
-    <div>
-      <div class="eyebrow">Feedback</div>
-      <h2>Have a suggestion?</h2>
-      <p>Your feedback helps us drive continuous improvement on the Enterprise Strategy Center</p>
-    </div>
-    <a class="gpill" href="#">Feedback form <span class="pc"><span>&nearr;</span></span></a>
-  </div>
-</section>
 
   
 <div id="dash-swb-modal" onclick="if(event.target===this)swbClose()">
