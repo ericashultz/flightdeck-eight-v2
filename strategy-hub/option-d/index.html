@@ -1433,7 +1433,13 @@ body{padding-left:0}
   /* Backdrop: gradient.jpg tinted to the site navy (#00003d) with a colour-blend overlay, fixed to the viewport and clipped to this band. */
   #dash .ai-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#000 url(/strategy-hub/img/gradient.jpg?v=1) center/cover no-repeat;filter:brightness(.72)}
   #dash .ai-bg::after{content:"";position:absolute;inset:0;background:#00003d;mix-blend-mode:color}
-  #dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1320px;margin:0 auto;padding:clamp(48px,7vw,96px) 40px;box-sizing:border-box}
+  #dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:clamp(48px,7vw,96px) 28px;box-sizing:border-box}
+  /* Centre the hero copy and the ask card on the screen (same 1280px / 28px container as the nav). */
+  #dash .engine-wrap .hero .in{max-width:1280px;padding-left:28px;padding-right:28px}
+  #dash .engine-wrap .annotrack{max-width:none;text-align:center}
+  #dash .engine-wrap .annoslide .hsub{margin-left:auto;margin-right:auto}
+  #dash .engine-wrap .annonav{justify-content:center}
+  #dash .ai-stage .ai-card{margin-left:auto;margin-right:auto}
   #dash .ai-stage .ai-card{max-width:880px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,16,.38);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
   #dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
