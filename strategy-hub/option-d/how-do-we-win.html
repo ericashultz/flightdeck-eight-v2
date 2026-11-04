@@ -1398,19 +1398,16 @@ body{padding-left:0}
         <article class="annoslide on">
           <div class="annotag">Strategy Fundamental</div>
           <h1>How do we win?</h1>
-          <p class="hsub">Six questions to turn your game into a plan.</p>
-          <a class="gpill light" href="#wgpanel" data-wg aria-expanded="false" aria-controls="wgpanel">Get started <span class="pc"><span>&rarr;</span></span></a>
         </article>
       </div>
     </div>
   </section>
   </div>
 
-  <!-- ═══ GUIDED QUESTIONS — opens under the hero from Get started ═══
+  <!-- ═══ GUIDED QUESTIONS — always visible under the hero ═══
        Six questions, one per screen; the sheet on the right fills in as you answer, and the last screen reads the plan back. Nothing is sent anywhere. -->
-  <section class="wgpanel" id="wgpanel" aria-label="How do we win: six questions" inert>
+  <section class="wgpanel open" id="wgpanel" aria-label="How do we win: six questions">
     <div class="wg-clip"><div class="wg-pad">
-      <button type="button" class="wg-close" id="wg-close">Close &times;</button>
       <div class="wg-eyebrow">Guided plan builder</div>
       <h2 class="wg-h">Answer six questions, see how you win</h2>
       <p class="wg-intro">This is guidance, not a template. Answer one question per screen, with a few prompts to think about under each. Your answers fill in the page beside you, and at the end you get your plan to win, read back in one place.</p>
@@ -1491,26 +1488,7 @@ body{padding-left:0}
        markup and rules as #sw-b .smod-default on Standard Work, so it is a
        pattern people have already met. Immediately under the hero, because
        anything at the bottom of this page will not be seen. -->
-  <section class="fd-say"><div class="v-in">
-  <button type="button" class="say-x" aria-label="Close" data-say-close>&times;</button>
-  <div>
-    <div class="rule"></div>
-    <p>How Do We Win (HDWW) is the phase of the enterprise strategy process where strategic opportunities are converted into actionable business strategies. Building on the direction established during What Game Are We Playing (WGAWP), HDWW develops, refines, and validates strategic recommendations through collaboration across Business Unit leadership, functional teams, strategy, and SALT. The process produces a recommended strategic path supported by a clear business case, an implementation approach, and defined resource, investment, and execution requirements.</p>
-  </div>
-  <a class="sm-action say-start" href="#px-learn" data-panel="px-learn" aria-expanded="false" aria-controls="px-learn">
-    <div class="sa-shot"><img src="/strategy-hub/img/hdww-team.jpg" alt="" loading="lazy"></div>
-    <span class="gpill" aria-label="Learn more about the Operating System">Learn more <span class="pc"><span>&rarr;</span></span></span>
-  </a>
-  <div class="gsx" id="px-learn">
-    <button type="button" class="gsx-close" data-px-close>Close &times;</button>
-    <div class="learn-cols">
-      <div><div class="v-label">Watch now</div><h4 class="v-title">How Do We Win</h4><p class="v-small">Coming soon video overview of How Do We Win</p></div>
-      <div><div class="v-label">Strategy Fundamental</div><h4 class="v-title">What Game Are We Playing</h4><p class="v-small">GE content: overview</p><a class="learn-open" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span aria-hidden="true">&rarr;</span></a></div>
-      <div><div class="v-label">Strategy Tool</div><h4 class="v-title">AeroIntel</h4><p>AeroIntel applies AI to GE Aerospace&rsquo;s curated expert content, giving teams faster, more consistent analysis for complex strategic questions.</p><a class="learn-open" href="/strategy-hub/option-d/aerointel.html">Open AeroIntel <span aria-hidden="true">&rarr;</span></a></div>
-    </div>
-  </div>
-
-</div></section>
+  
 
 <section class="qsband">
     <div class="wrap2">
@@ -2741,7 +2719,7 @@ document.addEventListener('click',function(e){
 </script>
 
 <script>
-/* How do we win: six questions, one at a time. Get started opens the panel under the hero. */
+/* How do we win: six questions, one at a time. The block sits open under the hero. */
 (function(){
   var Q=[
     ["Options & evaluation", "What is our assessment of each of the options? Business case? Customer impact? Competitive response? Impact on adjacent topics / businesses?", ["Define what we are going to do, and not do, and the value it creates for customers and GE Aerospace.", "Assess each option on value creation (including option value), fit with the ambition, customer needs, capabilities, feasibility and risk.", "Lay out the full range of options and invite debate. Do not rule options out on assumed leadership opinions."], "Well-defined options link the aspiration to value, investment and action."],
@@ -2751,7 +2729,7 @@ document.addEventListener('click',function(e){
     ["Implementation plan", "What is the action plan? How will we deliver impact?", ["Define success metrics (SQDC, in that order), milestones and decision checkpoints.", "Translate the recommendation into actions, with owners, timelines and review cadences.", "Say what would trigger a change, an escalation or a re-evaluation."], "A clear plan ensures teams execute activity aligned to the ambition."],
     ["Execution readiness", "What decisions and actions are required for closure, to transition from strategy to execution?", ["Distribute a summary of alignment and decisions, and outline the decisions still open and where they will close.", "Update action plans with owners and timing.", "Meet with Finance on budget and forecast impact, and agree with Enterprise Strategy where this topic is reviewed next."], "The strategy owners are responsible for executing the post-meeting actions."]
   ];
-  var p=document.getElementById('wgpanel'), pill=document.querySelector('#dash [data-wg]'); if(!p||!pill) return;
+  var p=document.getElementById('wgpanel'); if(!p) return;
   var $=function(id){return document.getElementById(id)};
   var inp=$('wg-in'),err=$('wg-err'),next=$('wg-next'),back=$('wg-back'),sheet=$('wg-sheet'),stepEl=$('wg-step'),resEl=$('wg-result');
   var A=new Array(Q.length).fill(''), cur=0, rows=[];
@@ -2813,15 +2791,6 @@ document.addEventListener('click',function(e){
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok,function(){});
     else { var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); ok();}catch(e){} ta.remove(); }
   });
-  function open(){
-    p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true');
-    if(firstOpen()===A.length) finish(); else show(Math.min(cur<0?firstOpen():cur,firstOpen()));
-    setTimeout(function(){ var r=p.getBoundingClientRect(); if(r.bottom>innerHeight||r.top<0) p.scrollIntoView({behavior:'smooth',block:'start'}); if(!stepEl.hidden) inp.focus({preventScroll:true}); },560);
-  }
-  function close(focus){ p.classList.remove('open'); p.setAttribute('inert',''); pill.setAttribute('aria-expanded','false'); if(focus) pill.focus(); }
-  pill.addEventListener('click',function(e){ e.preventDefault(); p.classList.contains('open')?close(false):open(); });
-  $('wg-close').addEventListener('click',function(){ close(true); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&p.classList.contains('open')) close(true); });
   show(0);
 })();
 </script>
