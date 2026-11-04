@@ -2454,7 +2454,7 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
       PEOPLE.forEach(function (p) { if (p.d) depts[p.d] = (depts[p.d] || 0) + 1; });
       deptNames = Object.keys(depts).sort();
       q.disabled = false;
-      q.placeholder = 'e.g. AeroIntel, How Do We Win';
+      q.placeholder = 'e.g. strategy principals for CES';
     }).catch(function (err) {
       console.error('[fdl-finder]', err);
       q.placeholder = 'Unavailable';
