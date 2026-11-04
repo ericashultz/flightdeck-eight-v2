@@ -1302,13 +1302,12 @@ body{padding-left:0}
 #dash .engine-wrap .annoslide .hsub{margin-left:0;margin-right:auto}
 #dash .engine-wrap .annonav{justify-content:flex-start}
 @media(max-width:700px){#dash .engine-wrap .hero .in{padding-left:20px;padding-right:20px}}
-/* Backdrop shifted left (and slightly enlarged) so the top-left glare falls off the edge, clear of the left-aligned copy. */
-#dash{--bgpos:right center;--bgsize:auto 105%}
-@media(max-width:700px){#dash{--bgpos:center;--bgsize:cover}}
-/* The three Fundamental heroes share one height, with the copy centred in it. */
-#dash .engine-wrap .hero.anno{display:flex;flex-direction:row;align-items:center;min-height:495px}
-#dash .engine-wrap .hero .in{padding-top:0;padding-bottom:0}
-@media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:420px}}
+/* Backdrop at its original scale and position (centred, cover). */
+#dash{--bgpos:center;--bgsize:cover}
+/* The three Fundamental heroes share one height, with the copy sitting low in it. */
+#dash .engine-wrap .hero.anno{display:flex;flex-direction:row;align-items:flex-end;min-height:495px}
+#dash .engine-wrap .hero .in{padding-top:0;padding-bottom:72px}
+@media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:420px}#dash .engine-wrap .hero .in{padding-bottom:56px}}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
