@@ -1538,6 +1538,7 @@ body{padding-left:0}
   #dash .espanel{position:relative;z-index:1;padding:0;display:grid;grid-template-rows:0fr;visibility:hidden;
     transition:grid-template-rows .5s cubic-bezier(.23,1,.32,1),visibility 0s linear .5s}
   #dash .espanel.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .5s cubic-bezier(.23,1,.32,1),visibility 0s}
+  #dash .espanel{scroll-margin-top:96px}
   #dash .es-clip{min-height:0;overflow:hidden}
   /* Space from the carousel dots to an opened panel is 56px (the hero keeps 72px under the dots on desktop, 56px on phones). The card below the panel keeps a 56px (32px on phones) gap from it. */
   @media(min-width:701px){#dash .espanel.open{margin-top:-16px}}
@@ -3037,7 +3038,7 @@ document.addEventListener('click',function(e){
     var other=document.getElementById('espanel'); if(other&&other.classList.contains('open')){ var op=document.querySelector('#dash [data-es]'); if(op) op.click(); }
     poster.classList.remove('gone'); m.removeAttribute('inert'); m.classList.add('open');
     if(pill) pill.setAttribute('aria-expanded','true');
-    setTimeout(function(){ var r=m.getBoundingClientRect(); if(r.bottom>innerHeight||r.top<0) m.scrollIntoView({behavior:'smooth',block:'center'}); },60);
+    m.scrollIntoView({behavior:'smooth',block:'start'});
   }
   function close(focus){
     v.pause(); m.classList.remove('open'); m.setAttribute('inert','');
@@ -3058,7 +3059,8 @@ document.addEventListener('click',function(e){
   function open(){
     var vp=document.getElementById('vpanel'); if(vp&&vp._close&&vp.classList.contains('open')) vp._close(false);
     p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true');
-    setTimeout(function(){ var r=p.getBoundingClientRect(); if(r.bottom>innerHeight||r.top<0) p.scrollIntoView({behavior:'smooth',block:'center'}); },60);
+    /* Same as the Next steps panels: scroll so the panel starts at the top of the screen. */
+    p.scrollIntoView({behavior:'smooth',block:'start'});
   }
   function close(focus){
     p.classList.remove('open'); p.setAttribute('inert',''); pill.setAttribute('aria-expanded','false'); if(focus) pill.focus();
