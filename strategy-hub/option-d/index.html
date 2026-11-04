@@ -1631,7 +1631,9 @@ body{padding-left:0}
   #dash .engine-wrap .hero.anno{display:flex;flex-direction:row;align-items:flex-end;min-height:560px}
   #dash .engine-wrap .hero .in{padding-top:0;padding-bottom:72px}
   #dash .engine-wrap .ai-stage-in{padding-top:0}
-  @media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:480px}#dash .engine-wrap .hero .in{padding-bottom:56px}}
+  /* The card rides up into the hero's bottom margin: dots-to-card gap is 32px. */
+  #dash .engine-wrap .ai-stage{margin-top:-40px}
+  @media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:480px}#dash .engine-wrap .hero .in{padding-bottom:56px}#dash .engine-wrap .ai-stage{margin-top:-24px}}
   </style>
   <section class="ai-stage" aria-label="Ask AeroIntel">
     <div class="ai-stage-in">
