@@ -1443,11 +1443,12 @@ body{padding-left:0}
 @keyframes tk-flow{to{stroke-dashoffset:-28}}
 @media(prefers-reduced-motion:reduce){#dash .tkpanel,#dash .tkpanel.open{transition:none}#dash .tk-arc{animation:none}}
 @media(max-width:700px){
-  #dash .tk-pad{padding:0 20px 56px}
+  #dash .tk-pad{padding:0 0 56px}
   #dash .tk-svg-d{display:none}
-  #dash .tk-svg-m{display:block;max-width:360px;margin:0 auto}
+  #dash .tk-svg-m{display:block;max-width:none;margin:0 auto}
   #dash .tk-svg-m .es-t-name{font-size:13px}#dash .tk-svg-m .es-t-name.tk-sm{font-size:11px}#dash .tk-svg-m .es-t-arc{font-size:10px;letter-spacing:.14em}#dash .tk-svg-m .tk-lead{font-size:9.5px}#dash .tk-svg-m .es-t-sm{font-size:11px}#dash .tk-svg-m .es-t-xs{font-size:9px}#dash .tk-svg-m .tk-verb{font-size:7.5px;letter-spacing:.14em}#dash .tk-svg-m .tk-cap{font-size:9.5px}#dash .tk-svg-m .tk-itl{font-size:8px;letter-spacing:.06em}
-  #dash .tk-card{position:relative}
+  #dash .tk-card{position:relative;border-radius:0;padding-left:10px;padding-right:10px}
+  #dash .tk-head{padding:0 8px}
   #dash .tk-close{position:absolute;top:14px;right:14px;width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1}
   #dash .tk-close .tk-close-txt{display:none}
 }
