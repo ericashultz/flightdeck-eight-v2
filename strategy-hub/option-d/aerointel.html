@@ -1334,7 +1334,15 @@ body{padding-left:0}
 #dash .aipair .say-start{width:auto}
 #dash .aipair>.gsx{grid-column:1/-1}
 }
-@media(max-width:900px){#dash .aipair>.gsx{width:calc(100% - 40px);margin-left:auto;margin-right:auto;box-sizing:border-box}}
+@media(max-width:900px){
+#dash .aipair{display:grid;grid-template-columns:1fr;gap:20px;width:calc(100% - 40px);margin:40px auto 56px;box-sizing:border-box}
+#dash .aipair .aistat-block{width:auto;margin:0;padding:0}
+#dash .aipair .aistat-card{background:#f7f8fc;border:1px solid #dcdcea}
+#dash .aipair .fd-say{padding:24px;background:#f7f8fc;border:1px solid #dcdcea;border-radius:22px;box-sizing:border-box}
+#dash .aipair .fd-say .v-in{width:auto;display:flex;flex-direction:column;gap:24px}
+#dash .aipair .fd-say p{font-size:clamp(22px,5.4vw,28px);max-width:none}
+#dash .aipair .say-start{width:auto}
+}
 #dash .aistat-block{position:relative;z-index:1;box-sizing:border-box;width:min(1100px,calc(100% - 80px));margin:0 auto;padding:56px 0 0}
 #dash .aistat-card{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;box-sizing:border-box;color:#000022;
   padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);border:1px solid #dcdcea;border-radius:22px;background:#f7f8fc}
