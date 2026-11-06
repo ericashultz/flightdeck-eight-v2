@@ -1344,11 +1344,6 @@ body{padding-left:0}
           <p class="hsub">Personalized guidance, templates, and AI support, all in one place.</p>
           <a class="gpill light" href="#nextsteps">Get Started <span class="pc"><span>&darr;</span></span></a>
         </article>
-        <article class="annoslide annoslide-es">
-          <div class="annotag">The big picture</div>
-          <h1>What is Enterprise Strategy</h1>
-          <a class="gpill light" href="#espanel" data-es aria-expanded="false" aria-controls="espanel">Learn More <span class="pc"><span>&rarr;</span></span></a>
-        </article>
         <article class="annoslide annoslide-msg">
           <div class="annotag">Opening message</div>
           <h1>A message from our CSO</h1>
@@ -1379,7 +1374,6 @@ body{padding-left:0}
         <button aria-label="Announcement 3"></button>
         <button aria-label="Announcement 4"></button>
         <button aria-label="Announcement 5"></button>
-        <button aria-label="Announcement 6"></button>
         <button type="button" class="annoarr" data-anno="1" aria-label="Next announcement">&#8594;</button>
       </div>
     </div>
@@ -1387,16 +1381,15 @@ body{padding-left:0}
 
   <!-- ═══ WHAT IS ENTERPRISE STRATEGY — diagram panel ═══
        Opens under the carousel from the first slide's Learn More pill: Strategy feeds Flight Deck, which drives Culture. -->
-  <section class="espanel" id="espanel" aria-label="How we turn strategy into results" inert>
+  <section class="espanel open" id="espanel" aria-label="What is Enterprise Strategy">
     <div class="es-clip"><div class="es-pad">
       <div class="es-card">
         <div class="es-head">
           <div>
             <div class="es-eyebrow">The big picture</div>
-            <h2 class="es-title">How we turn strategy <span class="es-t2">into results</span></h2>
-            <p class="es-sub">Strategy helps grow and protect our business</p>
+            <p class="es-lead"><b>STRATEGY</b> tells us where to play and how to win. Strategy comes first to identify the opportunities and the risks and set the right direction and goals.</p>
+            <p class="es-lead">Not every HK effort begins with strategy, but when the strategic direction requires a new capability or breakthrough, the connection becomes particularly powerful.</p>
           </div>
-          <button type="button" class="es-close" data-esclose aria-label="Close"><span class="es-close-txt">Close </span>&times;</button>
         </div>
         <div class="es-diagram" role="img" aria-label="Strategy feeds Flight Deck, which drives Culture: operational results, financial performance and breakthroughs (Hoshin Kanri).">
           <div class="es-node es-strategy">
@@ -1551,6 +1544,9 @@ body{padding-left:0}
   @media(min-width:701px){#dash .espanel.open{margin-top:-16px}}
   #dash .engine-wrap:has(.espanel.open) .ai-stage{margin-top:56px}
   @media(max-width:700px){#dash .engine-wrap:has(.espanel.open) .ai-stage{margin-top:32px}}
+  /* The video panel opens under the always-visible Strategy block, with the same gap as everywhere else. */
+  #dash .vpanel.open{margin-top:56px}
+  @media(max-width:700px){#dash .vpanel.open{margin-top:32px}}
   #dash .es-pad{padding:0 28px;box-sizing:border-box}
   #dash .es-card{max-width:1080px;margin:0 auto;border-radius:22px;color:#fff;
     padding:clamp(28px,4vw,48px) clamp(20px,4.4vw,56px) clamp(32px,4.4vw,56px);
@@ -1563,6 +1559,8 @@ body{padding-left:0}
   #dash .es-eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:#0ad64f}
   #dash .es-title{margin:0;font-weight:300;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.028em;line-height:1.1;color:#fff}
   #dash .es-sub{margin:14px 0 0;font-size:clamp(16px,1.5vw,20px);font-weight:300;line-height:1.4;color:rgba(255,255,255,.75)}
+  #dash .es-lead{margin:18px 0 0;max-width:62ch;font-size:clamp(18px,1.7vw,23px);font-weight:300;line-height:1.45;color:rgba(255,255,255,.88)}
+  #dash .es-lead b{font-weight:600;letter-spacing:.04em;color:#fff}
   #dash .es-close{flex:none;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:100px;font:inherit;font-size:13px;padding:8px 18px;cursor:pointer}
   #dash .es-close:hover{background:#fff;color:#00003d;border-color:#fff}
   #dash .es-close:focus-visible{outline:3px solid #4181ff;outline-offset:2px}
@@ -3067,24 +3065,6 @@ function centrePanel(p){
 })();
 </script>
 
-<script>
-/* Learn More on the first slide opens the Enterprise Strategy diagram under the carousel; Close, the pill again, or Esc closes it. */
-(function(){
-  var p=document.getElementById('espanel'), pill=document.querySelector('#dash [data-es]'); if(!p||!pill) return;
-  function open(){
-    var vp=document.getElementById('vpanel'); if(vp&&vp._close&&vp.classList.contains('open')) vp._close(false);
-    p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true');
-    /* Scroll down so the opened panel sits in the middle of the screen (judged by its full height, since it is still unfolding). */
-    centrePanel(p);
-  }
-  function close(focus){
-    p.classList.remove('open'); p.setAttribute('inert',''); pill.setAttribute('aria-expanded','false'); if(focus) pill.focus();
-  }
-  pill.addEventListener('click',function(e){ e.preventDefault(); p.classList.contains('open')?close(false):open(); });
-  p.querySelector('[data-esclose]').addEventListener('click',function(){ close(true); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && p.classList.contains('open')) close(true); });
-})();
-</script>
 
 <script>
 /* Journey tips open beside the icon they explain: to the right of it, or to the left when the right
