@@ -1341,6 +1341,11 @@ body{padding-left:0}
   #dash .aistat-n{font-size:clamp(56px,16vw,88px)}
 }
 @media(max-width:700px){#dash .aistat{display:none}}
+
+/* Block 2 (the pain-points band) takes the hero's content width, so the two share left and right edges. */
+#dash .fd-say .v-in{width:min(1100px,calc(100% - 80px));max-width:none;padding:0}
+#dash .fd-say .say-x{right:0}
+@media(max-width:900px){#dash .fd-say .v-in{width:calc(100% - 40px)}}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
