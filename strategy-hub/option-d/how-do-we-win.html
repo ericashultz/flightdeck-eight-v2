@@ -1857,6 +1857,11 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
   section#fdl-finder{padding:56px 0}
   #fdl-finder .fdl-wrap{padding:0 20px}
 }
+/* Phones: every Close button is just a circle with an X. */
+@media(max-width:640px){
+.gsx-close{font-size:0!important;line-height:0!important;width:38px!important;height:38px!important;min-width:0!important;padding:0!important;border-radius:50%!important;display:inline-flex!important;align-items:center;justify-content:center}
+.gsx-close::before{content:"\00d7";font-size:24px;line-height:1;color:inherit}
+}
 </style>
 <section id="fdl-finder" class="sect-x">
   <div class="fdl-wrap">
