@@ -1320,27 +1320,26 @@ body{padding-left:0}
 #dash .annoctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
 #dash .annoctas .gpill.light{margin-top:0}
 #dash .annoslide-stat h1,#dash .annoslide-stat .hsub{max-width:560px}
-#dash .aistat-block{position:relative;z-index:1;box-sizing:border-box;width:min(1100px,calc(100% - 80px));margin:-16px auto 0;padding:0 0 72px}
-#dash .aistat-card{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;box-sizing:border-box;color:#fff;
-  padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);border:1px solid rgba(255,255,255,.22);border-radius:22px;
-  background:rgba(255,255,255,.04);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-#dash .aistat-eb,#dash .aistat-ft{grid-column:1/-1;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+#dash .aistat-block{position:relative;z-index:1;box-sizing:border-box;width:min(1100px,calc(100% - 80px));margin:0 auto;padding:56px 0 0}
+#dash .aistat-card{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;box-sizing:border-box;color:#000022;
+  padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);border:1px solid #dcdcea;border-radius:22px;background:#f7f8fc}
+#dash .aistat-eb,#dash .aistat-ft{grid-column:1/-1;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#6b6b88}
 #dash .aistat-eb{display:flex;align-items:center;gap:12px;margin-bottom:-8px}
 #dash .aistat-eb i{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 6px rgba(34,197,94,.18)}
 #dash .aistat-ft{margin-top:-8px;font-size:11px}
 #dash .aistat-n{font-weight:200;font-size:clamp(64px,8vw,104px);line-height:1;letter-spacing:-.035em;white-space:nowrap}
-#dash .aistat-l{margin:14px 0 0;font-size:17px;font-weight:300;color:rgba(255,255,255,.78)}
+#dash .aistat-l{margin:14px 0 0;font-size:17px;font-weight:300;color:#4a4a6a}
 #dash .aistat-bar{display:flex;gap:4px;height:12px}
 #dash .aistat-bar i{display:block;height:100%;border-radius:100px}
 #dash .aistat-bar .ext{flex:6500 1 0;background:#3b82f6}
 #dash .aistat-bar .int{flex:5000 1 0;background:#22c55e}
-#dash .aistat-k{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px;font-size:16px;color:rgba(255,255,255,.9)}
+#dash .aistat-k{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px;font-size:16px;color:#000022}
 #dash .aistat-k li{display:flex;align-items:center;gap:10px}
 #dash .aistat-k li::before{content:"";width:9px;height:9px;border-radius:2px;flex:none}
 #dash .aistat-k .ext::before{background:#3b82f6}
 #dash .aistat-k .int::before{background:#22c55e}
 @media(max-width:900px){#dash .aistat-block{width:calc(100% - 40px)}}
-@media(max-width:700px){#dash .aistat-block{margin-top:0;padding-bottom:56px}#dash .aistat-card{grid-template-columns:1fr}}
+@media(max-width:700px){#dash .aistat-block{padding-top:40px}#dash .aistat-card{grid-template-columns:1fr}}
 
 /* Block 2 (the pain-points band) takes the hero's content width, so the two share left and right edges. */
 #dash .fd-say .v-in{width:min(1100px,calc(100% - 80px));max-width:none;padding:0}
@@ -1419,6 +1418,7 @@ body{padding-left:0}
     </div>
   </section>
 
+  </div>
   <!-- ═══ SOURCE COVERAGE ═══
        The curated-documents stat, as its own block under the carousel. -->
   <section class="aistat-block" aria-label="AeroIntel source coverage">
@@ -1435,7 +1435,6 @@ body{padding-left:0}
       <div class="aistat-ft">Internal &amp; External Source Coverage</div>
     </div>
   </section>
-  </div>
 
   <!-- ═══ QUICK START ═══
        The band that already sits on every Fundamental page, lifted to the
