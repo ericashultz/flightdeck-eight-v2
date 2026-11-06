@@ -1319,7 +1319,9 @@ body{padding-left:0}
 /* AeroIntel slide 1 has two buttons; the source-coverage stat is its own block under the carousel. */
 #dash .annoctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
 #dash .annoctas .gpill.light{margin-top:0}
-#dash .annoslide-stat h1,#dash .annoslide-stat .hsub{max-width:560px}
+#dash .annoslide-stat h1{max-width:560px}
+#dash .annoslide-stat .hsub{max-width:none}
+@media(min-width:701px){#dash .annoslide-stat .hsub{white-space:nowrap}}
 #dash .aistat-block{position:relative;z-index:1;box-sizing:border-box;width:min(1100px,calc(100% - 80px));margin:0 auto;padding:56px 0 0}
 #dash .aistat-card{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;box-sizing:border-box;color:#000022;
   padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);border:1px solid #dcdcea;border-radius:22px;background:#f7f8fc}
