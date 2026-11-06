@@ -933,6 +933,7 @@ body.embed .cmdbar,body.embed .sprail{display:none!important}
 #dash .frec .fdst-mock .tmock{box-shadow:none;border:0;margin:0;width:100%;height:auto}
 /* Dark bands borrowed from option B's navy ramp. */
 /* Enterprise Strategy slide: a paragraph, not a one-liner, so it gets a wider measure. */
+#dash #nextsteps{scroll-margin-top:72px}
 #dash .annoslide-es .hsub{max-width:62ch;font-size:clamp(17px,1.6vw,22px);line-height:1.45}
 /* No white strip between the last band and the footer on this page. */
 footer.fd-footer{margin-top:0}
@@ -1338,7 +1339,12 @@ body{padding-left:0}
     <div class="in heroin">
 
       <div class="annotrack" id="annotrack">
-        <article class="annoslide on annoslide-es">
+        <article class="annoslide on">
+          <h1>Explore the Enterprise Strategy Activation Hub</h1>
+          <p class="hsub">Personalized guidance, templates, and AI support, all in one place.</p>
+          <a class="gpill light" href="#nextsteps">Get Started <span class="pc"><span>&darr;</span></span></a>
+        </article>
+        <article class="annoslide annoslide-es">
           <div class="annotag">The big picture</div>
           <h1>What is Enterprise Strategy</h1>
           <a class="gpill light" href="#espanel" data-es aria-expanded="false" aria-controls="espanel">Learn More <span class="pc"><span>&rarr;</span></span></a>
@@ -1373,6 +1379,7 @@ body{padding-left:0}
         <button aria-label="Announcement 3"></button>
         <button aria-label="Announcement 4"></button>
         <button aria-label="Announcement 5"></button>
+        <button aria-label="Announcement 6"></button>
         <button type="button" class="annoarr" data-anno="1" aria-label="Next announcement">&#8594;</button>
       </div>
     </div>
@@ -1711,7 +1718,7 @@ body{padding-left:0}
        anything at the bottom of this page will not be seen. -->
 
 
-<section class="qsband">
+<section class="qsband" id="nextsteps">
     <div class="wrap2">
       <div class="qshead">
         <div>
