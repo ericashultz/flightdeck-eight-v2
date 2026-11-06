@@ -1321,7 +1321,8 @@ body{padding-left:0}
 #dash .annoctas .gpill.light{margin-top:0}
 #dash .annoslide-stat h1,#dash .annoslide-stat .hsub{max-width:560px}
 #dash .engine-wrap #annotrack{position:static}
-#dash .aistat{position:absolute;right:40px;bottom:calc(72px + 68px);width:340px;color:#fff;text-align:left}
+#dash .aistat{position:absolute;right:40px;bottom:calc(72px + 68px);width:388px;box-sizing:border-box;padding:28px;color:#fff;text-align:left;
+  border:1px solid rgba(255,255,255,.22);border-radius:22px;background:rgba(255,255,255,.04);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 #dash .aistat-n{font-weight:200;font-size:88px;line-height:1;letter-spacing:-.035em;white-space:nowrap}
 #dash .aistat-l{margin:14px 0 22px;font-size:17px;font-weight:300;color:rgba(255,255,255,.78)}
 #dash .aistat-bar{display:flex;gap:4px;height:12px}
@@ -1334,9 +1335,9 @@ body{padding-left:0}
 #dash .aistat-k .ext::before{background:#3b82f6}
 #dash .aistat-k .int::before{background:#22c55e}
 #dash .aistat-c{margin-top:20px;font:400 11.5px ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-@media(max-width:1000px){
+@media(max-width:1100px){
   #dash .engine-wrap #annotrack{position:relative}
-  #dash .aistat{position:static;width:min(340px,100%);margin-top:26px}
+  #dash .aistat{position:static;width:min(340px,100%);margin-top:26px;padding:0;border:0;border-radius:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none}
   #dash .aistat-n{font-size:clamp(56px,16vw,88px)}
 }
 @media(max-width:700px){#dash .aistat{display:none}}
