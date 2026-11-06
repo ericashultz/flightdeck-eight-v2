@@ -1402,6 +1402,62 @@ body{padding-left:0}
 #dash .wgpanel{scroll-margin-top:64px}
 /* Phones: the banner is only as tall as its copy needs, with the copy at the bottom (56px below it) and the same space above it as the home page's first slide (72px from the nav, like the home page). */
 @media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:0}#dash .engine-wrap .hero .in{padding-top:72px}}
+
+/* ═══ Toolkit panel: the home page's glass card and Strategy-graphic styling, for the cycle diagram. ═══ */
+#dash .tkpanel{position:relative;z-index:1;padding:0;display:grid;grid-template-rows:0fr;visibility:hidden;scroll-margin-top:96px;
+  transition:grid-template-rows .5s cubic-bezier(.23,1,.32,1),visibility 0s linear .5s}
+#dash .tkpanel.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .5s cubic-bezier(.23,1,.32,1),visibility 0s}
+@media(min-width:701px){#dash .tkpanel.open{margin-top:-16px}}
+#dash .tk-clip{min-height:0;overflow:hidden}
+#dash .tk-pad{padding:0 28px 72px;box-sizing:border-box}
+#dash .tk-card{max-width:1080px;margin:0 auto;border-radius:22px;color:#fff;
+  padding:clamp(28px,4vw,48px) clamp(20px,4.4vw,56px) clamp(28px,4vw,48px);
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:inset 0 0 60px rgba(255,255,255,.035),0 30px 70px -20px rgba(0,0,25,.6)}
+#dash .tk-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:clamp(12px,2vw,24px)}
+#dash .es-eyebrow{display:flex;align-items:center;gap:9px;font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0ad64f;font-weight:600;margin:0;text-shadow:0 1px 10px rgba(0,0,20,.6)}
+#dash .es-eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:#0ad64f}
+#dash .tk-close{flex:none;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:100px;font:inherit;font-size:13px;padding:8px 18px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+#dash .tk-close:hover{background:#fff;color:#00003d;border-color:#fff}
+#dash .tk-close:focus-visible{outline:3px solid #4181ff;outline-offset:2px}
+#dash .tk-svg{display:block;width:100%;height:auto;overflow:visible}
+#dash .tk-list{display:none}
+#dash .es-halo{fill:none;stroke:rgba(255,255,255,.12);stroke-width:1}
+#dash .es-disc{stroke:rgba(255,255,255,.2);stroke-width:1}
+#dash .es-disc-flat{fill:rgba(255,255,255,.05)}
+#dash .es-t{font-family:inherit;fill:#fff}
+#dash .es-t-name{font-size:21px;font-weight:300;letter-spacing:-.01em}
+#dash .es-t-name.tk-sm{font-size:17px}
+#dash .es-t-arc{font-size:13px;font-weight:600;letter-spacing:.2em;fill:#0ad64f;font-family:ui-monospace,Menlo,monospace}
+#dash .es-t-sm{font-size:16px;font-weight:500}
+#dash .es-t-xs{font-size:12px;font-weight:400;fill:rgba(255,255,255,.7);font-family:ui-monospace,Menlo,monospace;letter-spacing:.06em}
+#dash .tk-verb{font-size:11px;letter-spacing:.18em}
+#dash .tk-lead{fill:#fff;font-size:14px;letter-spacing:.14em}
+#dash .tk-cap{font-style:italic;font-family:inherit;letter-spacing:0;font-size:13px;fill:rgba(255,255,255,.7)}
+#dash .tk-itl{fill:#0ad64f;font-weight:600;letter-spacing:.1em;font-size:11px}
+#dash .tk-arc{fill:none;stroke:rgba(190,210,255,.6);stroke-width:2;stroke-linecap:round;stroke-dasharray:7 7;animation:tk-flow 2.4s linear infinite}
+#dash .tk-iter{fill:none;stroke:#0ad64f;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:7 6}
+@keyframes tk-flow{to{stroke-dashoffset:-28}}
+@media(prefers-reduced-motion:reduce){#dash .tkpanel,#dash .tkpanel.open{transition:none}#dash .tk-arc{animation:none}}
+@media(max-width:700px){
+  #dash .tk-pad{padding:0 20px 56px}
+  #dash .tk-svg{display:none}
+  #dash .tk-list{display:block}
+  #dash .tk-card{position:relative}
+  #dash .tk-close{position:absolute;top:14px;right:14px;width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1}
+  #dash .tk-close .tk-close-txt{display:none}
+  #dash .tk-list ol{list-style:none;margin:16px 0;padding:0;display:grid;gap:10px}
+  #dash .tk-list li{display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.05);padding:12px 16px}
+  #dash .tk-ln{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid #0ad64f;color:#0ad64f;font:600 13px ui-monospace,Menlo,monospace;display:flex;align-items:center;justify-content:center}
+  #dash .tk-list b{display:block;font-weight:400;font-size:18px;color:#fff}
+  #dash .tk-list i{display:block;font:11px ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65);font-style:normal;margin-top:2px}
+  #dash .tk-lead-m{border:1px solid rgba(150,185,255,.5);border-radius:14px;background:rgba(120,160,255,.12);text-align:center;padding:14px 12px;margin:0 0 14px}
+  #dash .tk-lead-m b{display:block;font:600 13px ui-monospace,Menlo,monospace;letter-spacing:.14em;color:#fff;margin-bottom:6px}
+  #dash .tk-lead-m em{font-style:normal;font-size:15px}
+  #dash .tk-lead-m .g{color:#0ad64f}#dash .tk-lead-m .b{color:#7fb0ff}#dash .tk-lead-m .h{color:rgba(255,255,255,.75)}#dash .tk-lead-m .s{color:#ff7b7b}
+  #dash .tk-list .tk-cap{font-style:italic;font-size:13px;line-height:1.45;color:rgba(255,255,255,.7);margin:0}
+}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1444,6 +1500,12 @@ body{padding-left:0}
           <a class="gpill light" href="#wgpanel" data-wgjump>Find out now <span class="pc"><span>&darr;</span></span></a>
         </article>
         <article class="annoslide">
+          <div class="annotag">Toolkits</div>
+          <h1>Read the Skies</h1>
+          <p class="hsub">Understanding what game are we playing</p>
+          <a class="gpill light" href="#tkpanel" data-tk aria-expanded="false" aria-controls="tkpanel">Open the toolkit <span class="pc"><span>&darr;</span></span></a>
+        </article>
+        <article class="annoslide">
           <div class="annotag">Strategy Fundamental</div>
           <h1>How Do We Win</h1>
           <a class="gpill light" href="/strategy-hub/option-d/how-do-we-win.html">Open How Do We Win <span class="pc"><span>&rarr;</span></span></a>
@@ -1461,9 +1523,85 @@ body{padding-left:0}
         <button class="on" aria-label="Announcement 1"></button>
         <button aria-label="Announcement 2"></button>
         <button aria-label="Announcement 3"></button>
+        <button aria-label="Announcement 4"></button>
         <button type="button" class="annoarr" data-anno="1" aria-label="Next announcement">&#8594;</button>
       </div>
     </div>
+  </section>
+  <!-- ═══ TOOLKIT PANEL ═══
+       Opens under the carousel from the second slide's Open the toolkit pill: the four-step cycle from topic selection to operationalizing, with leadership decisions at the centre. -->
+  <section class="tkpanel" id="tkpanel" aria-label="Toolkit: from topic selection to operationalize" inert>
+    <div class="tk-clip"><div class="tk-pad">
+      <div class="tk-card">
+        <div class="tk-head">
+          <div class="es-eyebrow">Toolkits</div>
+          <button type="button" class="tk-close" data-tkclose aria-label="Close"><span class="tk-close-txt">Close </span>&times;</button>
+        </div>
+        <div class="tk-diagram" role="img" aria-label="Four-step cycle: 1 Topic Selection (Explore), 2 WGAWP (Understand), 3 HDWW (Choose), 4 Operationalize (Execute), with leadership decisions (Advance, Refine, Hold, Stop) at the centre. Iterate between HDWW and WGAWP for decision readiness. Hold and Stop are valid exits, not failures.">
+<svg viewBox="0 -40 760 680" class="tk-svg" aria-hidden="true" focusable="false">
+<defs>
+  <marker id="tkah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="rgba(190,210,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="tkag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#0ad64f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <radialGradient id="tkg1" cx="50%" cy="38%" r="72%"><stop offset="0" stop-color="rgba(120,160,255,.34)"/><stop offset="1" stop-color="rgba(34,86,230,.06)"/></radialGradient>
+</defs>
+<text x="380" y="-16" text-anchor="middle" class="es-t es-t-xs tk-cap">Continuous intake &amp; prioritization</text>
+<path class="tk-arc" d="M459.7 88.5 A262 222 0 0 1 625.1 221.5" marker-end="url(#tkah)"/>
+<path class="tk-arc" d="M625.1 378.5 A262 222 0 0 1 459.7 511.5" marker-end="url(#tkah)"/>
+<path class="tk-arc" d="M300.3 511.5 A262 222 0 0 1 134.9 378.5" marker-end="url(#tkah)"/>
+<path class="tk-arc" d="M134.9 221.5 A262 222 0 0 1 300.3 88.5" marker-end="url(#tkah)"/>
+<path class="tk-iter" d="M442.0 476.0 Q553.0 436.0 612.0 364.0" marker-end="url(#tkag)"/>
+<text x="628.0" y="394.0" class="es-t es-t-xs tk-itl"><tspan x="628.0">ITERATE FOR</tspan><tspan x="628.0" dy="16">DECISION READINESS</tspan></text>
+<g>
+  <circle cx="380.0" cy="78.0" r="76" class="es-halo"/>
+  <circle cx="380.0" cy="78.0" r="66" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="380.0" cy="78.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 380.0 78.0)"/>
+  <text x="380.0" y="48.0" text-anchor="middle" class="es-t es-t-arc tk-num">1</text>
+  <text x="380.0" y="72.0" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="380.0">Topic</tspan><tspan x="380.0" dy="22">Selection</tspan></text>
+  <text x="380.0" y="116.0" text-anchor="middle" class="es-t es-t-xs tk-verb">EXPLORE</text>
+</g>
+<g>
+  <circle cx="642.0" cy="300.0" r="76" class="es-halo"/>
+  <circle cx="642.0" cy="300.0" r="66" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="642.0" cy="300.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 642.0 300.0)"/>
+  <text x="642.0" y="270.0" text-anchor="middle" class="es-t es-t-arc tk-num">2</text>
+  <text x="642.0" y="304.0" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="642.0">WGAWP</tspan></text>
+  <text x="642.0" y="330.0" text-anchor="middle" class="es-t es-t-xs tk-verb">UNDERSTAND</text>
+</g>
+<g>
+  <circle cx="380.0" cy="522.0" r="76" class="es-halo"/>
+  <circle cx="380.0" cy="522.0" r="66" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="380.0" cy="522.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 380.0 522.0)"/>
+  <text x="380.0" y="492.0" text-anchor="middle" class="es-t es-t-arc tk-num">3</text>
+  <text x="380.0" y="526.0" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="380.0">HDWW</tspan></text>
+  <text x="380.0" y="552.0" text-anchor="middle" class="es-t es-t-xs tk-verb">CHOOSE</text>
+</g>
+<g>
+  <circle cx="118.0" cy="300.0" r="76" class="es-halo"/>
+  <circle cx="118.0" cy="300.0" r="66" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="118.0" cy="300.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 118.0 300.0)"/>
+  <text x="118.0" y="270.0" text-anchor="middle" class="es-t es-t-arc tk-num">4</text>
+  <text x="118.0" y="304.0" text-anchor="middle" class="es-t es-t-name tk-name tk-sm"><tspan x="118.0">Operationalize</tspan></text>
+  <text x="118.0" y="330.0" text-anchor="middle" class="es-t es-t-xs tk-verb">EXECUTE</text>
+</g>
+<g>
+  <circle cx="380" cy="300" r="94" class="es-halo"/>
+  <circle cx="380" cy="300" r="84" fill="url(#tkg1)" class="es-disc"/>
+  <circle cx="380" cy="300" r="62" fill="none" stroke="rgba(150,185,255,.5)" stroke-width="1"/>
+  <text x="380" y="278" text-anchor="middle" class="es-t es-t-arc tk-lead"><tspan x="380">LEADERSHIP</tspan><tspan x="380" dy="20">DECISIONS</tspan></text>
+  <text x="380" y="318" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="#0ad64f">Advance</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#7fb0ff">Refine</tspan></text>
+  <text x="380" y="338" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="rgba(255,255,255,.7)">Hold</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#ff7b7b">Stop</tspan></text>
+</g>
+<text x="380" y="418" text-anchor="middle" class="es-t es-t-xs tk-cap"><tspan x="380">Hold and Stop are valid exits —</tspan><tspan x="380" dy="16">not failures</tspan></text>
+</svg>
+<div class="tk-list">
+  <p class="tk-cap">Continuous intake &amp; prioritization</p>
+  <ol><li><span class="tk-ln">1</span><span><b>Topic Selection</b><i>Explore</i></span></li><li><span class="tk-ln">2</span><span><b>WGAWP</b><i>Understand</i></span></li><li><span class="tk-ln">3</span><span><b>HDWW</b><i>Choose</i></span></li><li><span class="tk-ln">4</span><span><b>Operationalize</b><i>Execute</i></span></li></ol>
+  <div class="tk-lead-m"><b>LEADERSHIP DECISIONS</b><span><em class="g">Advance</em> · <em class="b">Refine</em> · <em class="h">Hold</em> · <em class="s">Stop</em></span></div>
+  <p class="tk-cap">Hold and Stop are valid exits &mdash; not failures. Iterate between WGAWP and HDWW for decision readiness.</p>
+</div>
+        </div>
+      </div>
+    </div></div>
   </section>
   </div>
 
@@ -1901,6 +2039,24 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
   track.addEventListener('mouseleave',function(){ if(!held) start(); });
   go(0);
   start();
+})();
+</script>
+
+<script>
+/* Open the toolkit (slide 2) opens the cycle diagram under the carousel; Close, the pill again, or Esc closes it. Scrolls so the panel sits mid-window. */
+(function(){
+  var p=document.getElementById('tkpanel'), pill=document.querySelector('#dash [data-tk]'); if(!p||!pill) return;
+  function centre(){
+    var pad=p.querySelector('.tk-pad'), h=pad?pad.offsetHeight:p.offsetHeight, top=p.getBoundingClientRect().top+window.pageYOffset;
+    var t=(h+120>window.innerHeight)?top-96:top+h/2-window.innerHeight/2;
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:Math.max(0,t),behavior:reduce?'auto':'smooth'});
+  }
+  function open(){ p.removeAttribute('inert'); p.classList.add('open'); pill.setAttribute('aria-expanded','true'); centre(); }
+  function close(focus){ p.classList.remove('open'); p.setAttribute('inert',''); pill.setAttribute('aria-expanded','false'); if(focus) pill.focus(); }
+  pill.addEventListener('click',function(e){ e.preventDefault(); p.classList.contains('open')?close(false):open(); });
+  p.querySelector('[data-tkclose]').addEventListener('click',function(){ close(true); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && p.classList.contains('open')) close(true); });
 })();
 </script>
 
