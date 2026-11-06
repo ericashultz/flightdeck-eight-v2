@@ -1322,6 +1322,9 @@ body{padding-left:0}
 #dash .annoslide-stat h1{max-width:560px}
 #dash .annoslide-stat .hsub{max-width:none}
 @media(min-width:701px){#dash .annoslide-stat .hsub{white-space:nowrap}}
+/* Next steps lines up with the other blocks: 1100px, same side margins. */
+#dash .qsband>.wrap2{width:min(1100px,calc(100% - 80px));max-width:none;padding:0}
+@media(max-width:900px){#dash .qsband>.wrap2{width:calc(100% - 40px)}}
 /* Desktop: the stat block and the pain-points block share a row, each in its own card. */
 @media(min-width:901px){
 #dash .aipair{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:min(1100px,calc(100% - 80px));margin:56px auto 84px;box-sizing:border-box;align-items:stretch}
