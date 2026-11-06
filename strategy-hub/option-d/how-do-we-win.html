@@ -1399,12 +1399,12 @@ body{padding-left:0}
 #dash .ai-bg,#dash .duo::before,#dash .aiband::before{transform:scale(1.05);transform-origin:center bottom}
 @media(max-width:700px){#dash .ai-bg,#dash .duo::before,#dash .aiband::before{transform:none}}
 /* The three Fundamental heroes share one height, with the copy sitting low in it. */
-#dash .engine-wrap .hero.anno{display:flex;flex-direction:row;align-items:flex-end;min-height:495px}
+#dash .engine-wrap .hero.anno{display:flex;flex-direction:row;align-items:flex-end;min-height:560px}
 #dash .engine-wrap .hero .in{padding-top:0;padding-bottom:72px}
 @media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:420px}#dash .engine-wrap .hero .in{padding-bottom:56px}}
 #dash .wgpanel{scroll-margin-top:64px}
-/* Phones: the banner is only as tall as its copy needs, with the copy at the bottom (56px below it) and the same space above it as the home page's first slide (about 132px from the nav to the eyebrow). */
-@media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:0}#dash .engine-wrap .hero .in{padding-top:130px}}
+/* Phones: the banner is only as tall as its copy needs, with the copy at the bottom (56px below it) and the same space above it as the home page's first slide (72px from the nav, like the home page). */
+@media(max-width:700px){#dash .engine-wrap .hero.anno{min-height:0}#dash .engine-wrap .hero .in{padding-top:72px}}
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
   <span class="waffle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -1440,12 +1440,31 @@ body{padding-left:0}
     <div class="ai-bg" aria-hidden="true"></div>
   <section class="hero anno">
     <div class="in heroin">
-      <div class="annotrack">
+      <div class="annotrack" id="annotrack">
         <article class="annoslide on">
           <div class="annotag">Strategy Fundamental</div>
           <h1>How Do We Win</h1>
           <a class="gpill light" href="#wgpanel" data-wgjump>Find out now <span class="pc"><span>&darr;</span></span></a>
         </article>
+        <article class="annoslide">
+          <div class="annotag">Strategy Fundamental</div>
+          <h1>What Game Are We Playing</h1>
+          <a class="gpill light" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span class="pc"><span>&rarr;</span></span></a>
+        </article>
+        <article class="annoslide">
+          <div class="annotag">Strategy Tool</div>
+          <h1>AeroIntel</h1>
+          <p class="hsub">AeroIntel applies AI to GE Aerospace&rsquo;s curated expert content, giving teams faster, more consistent analysis for complex strategic questions.</p>
+          <a class="gpill light" href="/strategy-hub/option-d/aerointel.html">Open AeroIntel <span class="pc"><span>&rarr;</span></span></a>
+        </article>
+      </div>
+
+      <div class="annonav" id="annonav">
+        <button type="button" class="annoarr" data-anno="-1" aria-label="Previous announcement">&#8592;</button>
+        <button class="on" aria-label="Announcement 1"></button>
+        <button aria-label="Announcement 2"></button>
+        <button aria-label="Announcement 3"></button>
+        <button type="button" class="annoarr" data-anno="1" aria-label="Next announcement">&#8594;</button>
       </div>
     </div>
   </section>
