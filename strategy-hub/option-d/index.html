@@ -1379,6 +1379,28 @@ body{padding-left:0}
     </div>
   </section>
 
+  <section class="espanel vpanel" id="vpanel" aria-label="A message from our CSO" inert>
+    <div class="es-clip"><div class="es-pad">
+      <div class="es-card">
+        <div class="es-head">
+          <div>
+            <div class="es-eyebrow">Opening message</div>
+            <h2 class="es-title">A message from our CSO</h2>
+          </div>
+          <button type="button" class="es-close" data-vclose aria-label="Close"><span class="es-close-txt">Close </span>&times;</button>
+        </div>
+        <div class="vp-frame">
+          <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
+          <div class="vposter" id="vposter">
+            <img src="/strategy-hub/img/opening.jpg" alt="">
+            <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
+            <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
   <!-- ═══ WHAT IS ENTERPRISE STRATEGY — diagram panel ═══
        Opens under the carousel from the first slide's Learn More pill: Strategy feeds Flight Deck, which drives Culture. -->
   <section class="espanel open" id="espanel" aria-label="What is Enterprise Strategy">
@@ -1442,27 +1464,6 @@ body{padding-left:0}
 
   <!-- ═══ OPENING MESSAGE — video panel ═══
        Opens under the carousel from the second slide's Watch Now pill, the same way the Enterprise Strategy panel does. -->
-  <section class="espanel vpanel" id="vpanel" aria-label="A message from our CSO" inert>
-    <div class="es-clip"><div class="es-pad">
-      <div class="es-card">
-        <div class="es-head">
-          <div>
-            <div class="es-eyebrow">Opening message</div>
-            <h2 class="es-title">A message from our CSO</h2>
-          </div>
-          <button type="button" class="es-close" data-vclose aria-label="Close"><span class="es-close-txt">Close </span>&times;</button>
-        </div>
-        <div class="vp-frame">
-          <video id="vmodal-v" controls playsinline preload="none" poster="/strategy-hub/img/opening.jpg"></video>
-          <div class="vposter" id="vposter">
-            <img src="/strategy-hub/img/opening.jpg" alt="">
-            <button type="button" class="vplay" id="vplay" aria-label="Play video"><span aria-hidden="true"></span></button>
-            <div class="vcap">Opening video &middot; Patrick de Castelbajac, Chief Strategy Officer</div>
-          </div>
-        </div>
-      </div>
-    </div></div>
-  </section>
 
   <!-- ═══ AEROINTEL ASK ═══
        Ask-first block, first content under the header: a dark card with the question field, example prompts as
@@ -1544,9 +1545,9 @@ body{padding-left:0}
   @media(min-width:701px){#dash .espanel.open{margin-top:-16px}}
   #dash .engine-wrap:has(.espanel.open) .ai-stage{margin-top:56px}
   @media(max-width:700px){#dash .engine-wrap:has(.espanel.open) .ai-stage{margin-top:32px}}
-  /* The video panel opens under the always-visible Strategy block, with the same gap as everywhere else. */
-  #dash .vpanel.open{margin-top:56px}
-  @media(max-width:700px){#dash .vpanel.open{margin-top:32px}}
+  /* The video panel opens right under the carousel and pushes the Strategy block down, 56px (32px on phones) below it. */
+  #dash .vpanel.open+.espanel{margin-top:56px}
+  @media(max-width:700px){#dash .vpanel.open+.espanel{margin-top:32px}}
   #dash .es-pad{padding:0 28px;box-sizing:border-box}
   #dash .es-card{max-width:1080px;margin:0 auto;border-radius:22px;color:#fff;
     padding:clamp(28px,4vw,48px) clamp(20px,4.4vw,56px) clamp(32px,4.4vw,56px);
