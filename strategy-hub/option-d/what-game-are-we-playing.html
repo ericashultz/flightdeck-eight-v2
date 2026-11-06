@@ -1422,7 +1422,9 @@ body{padding-left:0}
 #dash .tk-close:hover{background:#fff;color:#00003d;border-color:#fff}
 #dash .tk-close:focus-visible{outline:3px solid #4181ff;outline-offset:2px}
 #dash .tk-svg{display:block;width:100%;height:auto;overflow:visible}
-#dash .tk-list{display:none}
+#dash .tk-svg-m{display:none}
+#dash .tk-svg-m{display:none}
+#dash .tk-svg-m{display:none}
 #dash .es-halo{fill:none;stroke:rgba(255,255,255,.12);stroke-width:1}
 #dash .es-disc{stroke:rgba(255,255,255,.2);stroke-width:1}
 #dash .es-disc-flat{fill:rgba(255,255,255,.05)}
@@ -1442,21 +1444,12 @@ body{padding-left:0}
 @media(prefers-reduced-motion:reduce){#dash .tkpanel,#dash .tkpanel.open{transition:none}#dash .tk-arc{animation:none}}
 @media(max-width:700px){
   #dash .tk-pad{padding:0 20px 56px}
-  #dash .tk-svg{display:none}
-  #dash .tk-list{display:block}
+  #dash .tk-svg-d{display:none}
+  #dash .tk-svg-m{display:block;max-width:360px;margin:0 auto}
+  #dash .tk-svg-m .es-t-name{font-size:13px}#dash .tk-svg-m .es-t-name.tk-sm{font-size:11px}#dash .tk-svg-m .es-t-arc{font-size:10px;letter-spacing:.14em}#dash .tk-svg-m .tk-lead{font-size:9.5px}#dash .tk-svg-m .es-t-sm{font-size:11px}#dash .tk-svg-m .es-t-xs{font-size:9px}#dash .tk-svg-m .tk-verb{font-size:7.5px;letter-spacing:.14em}#dash .tk-svg-m .tk-cap{font-size:9.5px}#dash .tk-svg-m .tk-itl{font-size:8px;letter-spacing:.06em}
   #dash .tk-card{position:relative}
   #dash .tk-close{position:absolute;top:14px;right:14px;width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1}
   #dash .tk-close .tk-close-txt{display:none}
-  #dash .tk-list ol{list-style:none;margin:16px 0;padding:0;display:grid;gap:10px}
-  #dash .tk-list li{display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.05);padding:12px 16px}
-  #dash .tk-ln{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid #0ad64f;color:#0ad64f;font:600 13px ui-monospace,Menlo,monospace;display:flex;align-items:center;justify-content:center}
-  #dash .tk-list b{display:block;font-weight:400;font-size:18px;color:#fff}
-  #dash .tk-list i{display:block;font:11px ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65);font-style:normal;margin-top:2px}
-  #dash .tk-lead-m{border:1px solid rgba(150,185,255,.5);border-radius:14px;background:rgba(120,160,255,.12);text-align:center;padding:14px 12px;margin:0 0 14px}
-  #dash .tk-lead-m b{display:block;font:600 13px ui-monospace,Menlo,monospace;letter-spacing:.14em;color:#fff;margin-bottom:6px}
-  #dash .tk-lead-m em{font-style:normal;font-size:15px}
-  #dash .tk-lead-m .g{color:#0ad64f}#dash .tk-lead-m .b{color:#7fb0ff}#dash .tk-lead-m .h{color:rgba(255,255,255,.75)}#dash .tk-lead-m .s{color:#ff7b7b}
-  #dash .tk-list .tk-cap{font-style:italic;font-size:13px;line-height:1.45;color:rgba(255,255,255,.7);margin:0}
 }
 </style></head><body>
 <div class="suite"><div class="wrap suite-in">
@@ -1538,67 +1531,116 @@ body{padding-left:0}
           <button type="button" class="tk-close" data-tkclose aria-label="Close"><span class="tk-close-txt">Close </span>&times;</button>
         </div>
         <div class="tk-diagram" role="img" aria-label="Four-step cycle: 1 Topic Selection (Explore), 2 WGAWP (Understand), 3 HDWW (Choose), 4 Operationalize (Execute), with leadership decisions (Advance, Refine, Hold, Stop) at the centre. Iterate between HDWW and WGAWP for decision readiness. Hold and Stop are valid exits, not failures.">
-<svg viewBox="0 -40 760 680" class="tk-svg" aria-hidden="true" focusable="false">
+<svg viewBox="0 -40 760 680" class="tk-svg tk-svg-d" aria-hidden="true" focusable="false">
 <defs>
-  <marker id="tkah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="rgba(190,210,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
-  <marker id="tkag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#0ad64f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
-  <radialGradient id="tkg1" cx="50%" cy="38%" r="72%"><stop offset="0" stop-color="rgba(120,160,255,.34)"/><stop offset="1" stop-color="rgba(34,86,230,.06)"/></radialGradient>
+  <marker id="tkahd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="rgba(190,210,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="tkagd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#0ad64f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <radialGradient id="tkg1d" cx="50%" cy="38%" r="72%"><stop offset="0" stop-color="rgba(120,160,255,.34)"/><stop offset="1" stop-color="rgba(34,86,230,.06)"/></radialGradient>
 </defs>
-<text x="380" y="-16" text-anchor="middle" class="es-t es-t-xs tk-cap">Continuous intake &amp; prioritization</text>
-<path class="tk-arc" d="M459.7 88.5 A262 222 0 0 1 625.1 221.5" marker-end="url(#tkah)"/>
-<path class="tk-arc" d="M625.1 378.5 A262 222 0 0 1 459.7 511.5" marker-end="url(#tkah)"/>
-<path class="tk-arc" d="M300.3 511.5 A262 222 0 0 1 134.9 378.5" marker-end="url(#tkah)"/>
-<path class="tk-arc" d="M134.9 221.5 A262 222 0 0 1 300.3 88.5" marker-end="url(#tkah)"/>
-<path class="tk-iter" d="M442.0 476.0 Q553.0 436.0 612.0 364.0" marker-end="url(#tkag)"/>
+<text x="380" y="-10.0" text-anchor="middle" class="es-t es-t-xs tk-cap">Continuous intake &amp; prioritization</text>
+<path class="tk-arc" d="M459.7 88.5 A262 222 0 0 1 625.1 221.5" marker-end="url(#tkahd)"/>
+<path class="tk-arc" d="M625.1 378.5 A262 222 0 0 1 459.7 511.5" marker-end="url(#tkahd)"/>
+<path class="tk-arc" d="M300.3 511.5 A262 222 0 0 1 134.9 378.5" marker-end="url(#tkahd)"/>
+<path class="tk-arc" d="M134.9 221.5 A262 222 0 0 1 300.3 88.5" marker-end="url(#tkahd)"/>
+<path class="tk-iter" d="M442.0 476.0 Q553.0 436.0 612.0 364.0" marker-end="url(#tkagd)"/>
 <text x="628.0" y="394.0" class="es-t es-t-xs tk-itl"><tspan x="628.0">ITERATE FOR</tspan><tspan x="628.0" dy="16">DECISION READINESS</tspan></text>
 <g>
-  <circle cx="380.0" cy="78.0" r="76" class="es-halo"/>
-  <circle cx="380.0" cy="78.0" r="66" class="es-disc es-disc-flat tk-disc"/>
-  <circle cx="380.0" cy="78.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 380.0 78.0)"/>
+  <circle cx="380.0" cy="78.0" r="76.0" class="es-halo"/>
+  <circle cx="380.0" cy="78.0" r="66.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="380.0" cy="78.0" r="66.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 380.0 78.0)"/>
   <text x="380.0" y="48.0" text-anchor="middle" class="es-t es-t-arc tk-num">1</text>
-  <text x="380.0" y="72.0" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="380.0">Topic</tspan><tspan x="380.0" dy="22">Selection</tspan></text>
+  <text x="380.0" y="76.0" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="380.0">Topic</tspan><tspan x="380.0" dy="22">Selection</tspan></text>
   <text x="380.0" y="116.0" text-anchor="middle" class="es-t es-t-xs tk-verb">EXPLORE</text>
 </g>
 <g>
-  <circle cx="642.0" cy="300.0" r="76" class="es-halo"/>
-  <circle cx="642.0" cy="300.0" r="66" class="es-disc es-disc-flat tk-disc"/>
-  <circle cx="642.0" cy="300.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 642.0 300.0)"/>
+  <circle cx="642.0" cy="300.0" r="76.0" class="es-halo"/>
+  <circle cx="642.0" cy="300.0" r="66.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="642.0" cy="300.0" r="66.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 642.0 300.0)"/>
   <text x="642.0" y="270.0" text-anchor="middle" class="es-t es-t-arc tk-num">2</text>
   <text x="642.0" y="304.0" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="642.0">WGAWP</tspan></text>
   <text x="642.0" y="330.0" text-anchor="middle" class="es-t es-t-xs tk-verb">UNDERSTAND</text>
 </g>
 <g>
-  <circle cx="380.0" cy="522.0" r="76" class="es-halo"/>
-  <circle cx="380.0" cy="522.0" r="66" class="es-disc es-disc-flat tk-disc"/>
-  <circle cx="380.0" cy="522.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 380.0 522.0)"/>
+  <circle cx="380.0" cy="522.0" r="76.0" class="es-halo"/>
+  <circle cx="380.0" cy="522.0" r="66.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="380.0" cy="522.0" r="66.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 380.0 522.0)"/>
   <text x="380.0" y="492.0" text-anchor="middle" class="es-t es-t-arc tk-num">3</text>
   <text x="380.0" y="526.0" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="380.0">HDWW</tspan></text>
   <text x="380.0" y="552.0" text-anchor="middle" class="es-t es-t-xs tk-verb">CHOOSE</text>
 </g>
 <g>
-  <circle cx="118.0" cy="300.0" r="76" class="es-halo"/>
-  <circle cx="118.0" cy="300.0" r="66" class="es-disc es-disc-flat tk-disc"/>
-  <circle cx="118.0" cy="300.0" r="66" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 118.0 300.0)"/>
+  <circle cx="118.0" cy="300.0" r="76.0" class="es-halo"/>
+  <circle cx="118.0" cy="300.0" r="66.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="118.0" cy="300.0" r="66.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 118.0 300.0)"/>
   <text x="118.0" y="270.0" text-anchor="middle" class="es-t es-t-arc tk-num">4</text>
   <text x="118.0" y="304.0" text-anchor="middle" class="es-t es-t-name tk-name tk-sm"><tspan x="118.0">Operationalize</tspan></text>
   <text x="118.0" y="330.0" text-anchor="middle" class="es-t es-t-xs tk-verb">EXECUTE</text>
 </g>
 <g>
-  <circle cx="380" cy="300" r="94" class="es-halo"/>
-  <circle cx="380" cy="300" r="84" fill="url(#tkg1)" class="es-disc"/>
-  <circle cx="380" cy="300" r="62" fill="none" stroke="rgba(150,185,255,.5)" stroke-width="1"/>
-  <text x="380" y="278" text-anchor="middle" class="es-t es-t-arc tk-lead"><tspan x="380">LEADERSHIP</tspan><tspan x="380" dy="20">DECISIONS</tspan></text>
-  <text x="380" y="318" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="#0ad64f">Advance</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#7fb0ff">Refine</tspan></text>
-  <text x="380" y="338" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="rgba(255,255,255,.7)">Hold</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#ff7b7b">Stop</tspan></text>
+  <circle cx="380" cy="300" r="94.0" class="es-halo"/>
+  <circle cx="380" cy="300" r="84" fill="url(#tkg1d)" class="es-disc"/>
+  <circle cx="380" cy="300" r="62.2" fill="none" stroke="rgba(150,185,255,.5)" stroke-width="1"/>
+  <text x="380" y="278.0" text-anchor="middle" class="es-t es-t-arc tk-lead"><tspan x="380">LEADERSHIP</tspan><tspan x="380" dy="20.0">DECISIONS</tspan></text>
+  <text x="380" y="318.0" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="#0ad64f">Advance</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#7fb0ff">Refine</tspan></text>
+  <text x="380" y="338.0" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="rgba(255,255,255,.7)">Hold</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#ff7b7b">Stop</tspan></text>
 </g>
-<text x="380" y="418" text-anchor="middle" class="es-t es-t-xs tk-cap"><tspan x="380">Hold and Stop are valid exits —</tspan><tspan x="380" dy="16">not failures</tspan></text>
+<text x="380" y="406.0" text-anchor="middle" class="es-t es-t-xs tk-cap"><tspan x="380">Hold and Stop are valid exits —</tspan><tspan x="380" dy="16">not failures</tspan></text>
 </svg>
-<div class="tk-list">
-  <p class="tk-cap">Continuous intake &amp; prioritization</p>
-  <ol><li><span class="tk-ln">1</span><span><b>Topic Selection</b><i>Explore</i></span></li><li><span class="tk-ln">2</span><span><b>WGAWP</b><i>Understand</i></span></li><li><span class="tk-ln">3</span><span><b>HDWW</b><i>Choose</i></span></li><li><span class="tk-ln">4</span><span><b>Operationalize</b><i>Execute</i></span></li></ol>
-  <div class="tk-lead-m"><b>LEADERSHIP DECISIONS</b><span><em class="g">Advance</em> · <em class="b">Refine</em> · <em class="h">Hold</em> · <em class="s">Stop</em></span></div>
-  <p class="tk-cap">Hold and Stop are valid exits &mdash; not failures. Iterate between WGAWP and HDWW for decision readiness.</p>
-</div>
+<svg viewBox="0 -52 340 480" class="tk-svg tk-svg-m" aria-hidden="true" focusable="false">
+<defs>
+  <marker id="tkahm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="rgba(190,210,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="tkagm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#0ad64f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <radialGradient id="tkg1m" cx="50%" cy="38%" r="72%"><stop offset="0" stop-color="rgba(120,160,255,.34)"/><stop offset="1" stop-color="rgba(34,86,230,.06)"/></radialGradient>
+</defs>
+<text x="170" y="-15.3" text-anchor="middle" class="es-t es-t-xs tk-cap">Continuous intake &amp; prioritization</text>
+<path class="tk-arc" d="M222.8 61.9 A118 150 0 0 1 279.9 141.5" marker-end="url(#tkahm)"/>
+<path class="tk-arc" d="M279.9 250.5 A118 150 0 0 1 222.8 330.1" marker-end="url(#tkahm)"/>
+<path class="tk-arc" d="M117.2 330.1 A118 150 0 0 1 60.1 250.5" marker-end="url(#tkahm)"/>
+<path class="tk-arc" d="M60.1 141.5 A118 150 0 0 1 117.2 61.9" marker-end="url(#tkahm)"/>
+<path class="tk-iter" d="M204.0 312.0 Q203.0 249.0 270.0 246.0" marker-end="url(#tkagm)"/>
+<text x="330.0" y="340.0" text-anchor="end" class="es-t es-t-xs tk-itl"><tspan x="330.0">ITERATE FOR</tspan><tspan x="330.0" dy="12">DECISION READINESS</tspan></text>
+<g>
+  <circle cx="170.0" cy="46.0" r="53.0" class="es-halo"/>
+  <circle cx="170.0" cy="46.0" r="46.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="170.0" cy="46.0" r="46.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 170.0 46.0)"/>
+  <text x="170.0" y="25.1" text-anchor="middle" class="es-t es-t-arc tk-num">1</text>
+  <text x="170.0" y="44.6" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="170.0">Topic</tspan><tspan x="170.0" dy="15">Selection</tspan></text>
+  <text x="170.0" y="72.5" text-anchor="middle" class="es-t es-t-xs tk-verb">EXPLORE</text>
+</g>
+<g>
+  <circle cx="288.0" cy="196.0" r="53.0" class="es-halo"/>
+  <circle cx="288.0" cy="196.0" r="46.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="288.0" cy="196.0" r="46.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 288.0 196.0)"/>
+  <text x="288.0" y="175.1" text-anchor="middle" class="es-t es-t-arc tk-num">2</text>
+  <text x="288.0" y="198.8" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="288.0">WGAWP</tspan></text>
+  <text x="288.0" y="216.9" text-anchor="middle" class="es-t es-t-xs tk-verb">UNDERSTAND</text>
+</g>
+<g>
+  <circle cx="170.0" cy="346.0" r="53.0" class="es-halo"/>
+  <circle cx="170.0" cy="346.0" r="46.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="170.0" cy="346.0" r="46.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 170.0 346.0)"/>
+  <text x="170.0" y="325.1" text-anchor="middle" class="es-t es-t-arc tk-num">3</text>
+  <text x="170.0" y="348.8" text-anchor="middle" class="es-t es-t-name tk-name"><tspan x="170.0">HDWW</tspan></text>
+  <text x="170.0" y="366.9" text-anchor="middle" class="es-t es-t-xs tk-verb">CHOOSE</text>
+</g>
+<g>
+  <circle cx="52.0" cy="196.0" r="53.0" class="es-halo"/>
+  <circle cx="52.0" cy="196.0" r="46.0" class="es-disc es-disc-flat tk-disc"/>
+  <circle cx="52.0" cy="196.0" r="46.0" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-132 52.0 196.0)"/>
+  <text x="52.0" y="175.1" text-anchor="middle" class="es-t es-t-arc tk-num">4</text>
+  <text x="52.0" y="198.8" text-anchor="middle" class="es-t es-t-name tk-name tk-sm"><tspan x="52.0">Operationalize</tspan></text>
+  <text x="52.0" y="216.9" text-anchor="middle" class="es-t es-t-xs tk-verb">EXECUTE</text>
+</g>
+<g>
+  <circle cx="170" cy="196" r="63.0" class="es-halo"/>
+  <circle cx="170" cy="196" r="56" fill="url(#tkg1m)" class="es-disc"/>
+  <circle cx="170" cy="196" r="41.4" fill="none" stroke="rgba(150,185,255,.5)" stroke-width="1"/>
+  <text x="170" y="180.7" text-anchor="middle" class="es-t es-t-arc tk-lead"><tspan x="170">LEADERSHIP</tspan><tspan x="170" dy="13.9">DECISIONS</tspan></text>
+  <text x="170" y="208.5" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="#0ad64f">Advance</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#7fb0ff">Refine</tspan></text>
+  <text x="170" y="222.5" text-anchor="middle" class="es-t es-t-sm tk-dec"><tspan fill="rgba(255,255,255,.7)">Hold</tspan><tspan fill="rgba(255,255,255,.5)"> · </tspan><tspan fill="#ff7b7b">Stop</tspan></text>
+</g>
+<text x="170" y="268.0" text-anchor="middle" class="es-t es-t-xs tk-cap"><tspan x="170">Hold and Stop are valid exits —</tspan><tspan x="170" dy="12">not failures</tspan></text>
+</svg>
         </div>
       </div>
     </div></div>
