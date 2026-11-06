@@ -1322,6 +1322,18 @@ body{padding-left:0}
 #dash .annoslide-stat h1{max-width:560px}
 #dash .annoslide-stat .hsub{max-width:none}
 @media(min-width:701px){#dash .annoslide-stat .hsub{white-space:nowrap}}
+/* Desktop: the stat block and the pain-points block share a row. */
+@media(min-width:901px){
+#dash .aipair{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:32px 56px;width:min(1100px,calc(100% - 80px));margin:0 auto;padding:56px 0 84px;box-sizing:border-box;align-items:start}
+#dash .aipair .aistat-block{grid-column:1;grid-row:1/3;width:auto;margin:0;padding:0;display:flex;align-self:stretch}
+#dash .aipair .aistat-card{grid-template-columns:1fr;align-content:space-between;gap:28px;flex:1;padding:clamp(28px,3vw,44px)}
+#dash .aipair .aistat-eb,#dash .aipair .aistat-ft{margin:0}
+#dash .aipair .fd-say,#dash .aipair .fd-say .v-in{display:contents}
+#dash .aipair .fd-say .v-in>div:first-child{grid-column:2;grid-row:1;align-self:end}
+#dash .aipair .fd-say p{font-size:clamp(22px,2vw,28px);max-width:none}
+#dash .aipair .say-start{grid-column:2;grid-row:2;width:auto}
+#dash .aipair .fd-say .gsx{grid-column:1/-1;grid-row:3}
+}
 #dash .aistat-block{position:relative;z-index:1;box-sizing:border-box;width:min(1100px,calc(100% - 80px));margin:0 auto;padding:56px 0 0}
 #dash .aistat-card{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;box-sizing:border-box;color:#000022;
   padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);border:1px solid #dcdcea;border-radius:22px;background:#f7f8fc}
@@ -1423,6 +1435,7 @@ body{padding-left:0}
   </div>
   <!-- ═══ SOURCE COVERAGE ═══
        The curated-documents stat, as its own block under the carousel. -->
+  <div class="aipair">
   <section class="aistat-block" aria-label="AeroIntel source coverage">
     <div class="aistat-card" role="img" aria-label="11,600+ curated documents: 6,500+ external documents and 5,000+ internal documents.">
       <div class="aistat-eb"><i></i>AeroIntel &middot; Coverage</div>
@@ -1487,6 +1500,7 @@ body{padding-left:0}
   </div>
 
 </div></section>
+  </div>
 
 <section class="qsband">
     <div class="wrap2">
