@@ -1324,9 +1324,9 @@ body{padding-left:0}
 @media(min-width:701px){#dash .annoslide-stat .hsub{white-space:nowrap}}
 /* Desktop: the stat block and the pain-points block share a row. */
 @media(min-width:901px){
-#dash .aipair{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:32px 56px;width:min(1100px,calc(100% - 80px));margin:0 auto;padding:56px 0 84px;box-sizing:border-box;align-items:start}
+#dash .aipair{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:32px 56px;width:min(1100px,calc(100% - 80px));margin:56px auto 84px;padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);box-sizing:border-box;align-items:start;border:1px solid #dcdcea;border-radius:22px;background:#f7f8fc}
 #dash .aipair .aistat-block{grid-column:1;grid-row:1/3;width:auto;margin:0;padding:0;display:flex;align-self:stretch}
-#dash .aipair .aistat-card{grid-template-columns:1fr;align-content:space-between;gap:28px;flex:1;padding:clamp(28px,3vw,44px)}
+#dash .aipair .aistat-card{grid-template-columns:1fr;align-content:space-between;gap:28px;flex:1;padding:0;border:0;border-radius:0;background:none}
 #dash .aipair .aistat-eb,#dash .aipair .aistat-ft{margin:0}
 #dash .aipair .fd-say,#dash .aipair .fd-say .v-in{display:contents}
 #dash .aipair .fd-say .v-in>div:first-child{grid-column:2;grid-row:1;align-self:end}
