@@ -1821,6 +1821,7 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
 #fdl-finder .fdl-group h3{display:flex;align-items:center;gap:10px;margin:0;padding-bottom:14px;border-bottom:1px solid #e7ebf4;
   font-family:inherit;font-size:18px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
 #fdl-finder .fdl-people{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 34px;margin-top:24px;align-items:start}
+#fdl-finder [hidden]{display:none!important}
 #fdl-finder .fdl-person{display:flex;align-items:flex-start;gap:14px}
 #fdl-finder .fdl-avatar{width:44px;height:44px;border-radius:50%;background:#e7ecf7;flex:none;object-fit:cover}
 #fdl-finder .fdl-meta{display:flex;flex-direction:column;min-width:0}
@@ -1864,6 +1865,15 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
     <h2 class="fdl-h2">Where do I find help?</h2>
     <p class="fdl-sub">Find strategy contacts within your business</p>
 
+    <div class="fdl-box">
+      <label class="fdl-label" for="fdl-search">Organization or team</label>
+      <div class="fdl-field">
+        <svg class="fdl-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="fdl-search" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. strategy leaders for CES">
+        <button type="button" class="fdl-clear" id="fdl-search-clear" aria-label="Clear search" hidden>&times;</button>
+      </div>
+    </div>
+    <div class="fdl-status" id="fdl-search-status" aria-live="polite"></div>
     <div class="fdl-group">
       <h3>P&amp;AT</h3>
       <div class="fdl-people">
@@ -1894,6 +1904,30 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
     </div>
   </div>
 </section>
+<script>
+/* The help block's search narrows the profile cards by business, name or role. */
+(function(){
+  var q=document.getElementById('fdl-search'); if(!q) return;
+  var clear=document.getElementById('fdl-search-clear'), status=document.getElementById('fdl-search-status'),
+      groups=[].slice.call(document.querySelectorAll('#fdl-finder .fdl-group'));
+  function run(){
+    var toks=q.value.toLowerCase().split(/\s+/).filter(Boolean), shown=0;
+    clear.hidden=!q.value;
+    groups.forEach(function(g){
+      var n=0;
+      [].forEach.call(g.querySelectorAll('.fdl-person'),function(c){
+        var t=(g.querySelector('h3').textContent+' '+c.textContent).toLowerCase();
+        var ok=toks.every(function(k){return t.indexOf(k)!==-1;});
+        c.hidden=!ok; if(ok) n++;
+      });
+      g.hidden=!n; shown+=n;
+    });
+    status.textContent=(toks.length&&!shown)?'No contacts match \u201c'+q.value.trim()+'\u201d.':'';
+  }
+  q.addEventListener('input',run);
+  clear.addEventListener('click',function(){q.value='';run();q.focus();});
+})();
+</script>
 <script>/* GE copy: the experts and the team behind AeroIntel, from the How Do We Win and AeroIntel pages. */
 window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy Officer", "d": "Options & Evaluation \u00b7 Recommendation \u00b7 Implementation Plan \u00b7 Execution Readiness", "e": ""}];</script>
 <script>
