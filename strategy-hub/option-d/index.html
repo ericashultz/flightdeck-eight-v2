@@ -1625,6 +1625,20 @@ body{padding-left:0}
   #dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
   #dash .ai-stage .ai-ask{background:rgba(0,0,20,.4)}
   #dash .ai-stage .ai-pills button{background:rgba(0,0,20,.32)}
+  /* Same tokens as the rest of the site: GE Sans throughout, light headline, green-square eyebrow, pill inputs and buttons. */
+  #dash .ai-stage .ai-eyebrow{display:flex;align-items:center;gap:9px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.2em;color:#0ad64f}
+  #dash .ai-stage .ai-eyebrow::before{content:"";width:7px;height:7px;border-radius:1px;background:#0ad64f;flex:none}
+  #dash .ai-stage .ai-card h1 b{font-weight:300}
+  #dash .ai-stage .ai-ask{border-radius:999px;padding:0 6px 0 8px}
+  #dash .ai-stage .ai-ask input{padding:18px 18px}
+  #dash .ai-stage .ai-ask button{margin:0;border-radius:999px;background:#fff;color:#00003d;font-size:15px;font-weight:400;letter-spacing:0;text-transform:none;padding:12px 26px}
+  #dash .ai-stage .ai-ask button:hover{background:#ecebf3}
+  #dash .ai-stage .ai-pills button{font-size:14px}
+  #dash .ai-stage .ai-rh{font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.2em}
+  #dash .ai-stage .ai-when,#dash .ai-stage .ai-meta{font-family:inherit;letter-spacing:0}
+  #dash .ai-stage .ai-when{font-size:14px}
+  #dash .ai-stage .ai-meta{font-size:13.5px}
+  @media(max-width:700px){#dash .ai-stage .ai-ask{flex-wrap:nowrap}#dash .ai-stage .ai-ask input{flex:1 1 auto;flex-basis:auto;padding:15px 12px;font-size:15px}#dash .ai-stage .ai-ask button{padding:11px 20px;margin:0}}
   @media(max-width:860px){
     #dash .ai-stage-in{padding:36px 20px}
     #dash .ai-stage{min-height:0}
