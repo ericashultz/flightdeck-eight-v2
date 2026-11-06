@@ -1681,7 +1681,7 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
   background:var(--pill);color:var(--ink);cursor:pointer}
 #fdl-finder .fdl-more:hover{background:var(--pillh)}
 
-#fdl-finder .fdl-people{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+#fdl-finder .fdl-people{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:20px}
 #fdl-finder .fdl-person{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e7ebf4;border-radius:14px;padding:18px 20px;box-shadow:0 1px 2px rgba(11,26,64,.05)}
 #fdl-finder .fdl-person .avatar{width:48px;height:48px;flex:none;border-radius:50%;background:#eef1f8;display:flex;align-items:center;justify-content:center}
 #fdl-finder .fdl-person .avatar svg{width:28px;height:28px;fill:#b3bdd6}
@@ -1701,15 +1701,33 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
     <h2 class="fdl-h2">Where do I find Help?</h2>
     <p class="fdl-sub">Find strategy contacts within your business</p>
 
-    <div class="fdl-people">
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>P&amp;AT Executive FLIGHT DECK Leader</span></span></div>
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>P&amp;AT Senior FLIGHT DECK Leader</span></span></div>
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>CES Executive FLIGHT DECK Leader</span></span></div>
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>CES FLIGHT DECK Leader</span></span></div>
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Commercial Senior FLIGHT DECK Leader</span></span></div>
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Commercial Executive FLIGHT DECK Leader</span></span></div>
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Defense Senior FLIGHT DECK Leader</span></span></div>
-      <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Defense FLIGHT DECK Leader</span></span></div>
+    <div class="fdl-group">
+      <h3>P&amp;AT</h3>
+      <div class="fdl-people">
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>P&amp;AT Executive FLIGHT DECK Leader</span></span></div>
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>P&amp;AT Senior FLIGHT DECK Leader</span></span></div>
+      </div>
+    </div>
+    <div class="fdl-group">
+      <h3>CES</h3>
+      <div class="fdl-people">
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>CES Executive FLIGHT DECK Leader</span></span></div>
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>CES FLIGHT DECK Leader</span></span></div>
+      </div>
+    </div>
+    <div class="fdl-group">
+      <h3>Defense</h3>
+      <div class="fdl-people">
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Defense Senior FLIGHT DECK Leader</span></span></div>
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Defense FLIGHT DECK Leader</span></span></div>
+      </div>
+    </div>
+    <div class="fdl-group">
+      <h3>Commercial</h3>
+      <div class="fdl-people">
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Commercial Senior FLIGHT DECK Leader</span></span></div>
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Name Surname</b><span>Commercial Executive FLIGHT DECK Leader</span></span></div>
+      </div>
     </div>
   </div>
 </section>
