@@ -568,7 +568,7 @@
 /* The deck embeds this at about 1050px, which fell under the old 1100px
    breakpoint and stacked four tiles into two big blocks. Donny, 27 Aug. */
 @media(max-width:820px){#dash .sm-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){#dash .sm-actions{grid-template-columns:1fr}}
+@media(max-width:620px){#dash .sm-actions{grid-template-columns:minmax(0,1fr)}#dash .sm-actions>.gsx,#dash .sm-actions>.sect-x{min-width:0;max-width:100%;box-sizing:border-box}#dash .sm-actions>.gsx.open{margin-top:8px;padding-bottom:40px}}
 /* Stacked, not a row. Icon, body and arrow side by side squeezed the copy into
    three ragged lines in a 260px column. */
 #dash .sm-action{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
@@ -2719,6 +2719,25 @@ window.FDL_PREVIEW_DATA = [{"n": "de Castelbajac, Patrick", "t": "Chief Strategy
 })();
 </script>
 
+<script>
+/* On a one-column layout each Next-steps panel opens directly under its own card instead of after the whole grid. */
+(function(){
+  var mq=window.matchMedia('(max-width:620px)'), items=[];
+  [].forEach.call(document.querySelectorAll('#dash .sm-actions .sm-action'),function(t){
+    var id=t.getAttribute('data-panel')||(t.getAttribute('href')==='#fdl-finder'?'fdl-finder':'');
+    var p=id&&document.getElementById(id); if(!p) return;
+    items.push({t:t,p:p,par:p.parentNode,next:p.nextSibling});
+  });
+  function place(){
+    items.forEach(function(it){
+      if(mq.matches){ it.t.parentNode.insertBefore(it.p,it.t.nextSibling); }
+      else if(it.p.parentNode!==it.par||it.p.nextSibling!==it.next){ it.par.insertBefore(it.p,it.next&&it.next.parentNode===it.par?it.next:null); }
+    });
+  }
+  place();
+  (mq.addEventListener?mq.addEventListener('change',place):mq.addListener(place));
+})();
+</script>
 <script>
 /* Every tile acts on this page. Three open a panel in place, Browse Templates
    scrolls to the templates already below. Nothing navigates away. */
