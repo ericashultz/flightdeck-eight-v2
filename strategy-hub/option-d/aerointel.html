@@ -1322,18 +1322,19 @@ body{padding-left:0}
 #dash .annoslide-stat h1{max-width:560px}
 #dash .annoslide-stat .hsub{max-width:none}
 @media(min-width:701px){#dash .annoslide-stat .hsub{white-space:nowrap}}
-/* Desktop: the stat block and the pain-points block share a row. */
+/* Desktop: the stat block and the pain-points block share a row, each in its own card. */
 @media(min-width:901px){
-#dash .aipair{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:32px 56px;width:min(1100px,calc(100% - 80px));margin:56px auto 84px;padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);box-sizing:border-box;align-items:start;border:1px solid #dcdcea;border-radius:22px;background:#f7f8fc}
-#dash .aipair .aistat-block{grid-column:1;grid-row:1/3;width:auto;margin:0;padding:0;display:flex;align-self:stretch}
-#dash .aipair .aistat-card{grid-template-columns:1fr;align-content:space-between;gap:28px;flex:1;padding:0;border:0;border-radius:0;background:none}
+#dash .aipair{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:min(1100px,calc(100% - 80px));margin:56px auto 84px;box-sizing:border-box;align-items:stretch}
+#dash .aipair .aistat-block{width:auto;margin:0;padding:0;display:flex}
+#dash .aipair .aistat-card{grid-template-columns:1fr;align-content:space-between;gap:28px;flex:1;padding:clamp(28px,3vw,44px);background:#f7f8fc;border:1px solid #dcdcea}
 #dash .aipair .aistat-eb,#dash .aipair .aistat-ft{margin:0}
-#dash .aipair .fd-say,#dash .aipair .fd-say .v-in{display:contents}
-#dash .aipair .fd-say .v-in>div:first-child{grid-column:2;grid-row:1;align-self:end}
+#dash .aipair .fd-say{padding:clamp(28px,3vw,44px);background:#f7f8fc;border:1px solid #dcdcea;border-radius:22px;box-sizing:border-box}
+#dash .aipair .fd-say .v-in{width:auto;display:flex;flex-direction:column;gap:28px;align-items:stretch}
 #dash .aipair .fd-say p{font-size:clamp(22px,2vw,28px);max-width:none}
-#dash .aipair .say-start{grid-column:2;grid-row:2;width:auto}
-#dash .aipair .fd-say .gsx{grid-column:1/-1;grid-row:3}
+#dash .aipair .say-start{width:auto}
+#dash .aipair>.gsx{grid-column:1/-1}
 }
+@media(max-width:900px){#dash .aipair>.gsx{width:calc(100% - 40px);margin-left:auto;margin-right:auto;box-sizing:border-box}}
 #dash .aistat-block{position:relative;z-index:1;box-sizing:border-box;width:min(1100px,calc(100% - 80px));margin:0 auto;padding:56px 0 0}
 #dash .aistat-card{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;box-sizing:border-box;color:#000022;
   padding:clamp(28px,4vw,48px) clamp(24px,4.4vw,56px);border:1px solid #dcdcea;border-radius:22px;background:#f7f8fc}
@@ -1490,6 +1491,9 @@ body{padding-left:0}
     <div class="sa-shot"><img src="/strategy-hub/img/aerointel-core.jpg" alt="" loading="lazy"></div>
     <span class="gpill" aria-label="Learn more about the Operating System">Learn more <span class="pc"><span>&rarr;</span></span></span>
   </a>
+
+
+</div></section>
   <div class="gsx" id="px-learn">
     <button type="button" class="gsx-close" data-px-close>Close &times;</button>
     <div class="learn-cols">
@@ -1498,8 +1502,6 @@ body{padding-left:0}
       <div><div class="v-label">The Problem</div><h4 class="v-title">03 Inconsistent depth &amp; quality</h4><p>The depth and format of analysis varies by person and team.</p></div>
     </div>
   </div>
-
-</div></section>
   </div>
 
 <section class="qsband">
