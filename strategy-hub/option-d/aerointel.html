@@ -1367,6 +1367,32 @@ body{padding-left:0}
 #dash .aistat-k .int::before{background:#22c55e}
 @media(max-width:900px){#dash .aistat-block{width:calc(100% - 40px)}}
 @media(max-width:700px){#dash .aistat-block{padding-top:40px}#dash .aistat-card{grid-template-columns:1fr}}
+/* Coverage card: site design tokens (GE Sans, ink/lavender, green-square eyebrow, light numerals, 22px card + soft shadow). */
+/* Video card: headline + subcopy, play badge over the still. */
+#dash .aipair .fd-say .say-eb{margin:0 0 18px}
+#dash .aipair .fd-say .say-h{margin:0 0 12px;font-size:clamp(26px,2.4vw,34px);font-weight:300;line-height:1.1;letter-spacing:-.025em;color:#00003d}
+#dash .aipair .fd-say p.say-sub{font-size:15px;font-weight:400;line-height:1.45;color:#75758f;max-width:none}
+#dash .aipair .fd-say .say-video{padding:0;overflow:hidden}
+#dash .aipair .fd-say .say-video .sa-shot{margin:0;border-radius:14px}
+#dash .say-video .sa-shot{position:relative}
+#dash .say-video .say-play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.94);color:#00003d;box-shadow:0 8px 24px rgba(0,0,61,.28);transition:transform .25s}
+#dash .say-video .say-play svg{margin-left:3px}
+@media(hover:hover){#dash .say-video:hover .say-play{transform:scale(1.08)}}
+#dash .aistat-card,#dash .aipair .aistat-card,#dash .aipair .fd-say{background:#fff;border:1px solid #e6e6ee;box-shadow:0 10px 30px rgba(0,0,61,.06)}
+#dash .aistat-card{color:#00003d;font-family:'GE Sans',system-ui,sans-serif}
+#dash .aistat-eb,#dash .aistat-ft{font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.2em;color:#00003d}
+#dash .aistat-eb{gap:9px}
+#dash .aistat-eb i{width:7px;height:7px;border-radius:1px;background:#16b364;box-shadow:none}
+#dash .aistat-ft{font-weight:600;color:#75758f;font-size:10.5px;padding-top:18px;border-top:1px solid #e6e6ee}
+#dash .aistat-sub{font-size:15px;font-weight:400;line-height:1.45;color:#75758f;max-width:none}
+#dash .aistat-n{font-weight:300;color:#00003d;letter-spacing:-.04em}
+#dash .aistat-l{font-size:16px;font-weight:400;color:#75758f}
+#dash .aistat-bar{height:10px;border-radius:100px;overflow:hidden;gap:3px;background:#ecebf3}
+#dash .aistat-bar .ext{background:#4181ff}
+#dash .aistat-bar .int{background:#16b364}
+#dash .aistat-k{font-size:15px;font-weight:400;color:#00003d}
+#dash .aistat-k .ext::before{background:#4181ff}
+#dash .aistat-k .int::before{background:#16b364}
 
 /* Block 2 (the pain-points band) takes the hero's content width, so the two share left and right edges. */
 #dash .fd-say .v-in{width:min(1100px,calc(100% - 80px));max-width:none;padding:0}
@@ -1422,8 +1448,15 @@ body{padding-left:0}
           </div>
         </article>
         <article class="annoslide">
+          <div class="annotag">Strategy Tool</div>
+          <h1>Explore AeroIntel</h1>
+          <p class="hsub">Use our interactive demo to see how AI-enabled capabilities can support strategy.</p>
+          <a class="gpill light" href="#aichat" onclick="var t=document.getElementById('aichat');if(t){event.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}">Try the demo <span class="pc"><span>&darr;</span></span></a>
+        </article>
+        <article class="annoslide">
           <div class="annotag">Strategy Fundamental</div>
           <h1>What Game Are We Playing</h1>
+          <p class="hsub">Subcopy for What Game Are We Playing, pending.</p>
           <a class="gpill light" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span class="pc"><span>&rarr;</span></span></a>
         </article>
         <article class="annoslide">
@@ -1439,6 +1472,7 @@ body{padding-left:0}
         <button class="on" aria-label="Announcement 1"></button>
         <button aria-label="Announcement 2"></button>
         <button aria-label="Announcement 3"></button>
+        <button aria-label="Announcement 4"></button>
         <button type="button" class="annoarr" data-anno="1" aria-label="Next announcement">&#8594;</button>
       </div>
 
@@ -1498,14 +1532,14 @@ body{padding-left:0}
   <section class="fd-say"><div class="v-in">
   <div>
     <div class="rule"></div>
-    <p>Three structural pain points identified in how intelligence work is done today. AeroIntel is scoped directly to address these constraints.</p>
+    <div class="aistat-eb say-eb"><i></i>AeroIntel &middot; Video</div>
+    <h3 class="say-h">What is AeroIntel?</h3>
+    <p class="say-sub">Learn how to use AeroIntel&rsquo;s AI-enabled capabilities to strengthen strategy.</p>
   </div>
-  <a class="sm-action say-start" href="#px-learn" data-panel="px-learn" aria-expanded="false" aria-controls="px-learn">
-    <div class="sa-shot"><img src="/strategy-hub/img/aerointel-core.jpg" alt="" loading="lazy"></div>
-    <span class="gpill" aria-label="Learn more about the Operating System">Learn more <span class="pc"><span>&rarr;</span></span></span>
+  <!-- Video: data-src takes the film's address when it arrives; until then the player opens nothing (shared film-modal.js). -->
+  <a class="say-start say-video" href="#" data-film-open data-src="" aria-label="What is AeroIntel? Watch the video">
+    <div class="sa-shot"><img src="/strategy-hub/img/aerointel-core.jpg" alt="" loading="lazy"><span class="say-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
   </a>
-
-
 </div></section>
   <div class="gsx" id="px-learn">
     <button type="button" class="gsx-close" data-px-close>Close &times;</button>
@@ -1517,98 +1551,87 @@ body{padding-left:0}
   </div>
   </div>
 
-<section class="qsband">
-    <div class="wrap2">
-      <div class="qshead">
-        <div>
-          <div class="qseyebrow">Next steps</div>
-          <h2>Where do you want to go next?</h2>
-        </div>
+<div class="aichat" id="aichat">
+    <div class="ai-bg" aria-hidden="true"></div>
+  <section class="ai-stage" aria-label="Ask AeroIntel">
+    <div class="ai-stage-in">
+    <div class="ai-card">
+      <p class="ai-eyebrow">AeroIntel for Enterprise Strategy</p>
+      <h1><b>What do you need today?</b></h1>
+      <form class="ai-ask" id="ai-form" action="/strategy-hub/option-d/aerointel.html" method="get" role="search">
+        <input id="ai-q" name="q" type="text" autocomplete="off" spellcheck="false" aria-label="Ask AeroIntel a question"
+               placeholder="e.g., &quot;Where do I find help with resourcing?&quot;">
+        <button type="submit">Send</button>
+      </form>
+      <div class="ai-pills" id="ai-pills">
+        <button type="button">Coach me through the HDWW memo</button>
+        <button type="button">Who are the experts behind AeroIntel?</button>
+        <button type="button">Summarize the market assessments</button>
       </div>
-      <div class="sm-actions">
-        <a class="sm-action" href="#px-ai" data-panel="px-ai" aria-expanded="false" aria-controls="px-ai">
-          <div class="sa-shot"><img src="/strategy-hub/img/hdww-team.jpg" alt="" loading="lazy" style="object-position:center 40%"></div>
-          <div class="sa-body"><strong>Our Approach</strong><p>Align, Decide, Deliver</p></div>
-          <span class="circ"><span>&rarr;</span></span>
-        </a>
-        <a class="sm-action" href="#px-fund" data-panel="px-fund" aria-expanded="false" aria-controls="px-fund">
-          <div class="sa-shot"><img src="/strategy-hub/img/wgawp-climb.jpg" alt="" loading="lazy" style="object-position:center 40%"></div>
-          <div class="sa-body"><strong>The Evolution</strong><p>3 Generations, each building on the last</p></div>
-          <span class="circ"><span>&rarr;</span></span>
-        </a>
-        <a class="sm-action" href="#templates">
-          <div class="sa-shot"><img src="/strategy-hub/img/experts.jpg" alt="" loading="lazy" style="object-position:center 40%"></div>
-          <div class="sa-body"><strong>Quick Links</strong><p>AeroIntel 2.0 &middot; AeroIntel 1.0 &middot; AeroIntel FAQ</p></div>
-          <span class="circ"><span>&rarr;</span></span>
-        </a>
-        <a class="sm-action" href="#fdl-finder">
-          <div class="sa-shot"><img src="/strategy-hub/img/leaders.jpg" alt="" loading="lazy" style="object-position:center 40%"></div>
-          <div class="sa-body"><strong>Where can I find help?</strong><p>The team behind AeroIntel</p></div>
-          <span class="circ"><span>&rarr;</span></span>
-        </a>
-      </div>
-      <div class="gsx" id="px-fund">
-        <button type="button" class="gsx-close" data-px-close>Close &times;</button>
-        <div class="fund-ed rise">
-          <div class="fund-lead">
-            <div class="eyebrow">The Evolution</div>
-            <h3 class="pxh" id="fundamentals">3 Generations, each building on the last</h3>
-            <div class="fund-foot">
-              <p class="pxsub">Each release extends the range and complexity of questions AeroIntel can support, while preserving the traceability established in the version before it.</p>
-              <div class="fund-nav">
-                <button type="button" class="fn-btn" data-fund-prev aria-label="Previous fundamentals">&#8249;</button>
-                <button type="button" class="fn-btn on" data-fund-next aria-label="More fundamentals">&#8250;</button>
-              </div>
-            </div>
-          </div>
-          <div class="fund-rail" id="fund-rail" tabindex="0">
-            <a class="fund-tile" href="#px-fund">
-              <span class="ft-shot"><img src="/strategy-hub/img/aerointel.jpg" alt="" loading="lazy"></span>
-              <span class="ft-body">
-                <span class="ft-name">AeroIntel 1.0</span>
-                <span class="ft-desc">A single search that returns the top match — built for straightforward, well-defined questions and fast document lookup.</span>
-                <span class="ft-go" aria-hidden="true">&rarr;</span>
-              </span>
-            </a>
-            <a class="fund-tile" href="#px-fund">
-              <span class="ft-shot"><img src="/strategy-hub/img/aerointel-core.jpg" alt="" loading="lazy"></span>
-              <span class="ft-body">
-                <span class="ft-name">AeroIntel 2.0</span>
-                <span class="ft-desc">Splits a complex question into parallel research tasks, then synthesizes the results into a cited, executive-ready answer.</span>
-                <span class="ft-go" aria-hidden="true">&rarr;</span>
-              </span>
-            </a>
-            <a class="fund-tile" href="#px-fund">
-              <span class="ft-shot"><img src="/strategy-hub/img/opening.jpg" alt="" loading="lazy"></span>
-              <span class="ft-body">
-                <span class="ft-name">AeroIntel 3.0</span>
-                <span class="ft-desc">GE-world-interacting, tool-using agents that don&rsquo;t just inform thinking — they help carry it forward.</span>
-                <span class="ft-go" aria-hidden="true">&rarr;</span>
-              </span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-      <div class="gsx" id="px-ai">
-        <button type="button" class="gsx-close" data-px-close>Close &times;</button>
-        <div class="wingband">
-          <div class="in">
-            <div class="kick">AeroIntel</div>
-            <h3>The operating model: Align, Decide, Deliver</h3>
-            <p class="wb-sub">AeroIntel applies AI to GE Aerospace&rsquo;s curated expert content, giving teams faster, more consistent analysis for complex strategic questions.</p>
-            <div class="wb-grid">
-              <div class="wb-card"><strong>01 Align</strong><p>Connected, cross functional teams and partners power a shared set of data and facts across the team.</p><a class="wb-run" href="#">Open <span class="pc"><span>&rarr;</span></span></a></div>
-              <div class="wb-card"><strong>02 Decide</strong><p>Fast, trusted answers to complex questions with sources you can trust.</p><a class="wb-run" href="#">Open <span class="pc"><span>&rarr;</span></span></a></div>
-              <div class="wb-card"><strong>03 Deliver</strong><p>Deep research grounds every analysis in curated, current export content.</p><a class="wb-run" href="#">Open <span class="pc"><span>&rarr;</span></span></a></div>
-              <div class="wb-card"><strong>Single source of truth</strong><p>Internal memos, market assessments, customer notes, and external research all flow into one central, authoritative repository, with every answer provided by AeroIntel being traceable to its source</p><a class="wb-run" href="#">Open <span class="pc"><span>&rarr;</span></span></a></div>
-            </div>
-            <a class="gpill" href="#" style="margin-top:26px">Request access via Saviynt <span class="pc"><span>&rarr;</span></span></a>
-          </div>
-        </div>
-      </div>
+    <div class="ai-recent">
+      <h2 class="ai-rh">Recent conversations</h2>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Yesterday</span><span><span class="ai-q">How do I frame the opportunity for my HDWW memo?</span><span class="ai-meta">How Do We Win &middot; 3 sources &middot; memo outline</span></span><span class="ai-go">&#8599;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Mon</span><span><span class="ai-q">What does &ldquo;What Game Are We Playing&rdquo; ask us to decide?</span><span class="ai-meta">Strategy Fundamental &middot; 2 sources &middot; summary</span></span><span class="ai-go">&#8599;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Last week</span><span><span class="ai-q">Compare the market assessments for the last two quarters</span><span class="ai-meta">Comparison &middot; 6 sources &middot; key differences</span></span><span class="ai-go">&#8599;</span></a>
+      <a class="ai-row" href="/strategy-hub/option-d/aerointel.html"><span class="ai-when">Apr 28</span><span><span class="ai-q">Draft a post review summary for a completed strategy</span><span class="ai-meta">Template &middot; Post Review Summary &middot; first draft</span></span><span class="ai-go">&#8599;</span></a>
+    </div>
+    </div>
     </div>
   </section>
+  </div>
+  <script>
+  (function(){var p=document.getElementById('ai-pills'),q=document.getElementById('ai-q');if(!p||!q)return;
+    p.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;q.value=b.textContent;q.focus();});})();
+  </script>
+<section class="tools-sec" id="nextsteps" aria-label="Templates and quick links">
+  <div class="tools-card">
+    <div class="tl-eyebrow"><span class="sq"></span>Tools</div>
+    <h2 class="tl-h">Templates and quick links</h2>
+    <div class="tl-cols">
+      <div class="tl-group">
+        <span class="tl-lbl">AeroIntel &middot; Versions</span>
+        <a class="tl-row first" href="#">
+          <span class="tl-icon tl-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"/><path d="M12 8v4l3 2"/></svg></span>
+          <span class="tl-body"><span class="tl-title">AeroIntel 2.0</span><span class="tl-meta">Live</span></span>
+        </a>
+        <a class="tl-row" href="#">
+          <span class="tl-icon tl-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"/><path d="M12 8v4l3 2"/></svg></span>
+          <span class="tl-body"><span class="tl-title">AeroIntel 1.0</span><span class="tl-meta">Live</span></span>
+        </a>
+      </div>
+      <div class="tl-group">
+        <span class="tl-lbl">AeroIntel &middot; Access &amp; Support</span>
+        <a class="tl-row first" href="#">
+          <span class="tl-icon tl-sop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg></span>
+          <span class="tl-body"><span class="tl-title">AeroIntel Access Standard Operating Procedure (SOP)</span><span class="tl-meta">SOP</span></span>
+        </a>
+        <a class="tl-row" href="#">
+          <span class="tl-icon tl-access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="4"/><path d="M11 11l9 9M16 16l3-3"/></svg></span>
+          <span class="tl-body"><span class="tl-title">Request access via Saviynt</span><span class="tl-meta">Access</span></span>
+        </a>
+        <a class="tl-row" href="#">
+          <span class="tl-icon tl-faq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.3 2.4c-.8.3-1.3 1-1.3 1.8v.3M12 17h.01"/></svg></span>
+          <span class="tl-body"><span class="tl-title">AeroIntel FAQ</span><span class="tl-meta">FAQ</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="fdl-finder" class="help-block">
+  <div class="fdl-wrap">
+    <div class="fdl-eyebrow">The team behind AeroIntel</div>
+    <h2 class="fdl-h2">Where can I find help?</h2>
+    <p class="fdl-sub">If you need additional help, below are some of our most experienced leaders in this enablement tool</p>
+
+    <div class="fdl-group fdl-flat">
+      <div class="fdl-people">
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Stotz, Sarah</b><span>Sr Marketing Manager - Market Intelligence</span></span></div>
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Edupuganti, Yasaswini</b><span>Lead Project Management Specialist</span></span></div>
+        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Flores, Nicholas</b><span>Principal Analytics Engineer</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      Find your FLIGHT DECK leader (replaces the FAQ section)
@@ -1701,28 +1724,117 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
   section#fdl-finder{padding:56px 0}
   #fdl-finder .fdl-wrap{padding:0 20px}
 }
+/* Tools: Templates and quick links. Same tokens as the rest of the site: GE Sans, ink #00003d, lavender text, light weights, green square eyebrow, tinted chips. */
+#dash .tools-sec{background:#f7f9fd;padding:40px 0 48px;font-family:"GE Sans",-apple-system,"Helvetica Neue",Arial,sans-serif}
+#dash .tools-card{box-sizing:border-box;width:min(1100px,calc(100% - 80px));margin:0 auto;background:#fff;border:1px solid #e6e6ee;border-radius:22px;padding:clamp(22px,2.4vw,30px) clamp(22px,3.4vw,40px) clamp(22px,2.6vw,30px);color:#00003d;
+  box-shadow:0 1px 2px rgba(11,26,64,.05),0 18px 40px -26px rgba(11,26,64,.22)}
+#dash .tl-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#44496e;margin:0 0 10px}
+#dash .tl-eyebrow .sq{width:7px;height:7px;border-radius:1px;background:#16b364;flex:none}
+#dash .tl-h{font-family:inherit;font-size:clamp(28px,2.6vw,40px);font-weight:300;letter-spacing:-.028em;line-height:1.04;margin:0 0 28px;color:#00003d}
+#dash .tl-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px clamp(32px,5vw,64px)}
+#dash .tl-group{display:flex;flex-direction:column}
+#dash .tl-lbl{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#44496e;margin:14px 0 4px;padding-bottom:8px;border-bottom:1px solid #e6e6ee}
+#dash .tl-lbl:first-child{margin-top:0}
+#dash .tl-row{display:flex;align-items:center;gap:12px;padding:7px 10px;margin:0 -10px;border-top:0;border-radius:12px;text-decoration:none;color:inherit;transition:background .18s}
+#dash .tl-row:hover{background:#f6f6f9}
+#dash .tl-row:hover .tl-title{text-decoration:none}
+#dash .tl-icon{width:30px;height:30px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;background:#ecebf3;color:#00003d}
+#dash .tl-icon svg{width:15px;height:15px}
+#dash .tl-icon.tl-live,#dash .tl-icon.tl-guide{background:#e4f6ec;color:#0d8a4e}
+#dash .tl-icon.tl-tpl,#dash .tl-icon.tl-prompt{background:#e8f0ff;color:#2256e6}
+#dash .tl-body{display:flex;flex-direction:column;gap:2px;min-width:0}
+#dash .tl-title{font-size:15px;font-weight:400;color:#00003d;line-height:1.3;letter-spacing:-.005em}
+#dash .tl-meta{font-size:12px;color:#75758f;line-height:1.3}
+@media(max-width:900px){#dash .tools-card{width:calc(100% - 40px)}#dash .tl-cols{grid-template-columns:1fr;gap:0}#dash .tools-sec{padding:40px 0 56px}#dash .tl-group+.tl-group .tl-lbl:first-child{margin-top:26px}}
+#dash .tl-cols1{grid-template-columns:minmax(0,1fr)}
+/* Templates (white) and Help (grey) as full-width bands, hairlines between. */
+#dash .tools-card{background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+#dash .tools-sec{background:#fff;border-top:1px solid #e6e6ee;padding-top:56px}
+section#fdl-finder.help-block{background:#f7f9fd;border-top:1px solid #e6e6ee;border-bottom:1px solid #e6e6ee;padding:56px 0 76px;display:block}
+#dash #fdl-finder.help-block .fdl-wrap{width:min(1100px,calc(100% - 80px));max-width:none;padding:0}
+#fdl-finder.help-block .fdl-flat .fdl-people{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px}
+#fdl-finder.help-block .fdl-person{gap:11px;padding:10px 12px;border-radius:12px}
+#fdl-finder.help-block .fdl-person .avatar{width:34px;height:34px}
+#fdl-finder.help-block .fdl-person .avatar svg{width:20px;height:20px}
+#fdl-finder.help-block .fdl-person b{font-size:14px}
+#fdl-finder.help-block .fdl-person .fdl-meta span{font-size:12.5px;line-height:1.35}
+@media(max-width:900px){#dash .tools-sec{padding-top:44px}section#fdl-finder.help-block{padding-top:44px}#dash #fdl-finder.help-block .fdl-wrap{width:calc(100% - 40px)}#fdl-finder.help-block .fdl-flat .fdl-people{grid-template-columns:1fr}}
+/* Chat block (from the home page) on the blue engine backdrop. */
+#dash .aichat{position:relative;isolation:isolate;clip-path:inset(0);background:#000018}
+#dash .aichat>.ai-stage{position:relative;z-index:1;display:flex;align-items:center;min-height:0;padding:0}
+#dash .ai-card{position:relative;overflow:hidden;border-radius:10px;color:#fff;padding:clamp(40px,5vw,64px) clamp(24px,4.4vw,56px) clamp(36px,4.4vw,52px);
+background:radial-gradient(90% 120% at 92% -10%,rgba(65,129,255,.26),transparent 60%),linear-gradient(135deg,#050b18 0%,#0a1630 55%,#0d2050 100%)}
+#dash .ai-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0ad64f;margin:0 0 22px;text-shadow:0 1px 10px rgba(0,0,20,.85)}
+#dash .ai-card h1{margin:0 0 28px;font-size:clamp(32px,3.8vw,46px);line-height:1.05;letter-spacing:-.015em;font-weight:300;color:#fff;max-width:14em}
+#dash .ai-card h1 b{font-weight:700;display:block}
+#dash .ai-card .ai-sub{margin:12px 0 28px;font-size:clamp(17px,1.5vw,21px);font-weight:300;color:rgba(255,255,255,.86)}
+#dash .ai-ask{display:flex;align-items:stretch;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:4px;padding:0}
+#dash .ai-ask:focus-within{border-color:#4181ff;background:rgba(255,255,255,.1)}
+#dash .ai-ask input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:inherit;font-size:16px;padding:20px 20px}
+#dash .ai-ask input::placeholder{color:rgba(255,255,255,.62)}
+#dash .ai-ask button{align-self:center;margin:0 10px 0 0;border:0;border-radius:3px;background:#0a5cff;color:#fff;font:inherit;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer;transition:background .15s}
+#dash .ai-ask button:hover{background:#2f78ff}
+#dash .ai-pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+#dash .ai-pills button{font:inherit;font-size:13px;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:10px 18px;cursor:pointer;transition:background .15s,border-color .15s}
+#dash .ai-pills button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+#dash .ai-ask button:focus-visible,#dash .ai-pills button:focus-visible{outline:2px solid #4181ff;outline-offset:2px}
+#dash .ai-recent{margin-top:34px}
+#dash .ai-rh{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin:0 0 12px}
+#dash .ai-row{display:grid;grid-template-columns:128px 1fr 24px;gap:0 20px;align-items:center;padding:16px 8px;border-top:1px solid rgba(255,255,255,.18);text-decoration:none;color:#fff;transition:background .15s}
+#dash .ai-row:hover{background:rgba(255,255,255,.07)}
+#dash .ai-when{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:rgba(255,255,255,.68)}
+#dash .ai-q{display:block;font-size:16.5px;color:#fff;line-height:1.35}
+#dash .ai-meta{display:block;margin-top:5px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:rgba(255,255,255,.6);letter-spacing:.01em}
+#dash .ai-go{font-size:18px;color:#fff;justify-self:end}
+#dash .ai-row:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+#dash .ai-recent{text-shadow:0 1px 10px rgba(0,0,20,.7)}
+@media(max-width:860px){
+#dash .ai-ask{flex-wrap:wrap}
+#dash .ai-ask input{flex-basis:100%;padding:16px}
+#dash .ai-ask button{margin:0 10px 10px 10px}
+#dash .ai-row{grid-template-columns:1fr 24px;padding:16px 4px}
+#dash .ai-when{grid-column:1 / -1;margin-bottom:6px}
+}
+#dash .ai-stage-in{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:72px 28px clamp(48px,7vw,96px);box-sizing:border-box}
+#dash .ai-stage .ai-card{margin-left:auto;margin-right:auto}
+/* Glass frame: frosted, lightly tinted, no outline. A soft light sheen across the surface and a deep soft shadow give it depth. */
+/* Glassy: clearer pane, a diagonal specular reflection, light pooled at the top-left and a cool glow at the bottom (soft inner glows, no line). */
+#dash .ai-stage .ai-card{max-width:1100px;border:0;border-radius:22px;
+background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.4);
+-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+box-shadow:inset 0 0 60px rgba(255,255,255,.035),0 30px 70px -20px rgba(0,0,25,.6)}
+#dash .ai-stage .ai-card h1{text-shadow:0 2px 18px rgba(0,0,20,.55)}
+#dash .ai-stage .ai-ask{background:rgba(0,0,20,.4)}
+#dash .ai-stage .ai-pills button{background:rgba(0,0,20,.32)}
+/* Same tokens as the rest of the site: GE Sans throughout, light headline, green-square eyebrow, pill inputs and buttons. */
+#dash .ai-stage .ai-eyebrow{display:flex;align-items:center;gap:9px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.2em;color:#0ad64f}
+#dash .ai-stage .ai-eyebrow::before{content:"";width:7px;height:7px;border-radius:1px;background:#0ad64f;flex:none}
+#dash .ai-stage .ai-card h1 b{font-weight:300}
+#dash .ai-stage .ai-ask{border-radius:999px;padding:0 6px 0 8px}
+#dash .ai-stage .ai-ask input{padding:18px 18px}
+#dash .ai-stage .ai-ask button{margin:0;border-radius:999px;background:#fff;color:#00003d;font-size:15px;font-weight:400;letter-spacing:0;text-transform:none;padding:12px 26px}
+#dash .ai-stage .ai-ask button:hover{background:#ecebf3}
+#dash .ai-stage .ai-pills button{font-size:14px}
+#dash .ai-stage .ai-rh{font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.2em}
+#dash .ai-stage .ai-when,#dash .ai-stage .ai-meta{font-family:inherit;letter-spacing:0}
+#dash .ai-stage .ai-when{font-size:14px}
+#dash .ai-stage .ai-meta{font-size:13.5px}
+@media(max-width:700px){#dash .ai-stage .ai-ask{flex-wrap:nowrap}#dash .ai-stage .ai-ask input{flex:1 1 auto;flex-basis:auto;padding:15px 12px;font-size:15px}#dash .ai-stage .ai-ask button{padding:11px 20px;margin:0}}
+@media(max-width:860px){
+#dash .ai-stage-in{padding:36px 20px}
+#dash .ai-stage{min-height:0}
+#dash .ai-stage .ai-card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),rgba(0,0,34,.5)}
+#dash .ai-meta{color:rgba(255,255,255,.75)}
+}
+#dash .aichat .ai-stage-in{padding:56px 28px}
+@media(max-width:860px){#dash .aichat .ai-stage-in{padding:44px 20px}}
 /* Phones: every Close button is just a circle with an X. */
 @media(max-width:640px){
 .gsx-close{font-size:0!important;line-height:0!important;width:38px!important;height:38px!important;min-width:0!important;padding:0!important;border-radius:50%!important;display:inline-flex!important;align-items:center;justify-content:center}
 .gsx-close::before{content:"\00d7";font-size:24px;line-height:1;color:inherit}
 }
 </style>
-<section id="fdl-finder" class="sect-x">
-  <div class="fdl-wrap">
-    <button type="button" class="gsx-close sect-close" data-sect-close>Close &times;</button>
-    <div class="fdl-eyebrow">The team behind AeroIntel</div>
-    <h2 class="fdl-h2">Where can I find help?</h2>
-    <p class="fdl-sub">If you need additional help, below are some of our most experienced leaders in this enablement tool</p>
 
-    <div class="fdl-group fdl-flat">
-      <div class="fdl-people">
-        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Stotz, Sarah</b><span>Sr Marketing Manager - Market Intelligence</span></span></div>
-        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Edupuganti, Yasaswini</b><span>Lead Project Management Specialist</span></span></div>
-        <div class="fdl-person"><span class="avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span><span class="fdl-meta"><b>Flores, Nicholas</b><span>Principal Analytics Engineer</span></span></div>
-      </div>
-    </div>
-  </div>
-</section>
 <script>/* GE copy: the experts and the team behind AeroIntel, from the How Do We Win and AeroIntel pages. */
 window.FDL_PREVIEW_DATA = [{"n": "Stotz, Sarah", "t": "Sr Marketing Manager - Market Intelligence", "d": "AeroIntel", "e": ""}, {"n": "Edupuganti, Yasaswini", "t": "Lead Project Management Specialist", "d": "AeroIntel", "e": ""}, {"n": "Flores, Nicholas", "t": "Principal Analytics Engineer", "d": "AeroIntel", "e": ""}, {"n": "Schanche, Kristin", "t": "Sr Project Management Manager", "d": "AeroIntel", "e": ""}, {"n": "Leber, Nicole", "t": "Sr Director - Technical Product Management", "d": "AeroIntel", "e": ""}, {"n": "Ensor, David", "t": "Principal Technical Product Manager", "d": "AeroIntel", "e": ""}, {"n": "Saadati, Leila", "t": "Sr Staff Data Scientist", "d": "AeroIntel", "e": ""}, {"n": "Potter, Emily", "t": "Executive - Digital Market Intelligence", "d": "AeroIntel", "e": ""}, {"n": "Cahill, Matthew", "t": "Sr BD Manager - Business Development", "d": "AeroIntel", "e": ""}, {"n": "Tripathy, Satyakam", "t": "Staff Data Engineer - Physical Infrastructure", "d": "AeroIntel", "e": ""}];</script>
 <script>

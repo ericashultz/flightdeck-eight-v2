@@ -1491,12 +1491,13 @@ body{padding-left:0}
         <article class="annoslide on">
           <div class="annotag">Strategy Fundamental</div>
           <h1>What Game Are We Playing</h1>
+          <p class="hsub">Subcopy for What Game Are We Playing, pending.</p>
           <a class="gpill light" href="#wgpanel" data-wgjump>Get started <span class="pc"><span>&darr;</span></span></a>
         </article>
         <article class="annoslide">
           <div class="annotag">Toolkits</div>
           <h1>Read the Skies</h1>
-          <p class="hsub">Understanding what game are we playing</p>
+          <p class="hsub">Understanding what game are we playing.</p>
           <a class="gpill light" href="#tkpanel" data-tk aria-expanded="false" aria-controls="tkpanel">Open the toolkit <span class="pc"><span>&darr;</span></span></a>
         </article>
         <article class="annoslide">
@@ -1951,6 +1952,11 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
 @media(max-width:900px){#dash .tools-card{width:calc(100% - 40px)}#dash .tl-cols{grid-template-columns:1fr;gap:0}#dash .tools-sec{padding:40px 0 56px}#dash .tl-group+.tl-group .tl-lbl:first-child{margin-top:26px}}
 /* Help block: a permanent block under Templates and quick links, compact profiles in four columns. */
 section#fdl-finder.help-block{background:#f7f9fd;border-top:0;padding:0 0 76px}
+/* Templates + Resources sit on one full-width tinted band (no white card), hairlines top and bottom. */
+#dash .tools-card{background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+#dash .tools-sec{background:#fff;border-top:1px solid #e6e6ee;padding-top:56px}
+section#fdl-finder.help-block{background:#f7f9fd;border-top:1px solid #e6e6ee;border-bottom:1px solid #e6e6ee;padding-top:56px}
+@media(max-width:900px){#dash .tools-sec{padding-top:44px}section#fdl-finder.help-block{padding-top:44px}}
 #dash #fdl-finder.help-block .fdl-wrap{width:min(1100px,calc(100% - 80px));max-width:none;padding:0}
 #fdl-finder .fdl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 18px;margin-top:26px}
 #fdl-finder .fdl-grid .fdl-group{margin-top:0}

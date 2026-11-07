@@ -1340,6 +1340,7 @@ body{padding-left:0}
 
       <div class="annotrack" id="annotrack">
         <article class="annoslide on">
+          <div class="annotag">Enterprise Strategy Activation Hub</div>
           <h1>Explore the Enterprise Strategy Activation Hub</h1>
           <p class="hsub">Personalized guidance, templates, and AI support, all in one place.</p>
           <a class="gpill light" href="#espanel">Get Started <span class="pc"><span>&darr;</span></span></a>
@@ -1353,6 +1354,7 @@ body{padding-left:0}
         <article class="annoslide">
           <div class="annotag">Strategy Fundamental</div>
           <h1>What Game Are We Playing</h1>
+          <p class="hsub">Subcopy for What Game Are We Playing, pending.</p>
           <a class="gpill light" href="/strategy-hub/option-d/what-game-are-we-playing.html">Open What Game Are We Playing <span class="pc"><span>&rarr;</span></span></a>
         </article>
         <article class="annoslide">
@@ -1410,7 +1412,7 @@ body{padding-left:0}
       <div class="es-card">
         <div class="es-head">
           <div>
-            <div class="es-eyebrow">Turn strategy into results</div>
+            <div class="es-eyebrow">The big picture</div>
             <p class="es-lead"><b>STRATEGY</b> tells us where to play and how to win. Strategy comes first to identify the opportunities and the risks and set the right direction and goals.</p>
             <p class="es-lead">Not every HK effort begins with strategy, but when the strategic direction requires a new capability or breakthrough, the connection becomes particularly powerful.</p>
           </div>
@@ -1435,7 +1437,7 @@ body{padding-left:0}
             <svg viewBox="0 0 340 340" aria-hidden="true" focusable="false">
               <circle cx="170" cy="170" r="150" class="es-halo"/>
               <circle cx="170" cy="170" r="138" class="es-disc es-disc-flat"/>
-              <circle cx="170" cy="170" r="138" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="26 74" stroke-dashoffset="-3" transform="rotate(-132 170 170)"/>
+              <circle cx="170" cy="170" r="138" fill="none" stroke="#0ad64f" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="100 0"/>
               <circle cx="170" cy="170" r="104" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="2 6"/>
               <g fill="none" stroke="#0ad64f" stroke-width="2.5" stroke-linecap="square">
                 <path d="M84 138 V126 H96 M256 126 H268 V138 M84 202 V214 H96 M256 214 H268 V202"/>
@@ -2111,6 +2113,11 @@ section#fdl-finder{--ink:#00003d;--lav:#75758f;--pill:#ecebf3;--pillh:#e2e1ec;--
 @media(max-width:900px){#dash .tools-card{width:calc(100% - 40px)}#dash .tl-cols{grid-template-columns:1fr;gap:0}#dash .tools-sec{padding:40px 0 56px}#dash .tl-group+.tl-group .tl-lbl:first-child{margin-top:26px}}
 /* Help block: a permanent block under Templates and quick links, compact profiles in four columns. */
 section#fdl-finder.help-block{background:#f7f9fd;border-top:0;padding:0 0 76px}
+/* Templates + Resources sit on one full-width tinted band (no white card), hairlines top and bottom. */
+#dash .tools-card{background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+#dash .tools-sec{background:#fff;border-top:1px solid #e6e6ee;padding-top:56px}
+section#fdl-finder.help-block{background:#f7f9fd;border-top:1px solid #e6e6ee;border-bottom:1px solid #e6e6ee;padding-top:56px}
+@media(max-width:900px){#dash .tools-sec{padding-top:44px}section#fdl-finder.help-block{padding-top:44px}}
 #dash #fdl-finder.help-block .fdl-wrap{width:min(1100px,calc(100% - 80px));max-width:none;padding:0}
 #fdl-finder .fdl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 18px;margin-top:26px}
 #fdl-finder .fdl-grid .fdl-group{margin-top:0}
